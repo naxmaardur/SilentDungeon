@@ -1,50 +1,82 @@
 using Godot;
 using System;
 
-public partial class PlayerController : Node3D
+public partial class PlayerController : CharacterBody3D
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
+    [ExportGroup("Walk Mode")]
+    [Export] public float walkSpeed = 5.0f;
+    [Export] public float sprintSpeed = 8.0f;
+    [Export] public float jumpVelocity = 4.8f;
+    [Export] public float gravity = 9.81f;
 
-	}
+    [ExportGroup("References")]
+    [Export] public Node3D pivot;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-        if (Input.IsActionPressed("move_right"))
-        {
-            Translate(Vector3.Right);
-            Position = Position with { X = Position.X + 1 };
-        }
+    private bool active = false;
 
 
+    public Vector2 inputDir { get; private set; }
+
+    public float horizontalFlySpeed;
+    public float verticalFlySpeed;
+
+    private StateMachine<PlayerController> stateMachine;
+
+    public void ChangeState(Type type)
+    {
+        stateMachine.ChangeState(type);
     }
 
-    // accumulators
-    private float _rotationX = 0f;
-    private float _rotationY = 0f;
-
-    [Export]
-    private float LookAroundSpeed = 0.1f;
-
-    public override void _Input(InputEvent @event)
+    private void SetupStateMachine()
     {
-        if (@event is InputEventMouseMotion mouseMotion)
-        {
-            // modify accumulated mouse rotation
-            _rotationX += mouseMotion.Relative.X * LookAroundSpeed;
-            _rotationY += mouseMotion.Relative.Y * LookAroundSpeed;
+        stateMachine = new StateMachine<PlayerController>(
+            this,
+            new WalkState()
+            );
+        ChangeState(typeof(WalkState));
+    }
 
 
-            // reset rotation
-            Transform3D transform = Transform;
-            transform.Basis = Basis.Identity;
-            Transform = transform;
+    public override void _Ready()
+    {
+        SetupStateMachine();
+        CameraSetup();
+        SetupTransitions();
+        //temp
+        Input.MouseMode = Input.MouseModeEnum.Captured;
+    }
 
-            RotateObjectLocal(Vector3.Up, _rotationX); // first rotate about Y
-            RotateObjectLocal(Vector3.Right, _rotationY); // then rotate about X
+    public override void _Process(double delta)
+    {
+        inputDir = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+        GD.Print(inputDir);
+        if (Input.IsKeyPressed(Key.Ctrl)) 
+        { 
+            active = false; 
         }
+        else
+        {
+            stateMachine.OnUpdate(delta);
+            active = true;
+        }
+        CameraInput();
+    }
 
+    public override void _PhysicsProcess(double delta)
+    {
+        if (active)
+        {
+            stateMachine.OnPhysicsUpdate(delta);
+            CameraPhysicsProcess(delta);
+        }
+    }
+
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (active)
+        {
+            stateMachine.CurrentState.UnHandledInput(@event);
+            CameraInput(@event);
+        }
     }
 }

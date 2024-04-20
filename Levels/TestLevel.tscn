@@ -1,24 +1,35 @@
 [gd_scene load_steps=4 format=3 uid="uid://v3osbamw8yhh"]
 
-[ext_resource type="PackedScene" uid="uid://3q007byby1ot" path="res://Player/playerScene.tscn" id="1_rwmlh"]
+[ext_resource type="PackedScene" uid="uid://bgxpppktaqd67" path="res://Player/player.tscn" id="1_hk0ni"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q7xjb"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_offms"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u0fn1"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [node name="Level" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("1_rwmlh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16465, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7124, 2.78125)
+[node name="Player" parent="." instance=ExtResource("1_hk0ni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999203, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(33.5135, 0, 0, 0, 1, 0, 0, 0, 35.9009, 0, 0, 0)
 mesh = SubResource("PlaneMesh_q7xjb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_offms")
+transform = Transform3D(33.5135, 0, 0, 0, 1, 0, 0, 0, 35.9009, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_u0fn1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0345, 0.483826, -4.08178)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.81515, 0.483826, -5.12347)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D/CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36785, 0.483826, 12.6017)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.627773, 0.778397, 0, -0.778397, 0.627773, -9.97318, 11.1941, 0)

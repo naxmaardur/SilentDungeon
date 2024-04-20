@@ -1,28 +1,19 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34408.163
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotFirstProject", "GodotFirstProject.csproj", "{B9807B10-D16F-4499-94AB-BBF692C0CFFA}"
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GodotFirstProject", "GodotFirstProject.csproj", "{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		ExportDebug|Any CPU = ExportDebug|Any CPU
-		ExportRelease|Any CPU = ExportRelease|Any CPU
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B9807B10-D16F-4499-94AB-BBF692C0CFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9807B10-D16F-4499-94AB-BBF692C0CFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9807B10-D16F-4499-94AB-BBF692C0CFFA}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{B9807B10-D16F-4499-94AB-BBF692C0CFFA}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{B9807B10-D16F-4499-94AB-BBF692C0CFFA}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{B9807B10-D16F-4499-94AB-BBF692C0CFFA}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F9B166E2-AF9F-4D7B-8ACA-BBDA99955CB5}
+		{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{FB18BDD2-2B92-4360-8E59-3DEA42DC955D}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal

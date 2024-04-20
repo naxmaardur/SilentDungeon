@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgxpppktaqd67"]
+
+[ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
+[ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_xhqbb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wd8k5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jxo6l"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("pivot")]
+script = ExtResource("1_3jdax")
+pivot = NodePath("Head")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_lrfaj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_wd8k5")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494196, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0459431, 0)
+
+[node name="HitBox" type="Area3D" parent="."]
+script = ExtResource("2_xhqbb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_jxo6l")
