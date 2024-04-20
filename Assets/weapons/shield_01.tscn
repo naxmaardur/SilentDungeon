@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu5vvvlp7ww03"]
+[gd_scene load_steps=8 format=3 uid="uid://bu5vvvlp7ww03"]
 
 [ext_resource type="Texture2D" uid="uid://dog00ap0db0y1" path="res://Assets/weapons/textures/Shields_Mat_baseColor.png" id="1_swnx4"]
 [ext_resource type="Texture2D" uid="uid://b3mtbsxnxsssr" path="res://Assets/weapons/textures/Shields_Mat_metallicRoughness.png" id="2_1cf83"]
@@ -48,9 +48,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_r78vi")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_24wbm"]
+size = Vector3(0.584045, 1, 0.194458)
+
 [node name="Shield_01" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167703, -0.656674, 8.61532e-09)
 
 [node name="Shield_01_Shields_Mat_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_uq2yh")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00283813, 0, -0.0151977)
+shape = SubResource("BoxShape3D_24wbm")

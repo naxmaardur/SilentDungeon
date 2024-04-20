@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfjxg5h8pnqk"]
+[gd_scene load_steps=9 format=3 uid="uid://bfjxg5h8pnqk"]
 
 [ext_resource type="Texture2D" uid="uid://dhbrfs610yky4" path="res://Assets/weapons/textures/Swords_Mat_baseColor.png" id="1_pfxq5"]
 [ext_resource type="Texture2D" uid="uid://4v1m57370h2p" path="res://Assets/weapons/textures/Swords_Mat_metallicRoughness.png" id="2_pc3pc"]
 [ext_resource type="Texture2D" uid="uid://dhshp0yv3o8lk" path="res://Assets/weapons/textures/Swords_Mat_normal.png" id="3_aede5"]
+[ext_resource type="Script" path="res://Hitbox/HurtBox.cs" id="4_n88ae"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6rod"]
 resource_name = "Swords_Mat"
@@ -47,9 +48,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_urcc7")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ppmly"]
+size = Vector3(0.0410156, 0.795898, 0.0187378)
+
 [node name="Sword_01" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.584493, 0.0641217, 8.61532e-09)
 
 [node name="Sword_01_Swords_Mat_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_7hdiq")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("4_n88ae")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000976563, 0.687012, 0.00247193)
+shape = SubResource("BoxShape3D_ppmly")

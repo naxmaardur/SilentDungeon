@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://7qrpwqj3udey"]
+[gd_scene load_steps=10 format=3 uid="uid://7qrpwqj3udey"]
 
 [ext_resource type="Texture2D" uid="uid://ceyvfahgap2c5" path="res://Assets/weapons/textures/Axes_Mat_baseColor.png" id="1_x1bl6"]
 [ext_resource type="Texture2D" uid="uid://bgthdmwqqk3jy" path="res://Assets/weapons/textures/Axes_Mat_metallicRoughness.png" id="2_vh5iv"]
 [ext_resource type="Texture2D" uid="uid://cjcadbwl2vfgt" path="res://Assets/weapons/textures/Axes_Mat_normal.png" id="3_y7m3e"]
+[ext_resource type="Script" path="res://Hitbox/HurtBox.cs" id="4_pmy8i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ch1w"]
 resource_name = "Axes_Mat"
@@ -47,9 +48,28 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6e73l")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_si0ew"]
+size = Vector3(0.290649, 0.19635, 0.0584106)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66ld2"]
+size = Vector3(0.0429688, 0.620544, 0.0480957)
+
 [node name="Axe_03" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46327, 0.0641217, 8.61532e-09)
 
 [node name="Axe_03_Axes_Mat_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ks0yf")
 skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("4_pmy8i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0631714, 0.751556, -3.05113e-05)
+shape = SubResource("BoxShape3D_si0ew")
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.342926, -0.000122064)
+shape = SubResource("BoxShape3D_66ld2")
