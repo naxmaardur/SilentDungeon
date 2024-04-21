@@ -33,8 +33,8 @@ public partial class PlayerController
         if (@event is InputEventMouseMotion mouseDelta)
         {
             RotateY(-mouseDelta.Relative.X * sensitivity);
-            camera.RotateX(-mouseDelta.Relative.Y * sensitivity);
-            camera.Rotation = camera.Rotation with { X = Mathf.Clamp(camera.Rotation.X, Mathf.DegToRad(minXRotation), Mathf.DegToRad(maxXRotation)) };
+            pivot.RotateX(-mouseDelta.Relative.Y * sensitivity);
+            pivot.Rotation = pivot.Rotation with { X = Mathf.Clamp(pivot.Rotation.X, Mathf.DegToRad(minXRotation), Mathf.DegToRad(maxXRotation)) };
         }
     }
 
@@ -42,8 +42,8 @@ public partial class PlayerController
     {
         Vector2 inputDir = Input.GetVector("look_left", "look_right", "look_up", "look_down");
         RotateY(-inputDir.X * controlerSensitivity);
-        camera.RotateX(-inputDir.Y * controlerSensitivity);
-        camera.Rotation = camera.Rotation with { X = Mathf.Clamp(camera.Rotation.X, Mathf.DegToRad(minXRotation), Mathf.DegToRad(maxXRotation)) };
+        pivot.RotateX(-inputDir.Y * controlerSensitivity);
+        pivot.Rotation = pivot.Rotation with { X = Mathf.Clamp(pivot.Rotation.X, Mathf.DegToRad(minXRotation), Mathf.DegToRad(maxXRotation)) };
     }
 
     private void CameraPhysicsProcess(double delta)
