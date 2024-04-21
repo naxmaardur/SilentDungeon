@@ -27,7 +27,6 @@ public partial class PlayerController
                     
                     if (!nodes.Contains(node3D) && node3D != this)
                     {
-                        GD.Print(node3D);
                         return;
                     }
 
