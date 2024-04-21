@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bgxpppktaqd67"]
+[gd_scene load_steps=54 format=3 uid="uid://bgxpppktaqd67"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://do1tq0jn21v4n" path="res://Assets/weapons/sounds/sword-hit-7160.mp3" id="4_v5ixt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wdu00"]
+height = 1.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wd8k5"]
 
@@ -421,22 +424,62 @@ states/SwordIdle/position = Vector2(317, 149)
 transitions = ["SwordIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_skni4"), "Idle", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_a6yvs"), "Idle 2", "Idle", SubResource("AnimationNodeStateMachineTransition_dltgi"), "Impact", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_chwum"), "SwordAttack_4", "SwordAttack_2", SubResource("AnimationNodeStateMachineTransition_ro6lo"), "SwordAttack_2", "SwordAttack_3", SubResource("AnimationNodeStateMachineTransition_86pen"), "SwordAttack_2", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_l6a1l"), "SwordAttack_4", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_fwkit"), "SwordIdle", "SwordAttack_4", SubResource("AnimationNodeStateMachineTransition_m8kow"), "Idle", "AxeAttack_2", SubResource("AnimationNodeStateMachineTransition_nxxq4"), "AxeAttack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_23flg"), "AxeAttack_2", "AxeAttack_3", SubResource("AnimationNodeStateMachineTransition_3fhyi"), "AxeAttack_3", "Idle 2", SubResource("AnimationNodeStateMachineTransition_v48rd"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ft61k"), "SwordAttack_2", "Impact", SubResource("AnimationNodeStateMachineTransition_jwyw5"), "SwordAttack_4", "Impact", SubResource("AnimationNodeStateMachineTransition_y081p"), "SwordAttack_3", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_ylvik"), "SwordAttack_3", "Impact", SubResource("AnimationNodeStateMachineTransition_a55sk")]
 graph_offset = Vector2(-179, 93)
 
+[sub_resource type="Animation" id="Animation_dlf0n"]
+resource_name = "StandingToCrouch"
+length = 0.2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0, 0.2, 1, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_esgsb"]
+resource_name = "Reset"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hmdki"]
+_data = {
+"Reset": SubResource("Animation_esgsb"),
+"StandingToCrouch": SubResource("Animation_dlf0n")
+}
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jxo6l"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "pivot")]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mmrxv"]
+height = 1.24769
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox")]
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
 rightHand = NodePath("Head/RightHand")
+CameraHeightAnimation = NodePath("Head/AnimationPlayer")
 pivot = NodePath("Head")
+standingCollisionShape = NodePath("CollisionShape3D")
+crouchingCollisionShape = NodePath("CrouchCollisionShape3D")
+headBox = NodePath("HeadCheck")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_lrfaj")
+
+[node name="CrouchCollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.373995, 0)
+shape = SubResource("CapsuleShape3D_wdu00")
+disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_wd8k5")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.494196, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0459431, 0)
@@ -481,9 +524,25 @@ transform = Transform3D(0.587799, 0, 0.809007, 0, 1, 0, -0.809007, 0, 0.587799, 
 
 [node name="Shield_03" parent="Head/LeftHand" instance=ExtResource("3_vjllw")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head"]
+libraries = {
+"": SubResource("AnimationLibrary_hmdki")
+}
+autoplay = "Reset"
 
 [node name="HitBox" type="Area3D" parent="."]
+visible = false
 script = ExtResource("2_xhqbb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
 shape = SubResource("CapsuleShape3D_jxo6l")
+
+[node name="HeadCheck" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.614195, 0)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadCheck"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23801, 0)
+shape = SubResource("CapsuleShape3D_mmrxv")

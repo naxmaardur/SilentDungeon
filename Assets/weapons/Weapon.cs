@@ -16,7 +16,10 @@ public partial class Weapon : Node3D
 	{
         areaBoxes = this.GetAllChildrenByType<Area3D>();
         hurtBoxes = this.GetAllChildrenByType<HurtBox>();
-       
+        foreach (var item in areaBoxes)
+        {
+            item.BodyEntered += onEntered;
+        }
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,10 +33,6 @@ public partial class Weapon : Node3D
         {
             box.canHit = true;
         }
-        foreach (var item in areaBoxes)
-        {
-            item.BodyEntered += onEntered;
-        }
     }
 
     public void DisableHitBoxes()
@@ -43,14 +42,11 @@ public partial class Weapon : Node3D
             box.canHit = false;
             box.clearList();
         }
-        foreach (var item in areaBoxes)
-        {
-            item.BodyEntered -= onEntered;
-        }
     }
 
     private void onEntered(Node3D node3D)
     {
+        if (!hurtBoxes[0].canHit) { return; }
         if (node3D == hurtBoxes[0].BoxOwner) { return; }
         HitBox hitBox = node3D as HitBox;
         HurtBox hurtBox = node3D as HurtBox;

@@ -35,7 +35,6 @@ public partial class HurtBox : Area3D
         if (area3D.Owner == BoxOwner) { return; }
         if (hitNodes.Contains(hitBox.Owner)) { return; }
         hitNodes.Add(hitBox.Owner);
-        GD.Print(hitBox.Owner);
         IDamagable damagable = hitBox.Owner as IDamagable;
         if (damagable != null)
         {

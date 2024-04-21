@@ -11,10 +11,13 @@ public partial class PlayerController : CharacterBody3D
 
     [ExportGroup("References")]
     [Export] public Node3D pivot;
+    [Export] public CollisionShape3D standingCollisionShape;
+    [Export] public CollisionShape3D crouchingCollisionShape;
+    [Export] public Area3D headBox;
 
     private bool active = true;
 
-
+    private bool crouchToggle;
 
     public float horizontalFlySpeed;
     public float verticalFlySpeed;
@@ -31,8 +34,10 @@ public partial class PlayerController : CharacterBody3D
     {
         stateMachine = new StateMachine<PlayerController>(
             this,
-            new WalkState()
+            new WalkState(),
+            new CrouchState()
             );
+        SetupTransitions();
         ChangeState(typeof(WalkState));
     }
 
@@ -43,7 +48,6 @@ public partial class PlayerController : CharacterBody3D
         AttackSetup();
         SetupStateMachine();
         CameraSetup();
-        SetupTransitions();
         //temp
         Input.MouseMode = Input.MouseModeEnum.Captured;
     }

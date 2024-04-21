@@ -1,8 +1,8 @@
 using Godot;
 
-public class WalkState : State<PlayerController>
+public class CrouchState : State<PlayerController>
 {
-    private float speed;
+    private float speed = 2.5f;
 
     public override void OnPhysicsUpdate(double delta)
     {
@@ -18,16 +18,6 @@ public class WalkState : State<PlayerController>
         if (Input.IsActionJustPressed("jump") && ctx.IsOnFloor())
         {
             tempVelocity.Y = ctx.jumpVelocity;
-        }
-
-        // Handle Sprint.
-        if (Input.IsActionPressed("run"))
-        {
-            speed = ctx.sprintSpeed;
-        }
-        else
-        {
-            speed = ctx.walkSpeed;
         }
 
         // Get the input direction and handle the movement/deceleration.
@@ -59,9 +49,15 @@ public class WalkState : State<PlayerController>
 
     public override void OnEnter()
     {
+        ctx.CameraHeightAnimation.Play("StandingToCrouch");
+        ctx.crouchingCollisionShape.Disabled = false;
+        ctx.standingCollisionShape.Disabled = true;
     }
 
     public override void OnExit()
     {
+        ctx.CameraHeightAnimation.PlayBackwards("StandingToCrouch");
+        ctx.standingCollisionShape.Disabled = false;
+        ctx.crouchingCollisionShape.Disabled = true;
     }
 }

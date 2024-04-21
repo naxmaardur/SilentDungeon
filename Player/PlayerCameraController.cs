@@ -8,6 +8,8 @@ public partial class PlayerController
     [Export] private float controlerSensitivity = 0.02f;
     [Export] private float minXRotation = -89;
     [Export] private float maxXRotation = 89;
+    [Export] public AnimationPlayer CameraHeightAnimation { get; private set; }
+
 
     [ExportGroup("FOV")]
     [Export] private float baseFOV = 75.0f;
