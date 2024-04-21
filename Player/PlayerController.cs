@@ -12,15 +12,15 @@ public partial class PlayerController : CharacterBody3D
     [ExportGroup("References")]
     [Export] public Node3D pivot;
 
-    private bool active = false;
+    private bool active = true;
 
 
-    public Vector2 inputDir { get; private set; }
 
     public float horizontalFlySpeed;
     public float verticalFlySpeed;
 
     private StateMachine<PlayerController> stateMachine;
+    private RandomNumberGenerator numberGenerator;
 
     public void ChangeState(Type type)
     {
@@ -39,6 +39,8 @@ public partial class PlayerController : CharacterBody3D
 
     public override void _Ready()
     {
+        numberGenerator = new RandomNumberGenerator();
+        AttackSetup();
         SetupStateMachine();
         CameraSetup();
         SetupTransitions();
@@ -48,18 +50,10 @@ public partial class PlayerController : CharacterBody3D
 
     public override void _Process(double delta)
     {
-        inputDir = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-        GD.Print(inputDir);
-        if (Input.IsKeyPressed(Key.Ctrl)) 
-        { 
-            active = false; 
-        }
-        else
-        {
-            stateMachine.OnUpdate(delta);
-            active = true;
-        }
+        HandleInputs();
+        stateMachine.OnUpdate(delta);
         CameraInput();
+        attackProcess(delta);
     }
 
     public override void _PhysicsProcess(double delta)

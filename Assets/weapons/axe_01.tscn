@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmed1kll4qgv4"]
+[gd_scene load_steps=11 format=3 uid="uid://dmed1kll4qgv4"]
 
+[ext_resource type="Script" path="res://Assets/weapons/Weapon.cs" id="1_bpxyc"]
 [ext_resource type="Texture2D" uid="uid://ceyvfahgap2c5" path="res://Assets/weapons/textures/Axes_Mat_baseColor.png" id="1_dat2a"]
 [ext_resource type="Texture2D" uid="uid://bgthdmwqqk3jy" path="res://Assets/weapons/textures/Axes_Mat_metallicRoughness.png" id="2_i8wny"]
 [ext_resource type="Texture2D" uid="uid://cjcadbwl2vfgt" path="res://Assets/weapons/textures/Axes_Mat_normal.png" id="3_21q4l"]
@@ -56,6 +57,8 @@ size = Vector3(0.0559082, 0.649048, 0.0629883)
 
 [node name="Axe_01" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.301281, 0.0641217, 8.61532e-09)
+script = ExtResource("1_bpxyc")
+weaponType = 1
 
 [node name="Axe_01_Axes_Mat_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ulw2f")

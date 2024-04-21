@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bntq551ah47rb"]
+[gd_scene load_steps=10 format=3 uid="uid://bntq551ah47rb"]
 
 [ext_resource type="Texture2D" uid="uid://dhbrfs610yky4" path="res://Assets/weapons/textures/Swords_Mat_baseColor.png" id="1_bsd13"]
+[ext_resource type="Script" path="res://Assets/weapons/Weapon.cs" id="1_h2ljw"]
 [ext_resource type="Texture2D" uid="uid://4v1m57370h2p" path="res://Assets/weapons/textures/Swords_Mat_metallicRoughness.png" id="2_773sb"]
 [ext_resource type="Texture2D" uid="uid://dhshp0yv3o8lk" path="res://Assets/weapons/textures/Swords_Mat_normal.png" id="3_l6wre"]
 [ext_resource type="Script" path="res://Hitbox/HurtBox.cs" id="4_dy05r"]
@@ -53,6 +54,7 @@ size = Vector3(0.10791, 0.715271, 0.0310669)
 
 [node name="Sword_03" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36957, 0.0641217, 8.61532e-09)
+script = ExtResource("1_h2ljw")
 
 [node name="Sword_03_Swords_Mat_0" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_0b4lg")
