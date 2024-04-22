@@ -28,10 +28,9 @@ public partial class PlayerController
 			GD.PrintErr("Weapons Right Array is empty");
 		}
         SetWeaponRight(0);
-        HurtBox[] hurtBoxes = this.GetAllChildrenByType<HurtBox>();
-        foreach (HurtBox box in hurtBoxes)
+        foreach (Weapon weapon in weaponsRight)
 		{
-			box.BoxOwner = this;
+			weapon.SetOwner(this);
 		}
 	}
 

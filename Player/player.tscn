@@ -14,24 +14,6 @@ height = 1.25
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wd8k5"]
 
-[sub_resource type="Animation" id="Animation_s55wk"]
-resource_name = "Idle"
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.776481, -1.07792, -0.379414, 1, 1, 0.776481, -1.07792, -0.379414)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.536909, 0, 0.84364, 1, 1, 0, -0.536909, 0, 0.84364)
-
 [sub_resource type="Animation" id="Animation_c42s1"]
 resource_name = "AxeAttack"
 length = 2.0
@@ -50,6 +32,93 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.1, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.4, 1, 0.461744, 0.537862, -0.512584, -0.484515, 0.5, 1, 0.461744, 0.537862, -0.512584, -0.484515, 0.766944, 1, 0.492933, 0.512949, 0.509142, -0.484432, 1.07197, 1, -0.602555, 0.363891, 0.37301, 0.604462)
 
+[sub_resource type="Animation" id="Animation_6pm4s"]
+resource_name = "AxeAttack_2"
+length = 0.7
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.776481, -0.557579, -0.769837, 0.1, 1, 0.776481, -0.557579, -0.769837, 0.398781, 1, 0.548864, -0.557579, -0.316567, 0.5, 1, 0.548864, -0.557579, -0.316567)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.1, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.4, 1, -0.355811, -0.435879, 0.591057, 0.577979, 0.5, 1, -0.355811, -0.435879, 0.591057, 0.577979)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"EnableHitBoxesRight"
+}, {
+"args": [],
+"method": &"DisableHitBoxesRight"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_i5nrh"]
+resource_name = "AxeAttack_3"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.000555813, 1, 0.776481, -0.557579, -0.0606062, 0.267499, 1, 0.535113, -0.424972, -0.480423, 0.572526, 1, 0.535113, -0.424972, -0.480423)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.000555813, 1, 0.461744, 0.537862, -0.512584, -0.484515, 0.267499, 1, 0.492933, 0.512949, 0.509142, -0.484432, 0.572526, 1, -0.602555, 0.363891, 0.37301, 0.604462)
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"EnableHitBoxesRight"
+}, {
+"args": [],
+"method": &"DisableHitBoxesRight"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_s55wk"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.776481, -1.07792, -0.379414, 1, 1, 0.776481, -1.07792, -0.379414)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.536909, 0, 0.84364, 1, 1, 0, -0.536909, 0, 0.84364)
+
 [sub_resource type="Animation" id="Animation_5n2km"]
 resource_name = "SwordAttack"
 length = 1.4513
@@ -67,24 +136,6 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.1, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.249121, 1, 0.492933, 0.512949, 0.509142, -0.484432, 0.37683, 1, -0.602555, 0.363891, 0.37301, 0.604462, 0.576282, 1, -0.602555, 0.363891, 0.37301, 0.604462, 0.70927, 1, 0.687161, -0.509046, -0.312199, -0.413781, 0.775764, 1, -0.531766, -0.0908715, 0.124796, 0.832702, 0.85999, 1, 0.418964, 0.819912, 0.133768, -0.366497, 0.945693, 1, 0.418964, 0.819912, 0.133768, -0.366497, 1.09789, 1, 0.589466, 0.549248, -0.469389, -0.36129, 1.20786, 1, 0.589466, 0.549248, -0.469389, -0.36129, 1.30334, 1, 0.589466, 0.549248, -0.469389, -0.36129, 1.4511, 1, 0.203884, -0.707681, -0.226333, 0.637489)
-
-[sub_resource type="Animation" id="Animation_afro4"]
-resource_name = "SwordIdle"
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(-0.00886587, 1, 0.776481, -0.726063, -0.49427, 0, 1, 0.776481, -0.726063, -0.49427, 1.00184, 1, 0.776481, -0.726063, -0.49427)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.779726, 0, 0.626121, 1.00037, 1, 0, -0.779726, 0, 0.626121)
 
 [sub_resource type="Animation" id="Animation_crb2m"]
 resource_name = "SwordAttack_2"
@@ -191,74 +242,23 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_6pm4s"]
-resource_name = "AxeAttack_2"
-length = 0.7
+[sub_resource type="Animation" id="Animation_afro4"]
+resource_name = "SwordIdle"
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0.776481, -0.557579, -0.769837, 0.1, 1, 0.776481, -0.557579, -0.769837, 0.398781, 1, 0.548864, -0.557579, -0.316567, 0.5, 1, 0.548864, -0.557579, -0.316567)
+tracks/0/keys = PackedFloat32Array(-0.00886587, 1, 0.776481, -0.726063, -0.49427, 0, 1, 0.776481, -0.726063, -0.49427, 1.00184, 1, 0.776481, -0.726063, -0.49427)
 tracks/1/type = "rotation_3d"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.1, 1, 0.203884, -0.707681, -0.226333, 0.637489, 0.4, 1, -0.355811, -0.435879, 0.591057, 0.577979, 0.5, 1, -0.355811, -0.435879, 0.591057, 0.577979)
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"EnableHitBoxesRight"
-}, {
-"args": [],
-"method": &"DisableHitBoxesRight"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_i5nrh"]
-resource_name = "AxeAttack_3"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.000555813, 1, 0.776481, -0.557579, -0.0606062, 0.267499, 1, 0.535113, -0.424972, -0.480423, 0.572526, 1, 0.535113, -0.424972, -0.480423)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0.000555813, 1, 0.461744, 0.537862, -0.512584, -0.484515, 0.267499, 1, 0.492933, 0.512949, 0.509142, -0.484432, 0.572526, 1, -0.602555, 0.363891, 0.37301, 0.604462)
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"EnableHitBoxesRight"
-}, {
-"args": [],
-"method": &"DisableHitBoxesRight"
-}]
-}
+tracks/1/keys = PackedFloat32Array(0, 1, 0, -0.779726, 0, 0.626121, 1.00037, 1, 0, -0.779726, 0, 0.626121)
 
 [sub_resource type="Animation" id="Animation_ly131"]
 resource_name = "SwordImpact"
@@ -424,6 +424,16 @@ states/SwordIdle/position = Vector2(317, 149)
 transitions = ["SwordIdle", "Idle", SubResource("AnimationNodeStateMachineTransition_skni4"), "Idle", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_a6yvs"), "Idle 2", "Idle", SubResource("AnimationNodeStateMachineTransition_dltgi"), "Impact", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_chwum"), "SwordAttack_4", "SwordAttack_2", SubResource("AnimationNodeStateMachineTransition_ro6lo"), "SwordAttack_2", "SwordAttack_3", SubResource("AnimationNodeStateMachineTransition_86pen"), "SwordAttack_2", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_l6a1l"), "SwordAttack_4", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_fwkit"), "SwordIdle", "SwordAttack_4", SubResource("AnimationNodeStateMachineTransition_m8kow"), "Idle", "AxeAttack_2", SubResource("AnimationNodeStateMachineTransition_nxxq4"), "AxeAttack_2", "Idle", SubResource("AnimationNodeStateMachineTransition_23flg"), "AxeAttack_2", "AxeAttack_3", SubResource("AnimationNodeStateMachineTransition_3fhyi"), "AxeAttack_3", "Idle 2", SubResource("AnimationNodeStateMachineTransition_v48rd"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ft61k"), "SwordAttack_2", "Impact", SubResource("AnimationNodeStateMachineTransition_jwyw5"), "SwordAttack_4", "Impact", SubResource("AnimationNodeStateMachineTransition_y081p"), "SwordAttack_3", "SwordIdle", SubResource("AnimationNodeStateMachineTransition_ylvik"), "SwordAttack_3", "Impact", SubResource("AnimationNodeStateMachineTransition_a55sk")]
 graph_offset = Vector2(-179, 93)
 
+[sub_resource type="Animation" id="Animation_esgsb"]
+resource_name = "Reset"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0)
+
 [sub_resource type="Animation" id="Animation_dlf0n"]
 resource_name = "StandingToCrouch"
 length = 0.2
@@ -434,16 +444,6 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0, 0.2, 1, 0, 0, 0)
-
-[sub_resource type="Animation" id="Animation_esgsb"]
-resource_name = "Reset"
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0.5, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hmdki"]
 _data = {
@@ -456,11 +456,12 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mmrxv"]
 height = 1.24769
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox")]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox") groups=["player"]]
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
 rightHand = NodePath("Head/RightHand")
 CameraHeightAnimation = NodePath("Head/AnimationPlayer")
+shakePivot = NodePath("Head/CamShakePivot")
 pivot = NodePath("Head")
 standingCollisionShape = NodePath("CollisionShape3D")
 crouchingCollisionShape = NodePath("CrouchCollisionShape3D")
@@ -481,14 +482,16 @@ shape = SubResource("CapsuleShape3D_wd8k5")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="CamShakePivot" type="Node3D" parent="Head"]
+
+[node name="Camera3D" type="Camera3D" parent="Head/CamShakePivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0459431, 0)
 
-[node name="AudioListener3D" type="AudioListener3D" parent="Head/Camera3D"]
+[node name="AudioListener3D" type="AudioListener3D" parent="Head/CamShakePivot/Camera3D"]
 current = true
 
 [node name="RightHand" type="Node3D" parent="Head"]
-transform = Transform3D(0.423456, 0, -0.905916, 0, 1, 0, 0.905916, 0, 0.423456, 0.776481, -1.07792, -0.379414)
+transform = Transform3D(0.423457, 0, -0.905915, 0, 1, 0, 0.905915, 0, 0.423457, 0.776481, -1.07792, -0.379414)
 
 [node name="Sword_01" parent="Head/RightHand" instance=ExtResource("2_68u4v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.98023e-08, 0, 1, -0.0504824, 0.201794, -0.0134773)

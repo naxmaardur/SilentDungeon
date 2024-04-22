@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://hbvwc2yic8l6"]
+[gd_scene load_steps=5 format=3 uid="uid://hbvwc2yic8l6"]
 
 [ext_resource type="PackedScene" uid="uid://d05uxfymokamn" path="res://Assets/Enemies/Skeleton/Spider/spider.gltf" id="1_dgoa8"]
+[ext_resource type="Script" path="res://Assets/weapons/Weapon.cs" id="2_52f65"]
+[ext_resource type="Script" path="res://Hitbox/HurtBox.cs" id="3_jx3hq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7sdgx"]
+size = Vector3(2.69131, 2.96887, 2.25379)
 
 [node name="spider" instance=ExtResource("1_dgoa8")]
+script = ExtResource("2_52f65")
 
 [node name="root" parent="Anim_Undeath_Spider_2 (3)" index="0"]
 transform = Transform3D(412.487, 0, 0, 0, -1.80304e-05, 412.487, 0, -412.487, -1.80304e-05, 0, 0, 0)
@@ -123,5 +129,9 @@ bones/71/rotation = Quaternion(-0.00991891, 1.89184e-09, 2.56818e-08, 0.999951)
 bones/72/rotation = Quaternion(-0.0911614, 2.13346e-09, 5.41659e-08, 0.995836)
 bones/73/rotation = Quaternion(-0.143593, 1.07944e-07, 2.03287e-08, 0.989637)
 
-[node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Idle_1"
+[node name="Area3D" type="Area3D" parent="." index="2"]
+script = ExtResource("3_jx3hq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0540333, 1.00567, 1.90995)
+shape = SubResource("BoxShape3D_7sdgx")

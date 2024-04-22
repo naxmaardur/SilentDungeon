@@ -1,19 +1,24 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Weapon : Node3D
 {
+    [Export]
+    private float damage = 1;
 	private HurtBox[] hurtBoxes;
     private Area3D[] areaBoxes;
     [Export]
     public weaponType weaponType { get; private set; }
 
     public Action HitNonHitBox;
+    public List<Node> hitNodes;
 
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
+        hitNodes = new();
         areaBoxes = this.GetAllChildrenByType<Area3D>();
         hurtBoxes = this.GetAllChildrenByType<HurtBox>();
         foreach (var item in areaBoxes)
@@ -21,6 +26,21 @@ public partial class Weapon : Node3D
             item.BodyEntered += onEntered;
         }
     }
+    public void ClearList()
+    {
+        hitNodes.Clear();
+    }
+
+    public void SetOwner(Node node)
+    {
+        foreach (var item in hurtBoxes)
+        {
+            item.damage = damage;
+            item.Weapon = this;
+            item.BoxOwner = node;
+        }
+    }
+
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -29,9 +49,11 @@ public partial class Weapon : Node3D
 
     public void EnableHitBoxes()
     {
+        GD.Print("Enable");
         foreach (HurtBox box in hurtBoxes)
         {
             box.canHit = true;
+            box.Monitoring = true;
         }
     }
 
@@ -39,9 +61,10 @@ public partial class Weapon : Node3D
     {
         foreach (HurtBox box in hurtBoxes)
         {
+            box.Monitoring = false;
             box.canHit = false;
-            box.clearList();
         }
+        ClearList();
     }
 
     private void onEntered(Node3D node3D)
@@ -52,8 +75,11 @@ public partial class Weapon : Node3D
         HurtBox hurtBox = node3D as HurtBox;
         if(hitBox == null && hurtBox == null)
         {
-            HitNonHitBox.Invoke();
-            DisableHitBoxes();
+            if (HitNonHitBox != null)
+            {
+                HitNonHitBox?.Invoke();
+                DisableHitBoxes();
+            }
         }
     }
 }

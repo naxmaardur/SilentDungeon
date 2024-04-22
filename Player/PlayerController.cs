@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PlayerController : CharacterBody3D
+public partial class PlayerController : CharacterBody3D, IDamagable
 {
     [ExportGroup("Walk Mode")]
     [Export] public float walkSpeed = 5.0f;

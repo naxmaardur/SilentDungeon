@@ -9,7 +9,7 @@ public partial class PlayerController
     [Export] private float minXRotation = -89;
     [Export] private float maxXRotation = 89;
     [Export] public AnimationPlayer CameraHeightAnimation { get; private set; }
-
+    [Export] private Node3D shakePivot;
 
     [ExportGroup("FOV")]
     [Export] private float baseFOV = 75.0f;
@@ -24,6 +24,8 @@ public partial class PlayerController
     private Camera3D camera;
     private float bobTime = 0;
 
+    private float shakeFade = 5;
+    private float shakeStrength;
 
     private void CameraSetup()
     {
@@ -58,6 +60,17 @@ public partial class PlayerController
         float velocityClamped = Mathf.Clamp(Velocity.Length(), minFOVMultiplier, maxFOVMultiplier);
         float targetFov = baseFOV + FOVChange * velocityClamped;
         camera.Fov = (float)Mathf.Lerp(camera.Fov, targetFov, delta * 8.0f);
+
+        if(shakeStrength > 0)
+        {
+            shakeStrength = (float)Mathf.Lerp(shakeStrength, 0, shakeFade * delta);
+
+            shakePivot.Position = CameraShake();
+            if(shakeStrength <= 0)
+            {
+                shakePivot.Position = Vector3.Zero;
+            }
+        }
     }
     
 
@@ -68,4 +81,17 @@ public partial class PlayerController
         pos.X = Mathf.Cos(time * bobFrequency / 2) * bobAmplitude;
         return pos;
     }
+    
+    private Vector3 CameraShake()
+    {
+        return new Vector3(numberGenerator.RandfRange(-shakeStrength, shakeStrength), numberGenerator.RandfRange(-shakeStrength, shakeStrength), numberGenerator.RandfRange(-shakeStrength, shakeStrength));
+    }
+
+    private void startCameraShake(float strenght, float fade)
+    {
+        shakeStrength = strenght;
+        shakeFade = fade;
+    }
+
+    
 }
