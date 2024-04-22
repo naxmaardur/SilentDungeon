@@ -193,4 +193,17 @@ public static class NodeExtensions
         public Rid rid;
         public int shape;
     }
+
+    public static Vector3 Forward(this Node3D node)
+    {
+        return node.Transform.Basis.Z;
+    }
+    public static Vector3 Right(this Node3D node)
+    {
+        return node.Transform.Basis.X;
+    }
+    public static Vector3 Up(this Node3D node)
+    {
+        return node.Transform.Basis.Y;
+    }
 }
