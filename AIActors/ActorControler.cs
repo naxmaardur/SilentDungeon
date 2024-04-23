@@ -4,6 +4,9 @@ using AIStates;
 
 public partial class ActorControler : CharacterBody3D, IDamagable
 {
+    [Export]
+    public float runSpeed;
+
 	//player referance
 	public PlayerController player {  get; private set; }
 	public NavigationAgent3D navigationAgent3D { get; private set; }

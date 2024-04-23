@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://v3osbamw8yhh"]
+[gd_scene load_steps=16 format=3 uid="uid://v3osbamw8yhh"]
 
 [ext_resource type="PackedScene" uid="uid://bgxpppktaqd67" path="res://Player/player.tscn" id="1_hk0ni"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_x5t0d"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bshnmtprenwu2" path="res://Assets/Enemies/Warden/scene.gltf" id="6_0kvph"]
 [ext_resource type="PackedScene" uid="uid://hbvwc2yic8l6" path="res://Assets/Enemies/Skeleton/Spider/spider.tscn" id="7_8shdq"]
 [ext_resource type="PackedScene" uid="uid://dt6vxqvbqjavt" path="res://AIActors/spider_actor.tscn" id="8_djcbn"]
+[ext_resource type="PackedScene" uid="uid://g56wsx73y8tg" path="res://AIActors/Skeleton_Actor.tscn" id="9_ybrph"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yubw8"]
 
@@ -95,3 +96,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4757, 0, 15.259)
 
 [node name="SpiderActor5" parent="." instance=ExtResource("8_djcbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3936, 0, 13.1791)
+
+[node name="SpiderActor6" parent="." instance=ExtResource("9_ybrph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16, 0, 0.42168)

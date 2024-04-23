@@ -32,7 +32,7 @@ import_script/path=""
 _subresources={
 "animations": {
 "Hit_1": {
-"save_to_file/enabled": false,
+"save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Assets/Enemies/Skeleton/Spider/Animation/Hit1.res",
 "settings/loop_mode": 0,
@@ -1831,7 +1831,7 @@ _subresources={
 "slices/amount": 0
 },
 "Hit_2": {
-"save_to_file/enabled": false,
+"save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Assets/Enemies/Skeleton/Spider/Animation/hit2.res",
 "settings/loop_mode": 0,
@@ -3630,7 +3630,7 @@ _subresources={
 "slices/amount": 0
 },
 "Hit_3": {
-"save_to_file/enabled": false,
+"save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Assets/Enemies/Skeleton/Spider/Animation/hit3.res",
 "settings/loop_mode": 0,
@@ -5429,7 +5429,7 @@ _subresources={
 "slices/amount": 0
 },
 "Hit_4": {
-"save_to_file/enabled": false,
+"save_to_file/enabled": true,
 "save_to_file/keep_custom_tracks": true,
 "save_to_file/path": "res://Assets/Enemies/Skeleton/Spider/Animation/hit4.res",
 "settings/loop_mode": 0,
