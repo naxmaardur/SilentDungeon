@@ -97,5 +97,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4757, 0, 15.259)
 [node name="SpiderActor5" parent="." instance=ExtResource("8_djcbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3936, 0, 13.1791)
 
-[node name="SpiderActor6" parent="." instance=ExtResource("9_ybrph")]
+[node name="SkeletonActor" parent="." instance=ExtResource("9_ybrph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16, 0, 0.42168)
