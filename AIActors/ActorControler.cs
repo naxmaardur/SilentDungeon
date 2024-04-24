@@ -6,6 +6,8 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 {
     [Export]
     public float runSpeed;
+    [Export]
+    public bool randomStartState = false;
 
 	//player referance
 	public PlayerController player {  get; private set; }
@@ -26,9 +28,18 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public LerpVaule MovementX { get; private set; }
     public LerpVaule MovementZ { get; private set; }
 
+    public float alertValue;
+
+    public Vector3 positionOfIntrest;
+
+    private Vector3 scale;
+
+
     // Called through GD script
     public override void _Ready()
 	{
+        scale = new Vector3(Transform.Basis.X.Length(), Transform.Basis.Y.Length(), Transform.Basis.Z.Length());
+
         player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
 		navigationAgent3D = this.GetChildByType<NavigationAgent3D>();
         navigationAgent3D.VelocityComputed += NavigationAgent3D_VelocityComputed;
@@ -57,6 +68,8 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         stateMachine = new StateMachine<ActorControler>(
             this,
             new IdleState(),
+            new SleepState(),
+            new InvestigateState(),
             new GotToPlayerState(),
             new BackOffFromPlayer(),
             new OrbitPlayer(),
@@ -64,14 +77,30 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
             );
         SetupTransitions();
 
-
-        stateMachine.ChangeState(typeof(IdleState));
+        if (randomStartState)
+        {
+            switch (randomNumberGenerator.RandiRange(0, 1))
+            {
+                case 0:
+                    stateMachine.ChangeState(typeof(IdleState));
+                    break;
+                case 1:
+                    stateMachine.ChangeState(typeof(SleepState));
+                    break;
+            }
+        }
+        else
+        {
+            stateMachine.ChangeState(typeof(IdleState));
+        }
     }
 
     // Called every frame. through GD script
     public override void _Process(double delta)
 	{
-		stateMachine.OnUpdate( delta );
+        Transform = Transform.Orthonormalized();
+        Transform = Transform.Scaled(scale);
+        stateMachine.OnUpdate( delta );
         tree.Set("parameters/Run/blend_amount", runLerp.getCurrent(delta));
     }
 
@@ -91,7 +120,11 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public void AddSoundImpulse(float value, Vector3 position)
     {
         GD.Print("Sound Value: " + value);
-        throw new NotImplementedException();
+        alertValue += value;
+        if(value > 4 || alertValue > 4)
+        {
+            positionOfIntrest = position;
+        }
     }
 }
 
