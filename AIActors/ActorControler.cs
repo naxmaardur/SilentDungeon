@@ -5,9 +5,13 @@ using AIStates;
 public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 {
     [Export]
+    float health = 15;
+    [Export]
     public float runSpeed;
     [Export]
     public bool randomStartState = false;
+    [Export]
+    public Node3D visuals {  get; private set; }
 
 	//player referance
 	public PlayerController player {  get; private set; }
@@ -33,11 +37,16 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public Vector3 positionOfIntrest;
 
     private Vector3 scale;
-
+    public PackedScene LootScene { get; private set; }
 
     // Called through GD script
     public override void _Ready()
 	{
+        if(visuals == null)
+        {
+            GD.PrintErr(this + "Has no visuals referance");
+        }
+        LootScene = GD.Load<PackedScene>("res://Prefabs/actor_loot_object.tscn");
         scale = new Vector3(Transform.Basis.X.Length(), Transform.Basis.Y.Length(), Transform.Basis.Z.Length());
 
         player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
@@ -59,7 +68,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
             direction = Vector3.Zero;
         }
         Vector2 moveVelocity = new Vector2(direction.X, direction.Z).Normalized();
-        tree.Set("parameters/MoveDirection/blend_position", moveVelocity);
+        tree.Set("parameters/Alive/MoveDirection/blend_position", moveVelocity);
         MoveAndSlide();
     }
 
@@ -73,7 +82,8 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
             new GotToPlayerState(),
             new BackOffFromPlayer(),
             new OrbitPlayer(),
-            new AttackState()
+            new AttackState(),
+            new DeadState()
             );
         SetupTransitions();
 
@@ -101,7 +111,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         Transform = Transform.Orthonormalized();
         Transform = Transform.Scaled(scale);
         stateMachine.OnUpdate( delta );
-        tree.Set("parameters/Run/blend_amount", runLerp.getCurrent(delta));
+        tree.Set("parameters/Alive/Run/blend_amount", runLerp.getCurrent(delta));
     }
 
     public override void _PhysicsProcess(double delta)
@@ -112,9 +122,15 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     public virtual void TakeDamage(float damage)
     {
-        tree.Set("parameters/RandomHit/blend_position", randomNumberGenerator.RandfRange(-1, 1));
-        tree.Set("parameters/OneShotHit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-        throw new NotImplementedException();
+        if(stateMachine.CurrentState.GetType() == typeof(DeadState)) { return; }
+        tree.Set("parameters/Alive/RandomHit/blend_position", randomNumberGenerator.RandfRange(-1, 1));
+        tree.Set("parameters/Alive/OneShotHit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+        alertValue = 10;
+        health -= damage;
+        if(health <= 0)
+        {
+            stateMachine.ChangeState(typeof(DeadState));
+        }
     }
 
     public void AddSoundImpulse(float value, Vector3 position)

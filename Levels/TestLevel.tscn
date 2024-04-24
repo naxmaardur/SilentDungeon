@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://v3osbamw8yhh"]
+[gd_scene load_steps=18 format=3 uid="uid://v3osbamw8yhh"]
 
 [ext_resource type="PackedScene" uid="uid://bgxpppktaqd67" path="res://Player/player.tscn" id="1_hk0ni"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_x5t0d"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://hbvwc2yic8l6" path="res://Assets/Enemies/Skeleton/Spider/spider.tscn" id="7_8shdq"]
 [ext_resource type="PackedScene" uid="uid://dt6vxqvbqjavt" path="res://AIActors/spider_actor.tscn" id="8_djcbn"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="10_jsmj6"]
-[ext_resource type="PackedScene" uid="uid://g56wsx73y8tg" path="res://AIActors/Skeleton_Actor.tscn" id="11_ojy3k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yubw8"]
 
@@ -104,16 +103,8 @@ shape = SubResource("BoxShape3D_2j1pk")
 [node name="spider3" parent="." instance=ExtResource("7_8shdq")]
 transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 10.171, -5.96046e-08, 17.7804)
 
-[node name="SpiderActor2" parent="." instance=ExtResource("11_ojy3k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3309, 0.397711, 8.96228)
-
 [node name="SpiderActor" parent="." instance=ExtResource("8_djcbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65871, 0.727028, 16.3212)
-
-[node name="SpiderActor3" parent="." node_paths=PackedStringArray("backOffTimer", "inRangeTimer", "tree") instance=ExtResource("8_djcbn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5682, 0.737952, 16.3212)
-backOffTimer = NodePath("../SpiderActor/BackOffTimer")
-inRangeTimer = NodePath("../SpiderActor/InRangeTimer")
-tree = NodePath("../SpiderActor/AnimationTree")
+randomStartState = true
 
 [editable path="SoundSource"]

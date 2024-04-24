@@ -7,6 +7,7 @@ public partial class ActorControler
     public void SetupTransitions()
     {
         stateMachine.AddTransition(new Transition(typeof(IdleState), typeof(GotToPlayerState), DetectedPlayer));
+        stateMachine.AddTransition(new Transition(typeof(SleepState), typeof(GotToPlayerState), DetectedPlayer));
         //stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(BackOffFromPlayer), shouldBackOff));
         stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(OrbitPlayer), NearPlayer));
         stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(GotToPlayerState), LeftRange));
@@ -58,7 +59,7 @@ public partial class ActorControler
 
     private bool AttackIsFinished()
     {
-        return !(bool)tree.Get("parameters/OneShotAttack/active");
+        return !(bool)tree.Get("parameters/Alive/OneShotAttack/active");
     }
 
     private bool DetectedPlayer()

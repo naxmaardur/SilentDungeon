@@ -15,8 +15,8 @@ namespace AIStates
             done = false;
             float f =  (float)ctx.randomNumberGenerator.RandiRange(0, 5) / 10;
             GD.Print(f);
-            ctx.tree.Set("parameters/RandomAttack/blend_position", f);
-            ctx.tree.Set("parameters/OneShotAttack/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+            ctx.tree.Set("parameters/Alive/RandomAttack/blend_position", f);
+            ctx.tree.Set("parameters/Alive/OneShotAttack/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
         }
 
         public override void OnUpdate(double delta)

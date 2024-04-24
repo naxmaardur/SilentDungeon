@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b1avuxe2ki04v"]
+
+[node name="ActorLootObject" type="Node3D"]
