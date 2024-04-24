@@ -17,12 +17,12 @@ public partial class PlayerController
 	[Export]
 	private Node3D leftHand;
 
-	private AudioStreamPlayer3D AudioplayerR;
+	private SoundSource SoundSourceR;
 
     private void AttackSetup()
 	{
 		weaponsRight = rightHand.GetAllChildrenByType<Weapon>();
-        AudioplayerR = rightHand.GetChildByType<AudioStreamPlayer3D>();
+        SoundSourceR = rightHand.GetChildByType<SoundSource>();
         if (weaponsRight.Length == 0)
 		{
 			GD.PrintErr("Weapons Right Array is empty");
@@ -97,9 +97,9 @@ public partial class PlayerController
 
 	private void RightAttackBounceback()
 	{
-		AudioplayerR.PitchScale = numberGenerator.RandfRange(0.7f, 1.2f);
-        AudioplayerR.Play();
-		SetAttack(rightHandTree, false);
+        SetAttack(rightHandTree, false);
         rightHandTree.Set("parameters/conditions/AttackBounce", true);
+        SoundSourceR.SetRandomPitch(0.7f, 1.2f);
+        SoundSourceR.PlaySound();
     }
 }

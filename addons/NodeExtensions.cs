@@ -156,6 +156,22 @@ public static class NodeExtensions
         return RayCast3D(node, query, out hitInfo);
     }
 
+    public static bool RayCast3D(this Node3D node, Vector3 startPosition, Vector3 endPosition, out RayCastHitInfo3D hitInfo, Godot.Collections.Array<Rid> exclude, uint collisionMask = 0xffffffff, bool collideWithAreas = true, bool collideWithBodies = true)
+    {
+        PhysicsRayQueryParameters3D query = new()
+        {
+            CollideWithAreas = collideWithAreas,
+            CollideWithBodies = collideWithBodies,
+            HitFromInside = false,
+            From = startPosition,
+            To = endPosition,
+            CollisionMask = collisionMask,
+            Exclude = exclude
+        };
+
+        return RayCast3D(node, query, out hitInfo);
+    }
+
     public static bool RayCast3D(this Node3D node, PhysicsRayQueryParameters3D query, out RayCastHitInfo3D hitInfo)
     {
         PhysicsDirectSpaceState3D spaceState = node.GetWorld3D().DirectSpaceState;

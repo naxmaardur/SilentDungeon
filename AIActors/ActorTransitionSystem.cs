@@ -6,7 +6,7 @@ public partial class ActorControler
 {
     public void SetupTransitions()
     {
-        stateMachine.AddTransition(new Transition(typeof(IdleState), typeof(GotToPlayerState), playerInFollowRange));
+        //stateMachine.AddTransition(new Transition(typeof(IdleState), typeof(GotToPlayerState), playerInFollowRange));
         //stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(BackOffFromPlayer), shouldBackOff));
         stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(OrbitPlayer), NearPlayer));
         stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(GotToPlayerState), LeftRange));

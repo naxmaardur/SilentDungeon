@@ -1,10 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://bgxpppktaqd67"]
+[gd_scene load_steps=55 format=3 uid="uid://bgxpppktaqd67"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
 [ext_resource type="PackedScene" uid="uid://dmed1kll4qgv4" path="res://Assets/weapons/axe_01.tscn" id="2_f1j6c"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_xhqbb"]
 [ext_resource type="PackedScene" uid="uid://cnmk81mx5jdkb" path="res://Assets/weapons/shield_03.tscn" id="3_vjllw"]
+[ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="4_8uax4"]
 [ext_resource type="AudioStream" uid="uid://do1tq0jn21v4n" path="res://Assets/weapons/sounds/sword-hit-7160.mp3" id="4_v5ixt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
@@ -500,8 +501,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, -2.98023e-08, 0, 1, -0.0504824, 0.2017
 transform = Transform3D(1.58919, 0, -5.96046e-08, 0, 1.58919, 0, 5.96046e-08, 0, 1.58919, 0, 0, 0)
 visible = false
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Head/RightHand"]
-transform = Transform3D(0.423457, 0, 0.905917, 0, 1, 0, -0.905916, 0, 0.423456, 0, 0.65346, 0)
+[node name="SoundSource" parent="Head/RightHand" instance=ExtResource("4_8uax4")]
+transform = Transform3D(0.423457, 0, 0.905917, 0, 1, 0, -0.905917, 0, 0.423457, -0.0450467, 0.880247, -0.0210564)
+soundValue = 2.0
+
+[node name="AudioStreamPlayer3D" parent="Head/RightHand/SoundSource" index="0"]
 stream = ExtResource("4_v5ixt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head/RightHand"]
@@ -549,3 +553,5 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HeadCheck"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23801, 0)
 shape = SubResource("CapsuleShape3D_mmrxv")
+
+[editable path="Head/RightHand/SoundSource"]

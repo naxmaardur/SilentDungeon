@@ -2,7 +2,7 @@ using Godot;
 using System;
 using AIStates;
 
-public partial class ActorControler : CharacterBody3D, IDamagable
+public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 {
     [Export]
     public float runSpeed;
@@ -85,6 +85,12 @@ public partial class ActorControler : CharacterBody3D, IDamagable
     {
         tree.Set("parameters/RandomHit/blend_position", randomNumberGenerator.RandfRange(-1, 1));
         tree.Set("parameters/OneShotHit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+        throw new NotImplementedException();
+    }
+
+    public void AddSoundImpulse(float value, Vector3 position)
+    {
+        GD.Print("Sound Value: " + value);
         throw new NotImplementedException();
     }
 }
