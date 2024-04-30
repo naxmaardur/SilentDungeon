@@ -52,6 +52,7 @@ public class CrouchState : State<PlayerController>
         ctx.CameraHeightAnimation.Play("StandingToCrouch");
         ctx.crouchingCollisionShape.Disabled = false;
         ctx.standingCollisionShape.Disabled = true;
+        ctx.sneaking = true;
     }
 
     public override void OnExit()
@@ -59,5 +60,6 @@ public class CrouchState : State<PlayerController>
         ctx.CameraHeightAnimation.PlayBackwards("StandingToCrouch");
         ctx.standingCollisionShape.Disabled = false;
         ctx.crouchingCollisionShape.Disabled = true;
+        ctx.sneaking = false;
     }
 }

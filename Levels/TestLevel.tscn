@@ -105,6 +105,5 @@ transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 10.171, -5.96046e-08
 
 [node name="SpiderActor" parent="." instance=ExtResource("8_djcbn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.65871, 0.727028, 16.3212)
-randomStartState = true
 
 [editable path="SoundSource"]

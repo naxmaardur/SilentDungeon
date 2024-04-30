@@ -16,7 +16,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 	//player referance
 	public PlayerController player {  get; private set; }
 	public NavigationAgent3D navigationAgent3D { get; private set; }
-    public RandomNumberGenerator randomNumberGenerator { get; private set; } = new RandomNumberGenerator();
+    public RandomNumberGenerator randomNumberGenerator { get; private set; } = new();
 	private StateMachine<ActorControler> stateMachine;
     public Weapon weapon { get; private set; }
 
@@ -24,6 +24,8 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public Timer backOffTimer { get; private set; }
     [Export]
     public Timer inRangeTimer {  get; private set; }
+    [Export]
+    public Timer damagedTimer { get; private set; }
     [Export]
     public AnimationTree tree { get; private set; }
 
@@ -39,10 +41,18 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     private Vector3 scale;
     public PackedScene LootScene { get; private set; }
 
+    [Export]
+    private bool hasSight = true;
+
+    public Vector3 startLocation;
+
+    
+
     // Called through GD script
     public override void _Ready()
 	{
-        if(visuals == null)
+        startLocation = GlobalPosition;
+        if (visuals == null)
         {
             GD.PrintErr(this + "Has no visuals referance");
         }
@@ -112,6 +122,17 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         Transform = Transform.Scaled(scale);
         stateMachine.OnUpdate( delta );
         tree.Set("parameters/Alive/Run/blend_amount", runLerp.getCurrent(delta));
+        if(alertValue > 0)
+        {
+            if (!seeingPlayer() || !hasSight)
+            {
+                alertValue -= (float)delta * 0.3f;
+                if (alertValue < 0)
+                {
+                    alertValue = 0;
+                }
+            }
+        }
     }
 
     public override void _PhysicsProcess(double delta)
@@ -123,6 +144,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public virtual void TakeDamage(float damage)
     {
         if(stateMachine.CurrentState.GetType() == typeof(DeadState)) { return; }
+        damagedTimer.Start();
         tree.Set("parameters/Alive/RandomHit/blend_position", randomNumberGenerator.RandfRange(-1, 1));
         tree.Set("parameters/Alive/OneShotHit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
         alertValue = 10;
@@ -135,11 +157,18 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     public void AddSoundImpulse(float value, Vector3 position)
     {
-        GD.Print("Sound Value: " + value);
         alertValue += value;
-        if(value > 4 || alertValue > 4)
+        if(value > 3 || alertValue > 2)
         {
-            positionOfIntrest = position;
+            GD.Print(alertValue);
+            if(alertValue > 9)
+            {
+                positionOfIntrest = player.GlobalPosition;
+            }
+            else
+            {
+                positionOfIntrest = position;
+            }
         }
     }
 }

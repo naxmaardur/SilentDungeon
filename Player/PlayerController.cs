@@ -24,6 +24,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
 
     private StateMachine<PlayerController> stateMachine;
     private RandomNumberGenerator numberGenerator;
+    public bool sneaking;
 
     public void ChangeState(Type type)
     {

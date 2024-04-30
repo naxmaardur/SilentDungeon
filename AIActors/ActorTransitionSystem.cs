@@ -8,6 +8,12 @@ public partial class ActorControler
     {
         stateMachine.AddTransition(new Transition(typeof(IdleState), typeof(GotToPlayerState), DetectedPlayer));
         stateMachine.AddTransition(new Transition(typeof(SleepState), typeof(GotToPlayerState), DetectedPlayer));
+        stateMachine.AddTransition(new Transition(typeof(IdleState), typeof(InvestigateState), SearchPlayer));
+        stateMachine.AddTransition(new Transition(typeof(SleepState), typeof(InvestigateState), SearchPlayer));
+        stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(InvestigateState), LostPlayer));
+        stateMachine.AddTransition(new Transition(typeof(InvestigateState), typeof(GotToPlayerState), DetectedPlayer));
+        stateMachine.AddTransition(new Transition(typeof(InvestigateState), typeof(GotToPlayerState), DetectedPlayer));
+        stateMachine.AddTransition(new Transition(typeof(InvestigateState), typeof(IdleState), InvestigateFinished));
         //stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(BackOffFromPlayer), shouldBackOff));
         stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(OrbitPlayer), NearPlayer));
         stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(GotToPlayerState), LeftRange));
@@ -64,6 +70,46 @@ public partial class ActorControler
 
     private bool DetectedPlayer()
     {
-        return alertValue > 6;
+        if (damagedTimer.TimeLeft > 0) { return true; }
+        if(alertValue > 12) { GD.Print("Detected Player from sound"); return true; }
+        return alertValue > 9 && GlobalPosition.DistanceTo(player.GlobalPosition) < 1 || seeingPlayer();
+    }
+
+    private bool SearchPlayer()
+    {
+        if(alertValue < 2) { return false; }
+        if (hasSight && !seeingPlayer()) {  return true; }
+        return true;
+    }
+
+    private bool LostPlayer()
+    {
+        if(damagedTimer.TimeLeft > 0) { return false; }
+        if(alertValue < 4)
+        {
+            positionOfIntrest = player.GlobalPosition;
+            return true;
+        }
+        return false;
+    }
+
+    private bool seeingPlayer()
+    {
+        if (!hasSight) return false;
+        if (stateMachine.CurrentState.GetType() == typeof(SleepState)) { return false; }
+        if (this.Forward().Dot(player.GlobalPosition - GlobalPosition) < 0.4) { return false; }
+
+        if(player.GlobalPosition.DistanceTo(GlobalPosition) > 6) {  return false; }
+        if (player.sneaking && player.GlobalPosition.DistanceTo(GlobalPosition) > 2) { return false; }
+        if (this.RayCast3D(GlobalPosition, player.GlobalPosition, out var hit, 0xffffffff, false))
+        {
+            if (hit.collider == player) { return true; }
+        }
+        return false;
+    }
+
+    private bool InvestigateFinished()
+    {
+        return alertValue < 0.0001f;
     }
 }
