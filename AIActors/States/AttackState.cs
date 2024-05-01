@@ -17,12 +17,21 @@ namespace AIStates
             GD.Print(f);
             ctx.tree.Set("parameters/Alive/RandomAttack/blend_position", f);
             ctx.tree.Set("parameters/Alive/OneShotAttack/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+            
         }
 
         public override void OnUpdate(double delta)
         {
+            if (ctx.isWarden)
+            {
+                Vector3 direction = ctx.GlobalPosition.DirectionTo(ctx.player.GlobalPosition);
+
+                double newAgle = Mathf.LerpAngle(ctx.Rotation.Y, Mathf.Atan2(direction.X, direction.Z), 1);
+                double radian = ((Math.PI / 180) * newAgle) - ((Math.PI / 180) * ctx.Rotation.Y);
+                ctx.RotateY((float)radian);
+            }
             wait += delta;
-            if(wait > 0.7 && !done)
+            if(wait > ctx.attackTime && !done)
             {
                 done = true;
                 ctx.weapon.EnableHitBoxes();

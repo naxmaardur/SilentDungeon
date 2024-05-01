@@ -1,6 +1,7 @@
 using AIStates;
 using Godot;
 using System;
+using System.ComponentModel;
 
 public partial class ActorControler
 {
@@ -14,13 +15,17 @@ public partial class ActorControler
         stateMachine.AddTransition(new Transition(typeof(InvestigateState), typeof(GotToPlayerState), DetectedPlayer));
         stateMachine.AddTransition(new Transition(typeof(InvestigateState), typeof(GotToPlayerState), DetectedPlayer));
         stateMachine.AddTransition(new Transition(typeof(InvestigateState), typeof(IdleState), InvestigateFinished));
-        //stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(BackOffFromPlayer), shouldBackOff));
-        stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(OrbitPlayer), NearPlayer));
+        stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(OrbitPlayer), () => { return !isWarden && NearPlayer(); }));
         stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(GotToPlayerState), LeftRange));
-        //stateMachine.AddTransition(new Transition(typeof(BackOffFromPlayer), typeof(GotToPlayerState), () => !NearPlayer()));
         stateMachine.AddTransition(new Transition(typeof(BackOffFromPlayer), typeof(GotToPlayerState), BackOffTimer));
         stateMachine.AddTransition(new Transition(typeof(OrbitPlayer), typeof(AttackState), canAttackPlayer));
-        stateMachine.AddTransition(new Transition(typeof(AttackState), typeof(BackOffFromPlayer), AttackIsFinished));
+        stateMachine.AddTransition(new Transition(typeof(AttackState), typeof(BackOffFromPlayer), () => { return !isWarden && AttackIsFinished(); }));
+        stateMachine.AddTransition(new Transition(typeof(AttackState), typeof(GotToPlayerState), () => { return isWarden && AttackIsFinished(); }));
+
+        stateMachine.AddTransition(new Transition(typeof(WanderState), typeof(GotToPlayerState), DetectedPlayer));
+        stateMachine.AddTransition(new Transition(typeof(WanderState), typeof(InvestigateState), SearchPlayer));
+        stateMachine.AddTransition(new Transition(typeof(IdleState), typeof(WanderState), IsWarden));
+        stateMachine.AddTransition(new Transition(typeof(GotToPlayerState), typeof(AttackState), canAttackPlayer));
     }
 
 
@@ -77,8 +82,8 @@ public partial class ActorControler
 
     private bool SearchPlayer()
     {
-        if(alertValue < 2) { return false; }
-        if (hasSight && !seeingPlayer()) {  return true; }
+        if (hasSight && !seeingPlayer()) { return true; }
+        if (alertValue < 2) { return false; }
         return true;
     }
 
@@ -106,6 +111,12 @@ public partial class ActorControler
             if (hit.collider == player) { return true; }
         }
         return false;
+    }
+
+
+    private bool IsWarden()
+    {
+        return isWarden;
     }
 
     private bool InvestigateFinished()

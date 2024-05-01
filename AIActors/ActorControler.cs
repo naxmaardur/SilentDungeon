@@ -46,6 +46,10 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     public Vector3 startLocation;
 
+    [Export]
+    public bool isWarden;
+    [Export]
+    public double attackTime = 0.7;
     
 
     // Called through GD script
@@ -93,9 +97,16 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
             new BackOffFromPlayer(),
             new OrbitPlayer(),
             new AttackState(),
-            new DeadState()
+            new DeadState(),
+            new WanderState()
             );
         SetupTransitions();
+
+        if (isWarden)
+        {
+            stateMachine.ChangeState(typeof(WanderState));
+            return;
+        }
 
         if (randomStartState)
         {
