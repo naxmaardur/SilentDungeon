@@ -212,14 +212,14 @@ public static class NodeExtensions
 
     public static Vector3 Forward(this Node3D node)
     {
-        return node.Transform.Basis.Z;
+        return -node.GlobalTransform.Basis.Z;
     }
     public static Vector3 Right(this Node3D node)
     {
-        return node.Transform.Basis.X;
+        return node.GlobalTransform.Basis.X;
     }
     public static Vector3 Up(this Node3D node)
     {
-        return node.Transform.Basis.Y;
+        return -node.GlobalTransform.Basis.Y;
     }
 }

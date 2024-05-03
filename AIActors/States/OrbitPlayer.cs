@@ -50,11 +50,11 @@ namespace AIStates
             float distance = ctx.GlobalPosition.DistanceTo(ctx.player.GlobalPosition);
             if (distance > radius)
             {
-                currentRelativePosition +=  ctx.Forward();
+                currentRelativePosition -=  ctx.Forward();
             }
             if(distance < radius)
             {
-                currentRelativePosition -= ctx.Forward();
+                currentRelativePosition += ctx.Forward();
             }
 
             switch(ctx.randomNumberGenerator.RandiRange(0, 3))

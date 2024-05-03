@@ -35,5 +35,11 @@ public partial class PlayerController
             }
             crouchToggle = !crouchToggle;
         }
+
+        if (Input.IsActionJustPressed("interact"))
+        {
+            Interact();
+        }
+
     }
 }

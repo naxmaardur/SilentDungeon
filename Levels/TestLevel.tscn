@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://v3osbamw8yhh"]
+[gd_scene load_steps=21 format=3 uid="uid://v3osbamw8yhh"]
 
 [ext_resource type="PackedScene" uid="uid://bgxpppktaqd67" path="res://Player/player.tscn" id="1_hk0ni"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_x5t0d"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4wemtc8mky7t" path="res://AIActors/warden_actor.tscn" id="10_ivdta"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="10_jsmj6"]
 [ext_resource type="PackedScene" uid="uid://g56wsx73y8tg" path="res://AIActors/Skeleton_Actor.tscn" id="11_qm8wx"]
+[ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="12_l4f7o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yubw8"]
 
@@ -113,5 +114,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.963405, 12)
 
 [node name="Skeleton_Actor" parent="." instance=ExtResource("11_qm8wx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750746, 0.924692, 9.58101)
+
+[node name="TestPickUpObject" parent="." instance=ExtResource("12_l4f7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02543, 0.482008, 1.64463)
 
 [editable path="SoundSource"]

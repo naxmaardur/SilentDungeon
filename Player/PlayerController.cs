@@ -26,6 +26,9 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     private RandomNumberGenerator numberGenerator;
     public bool sneaking;
 
+
+    public Inventory inventory {  get; private set; }
+
     public void ChangeState(Type type)
     {
         stateMachine.ChangeState(type);
@@ -42,7 +45,6 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         ChangeState(typeof(WalkState));
     }
 
-
     public override void _Ready()
     {
         numberGenerator = new RandomNumberGenerator();
@@ -50,7 +52,8 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         SetupStateMachine();
         CameraSetup();
         //temp
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+        //Input.MouseMode = Input.MouseModeEnum.Captured;
+        inventory = new Inventory();
     }
 
     public override void _Process(double delta)
@@ -59,6 +62,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         stateMachine.OnUpdate(delta);
         CameraInput();
         attackProcess(delta);
+        CheckForInteractable();
     }
 
     public override void _PhysicsProcess(double delta)
