@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://4geqne8v16qw"]
+
+[ext_resource type="Texture2D" uid="uid://cxeoavjeyfsir" path="res://Assets/UI/Inv Slot.png" id="1_fieia"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/EquipmentSlot.cs" id="2_vf6ul"]
+
+[node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(55, 55)
+texture = ExtResource("1_fieia")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 52.5
+offset_bottom = 52.5
+expand_mode = 2
+script = ExtResource("2_vf6ul")

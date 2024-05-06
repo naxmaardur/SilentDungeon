@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dbwggjrjttmrv"]
+
+[ext_resource type="Script" path="res://GeneralScripts/InventoryItem.cs" id="1_d3wj2"]
+[ext_resource type="Texture2D" uid="uid://jdliqga24yny" path="res://Assets/Enemies/Skeleton/Normal Skeleton/blood/T_SK_Skull_AO.jpg" id="1_y1ai7"]
+
+[resource]
+script = ExtResource("1_d3wj2")
+Texture = ExtResource("1_y1ai7")
+SlotType = 1

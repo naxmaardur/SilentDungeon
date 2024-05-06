@@ -41,5 +41,22 @@ public partial class PlayerController
             Interact();
         }
 
+
+        if (Input.IsActionJustPressed("inventory"))
+        {
+
+            if (uiInvetory.ProcessMode != ProcessModeEnum.Inherit)
+            {
+                uiInvetory.Visible = true;
+                uiInvetory.ProcessMode = ProcessModeEnum.Inherit;
+                uiInvetory.OpenInventory();
+            }
+            else
+            {
+                uiInvetory.Visible = false;
+                uiInvetory.ProcessMode = ProcessModeEnum.Disabled;
+            }
+        }
+
     }
 }

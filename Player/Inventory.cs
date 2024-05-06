@@ -5,7 +5,7 @@ public partial class Inventory
 {
 	public InventoryItem[] inventoryItems;
 	public InventoryItem[] EquipedItems = new InventoryItem[7];
-
+	public Action EquipmentUpdated;
 	
 	//EquipeSlots
 	//0 hand R
@@ -59,6 +59,10 @@ public partial class Inventory
         else
         {
             inventoryItems[newSlot] = inventoryItems[currentSlot];
+			if (!OverWrite)
+			{
+                inventoryItems[currentSlot] = null;
+            }
         }
     }
 
@@ -69,10 +73,16 @@ public partial class Inventory
             InventoryItem oldItem = EquipedItems[newSlot];
             MoveItemInEquipeSlot(newSlot, currentSlot, true);
             EquipedItems[newSlot] = oldItem;
+			EquipmentUpdated?.Invoke();
         }
         else
         {
             EquipedItems[newSlot] = EquipedItems[currentSlot];
+            if (!OverWrite)
+            {
+                EquipedItems[currentSlot] = null;
+                EquipmentUpdated?.Invoke();
+            }
         }
     }
 
@@ -84,10 +94,16 @@ public partial class Inventory
             InventoryItem oldItem = inventoryItems[newSlot];
 			MoveEquipeToInventory(newSlot, currentSlot, true);
 			EquipedItems[newSlot] = oldItem;
-		}
+            EquipmentUpdated?.Invoke();
+        }
 		else
 		{
             EquipedItems[newSlot] = inventoryItems[currentSlot];
+            if (!OverWrite)
+            {
+                inventoryItems[currentSlot] = null;
+                EquipmentUpdated?.Invoke();
+            }
         }
     }
 
@@ -98,10 +114,16 @@ public partial class Inventory
             InventoryItem oldItem = EquipedItems[currentSlot];
             MoveItemToEquipeSlot(currentSlot, newSlot, true);
             inventoryItems[newSlot] = oldItem;
+            EquipmentUpdated?.Invoke();
         }
 		else
 		{
             inventoryItems[newSlot] = EquipedItems[currentSlot];
+            if (!OverWrite)
+            {
+                EquipedItems[currentSlot] = null;
+                EquipmentUpdated?.Invoke();
+            }
         }
     }
 
@@ -127,6 +149,12 @@ public partial class Inventory
 		{
 			inventoryItems[i] = null;
 		}
+		EquipedItems = new InventoryItem[7];
+
+		EquipedItems[0] = GD.Load<InventoryItem>("res://Items/Default/DefaultSword.tres");
+
+       
+
 
         GD.PrintErr("Not Implemented: Inventory.Load");
     }

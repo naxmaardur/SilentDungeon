@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bgxpppktaqd67"]
+[gd_scene load_steps=57 format=3 uid="uid://bgxpppktaqd67"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
@@ -7,10 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cnmk81mx5jdkb" path="res://Assets/weapons/shield_03.tscn" id="3_vjllw"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="4_8uax4"]
 [ext_resource type="AudioStream" uid="uid://do1tq0jn21v4n" path="res://Assets/weapons/sounds/sword-hit-7160.mp3" id="4_v5ixt"]
-[ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/EquipmentSlot.cs" id="8_ei5r8"]
-[ext_resource type="Texture2D" uid="uid://ba8uon0pbm1rd" path="res://Assets/Enemies/Skeleton/Normal Skeleton/blood/T_SK_Skeleton_AO.jpg" id="8_isjlg"]
-[ext_resource type="Script" path="res://GeneralScripts/InventoryItem.cs" id="10_3hbvw"]
-[ext_resource type="Texture2D" uid="uid://bgw5abhkujoac" path="res://Assets/Enemies/Skeleton/Normal Skeleton/blood/T_SK_Skeleton_BaseColor_SandBlood.jpg" id="11_0rc1w"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIInvetory.cs" id="8_134wr"]
+[ext_resource type="PackedScene" uid="uid://4geqne8v16qw" path="res://Prefabs/UI/InvSlot.tscn" id="9_tnsn1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
 
@@ -461,16 +459,6 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mmrxv"]
 height = 1.24769
 
-[sub_resource type="Resource" id="Resource_1aip2"]
-script = ExtResource("10_3hbvw")
-Texture = ExtResource("8_isjlg")
-SlotType = 0
-
-[sub_resource type="Resource" id="Resource_qifcf"]
-script = ExtResource("10_3hbvw")
-Texture = ExtResource("11_0rc1w")
-SlotType = 0
-
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox") groups=["player"]]
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
@@ -570,188 +558,410 @@ shape = SubResource("CapsuleShape3D_mmrxv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Inventory" type="Control" parent="CanvasLayer"]
+[node name="Container" type="Control" parent="CanvasLayer"]
+process_mode = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 367.0
-offset_top = 152.0
-offset_right = -422.0
-offset_bottom = -174.0
+offset_left = 675.0
+offset_top = 177.0
+offset_right = -114.0
+offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Inventory"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Container"]
 layout_mode = 0
-offset_right = 371.0
-offset_bottom = 339.0
+offset_left = -76.0
+offset_top = 46.0
+offset_right = 469.0
+offset_bottom = 296.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Container/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 536.0
+offset_bottom = 349.0
 columns = 9
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-texture = ExtResource("8_isjlg")
-expand_mode = 2
-script = ExtResource("8_ei5r8")
-Item = SubResource("Resource_1aip2")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect2" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-texture = ExtResource("11_0rc1w")
-expand_mode = 2
-script = ExtResource("8_ei5r8")
-Item = SubResource("Resource_qifcf")
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect3" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect4" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect5" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect6" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect7" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect8" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect9" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect10" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect10" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect11" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect11" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect12" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect12" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect13" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect13" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect14" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect14" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect15" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect15" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect16" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect16" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect17" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect17" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect18" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect18" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect19" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect19" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect20" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect20" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect21" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect21" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect22" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect22" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect23" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect23" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect24" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect24" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect25" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect25" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect26" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect26" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
 
-[node name="TextureRect27" type="TextureRect" parent="CanvasLayer/Inventory/GridContainer"]
-custom_minimum_size = Vector2(50, 50)
+[node name="TextureRect27" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-expand_mode = 2
-script = ExtResource("8_ei5r8")
+
+[node name="TextureRect28" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect29" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect30" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect31" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect32" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect33" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect34" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect35" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect36" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="Inventory" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("GridContainer")]
+process_mode = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 91.0
+offset_top = 152.0
+offset_right = -698.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_134wr")
+GridContainer = NodePath("Panel/GridContainer")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory"]
+layout_mode = 0
+offset_left = -76.0
+offset_top = -104.0
+offset_right = 469.0
+offset_bottom = 416.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Inventory/Panel"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 267.0
+offset_right = 536.0
+offset_bottom = 606.0
+columns = 9
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect4" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect7" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect8" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect9" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect10" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect11" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect12" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect13" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect14" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect15" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect16" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect17" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect18" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect19" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect20" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect21" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect22" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect23" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect24" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect25" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect26" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect27" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect28" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect29" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect30" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect31" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect32" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect33" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect34" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect35" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="TextureRect36" parent="CanvasLayer/Inventory/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Inventory/Panel"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 21.0
+offset_right = 411.0
+offset_bottom = 246.0
+
+[node name="Rhand" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 85.0
+offset_right = 200.0
+offset_bottom = 140.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Rhand" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+SlotType = 1
+IsEquipSlot = true
+
+[node name="LeftHand" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 85.0
+offset_right = 80.0
+offset_bottom = 140.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/LeftHand" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+Slot = 1
+SlotType = 1
+IsEquipSlot = true
+
+[node name="Head" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 25.0
+offset_right = 140.0
+offset_bottom = 80.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Head" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+Slot = 2
+SlotType = 2
+IsEquipSlot = true
+
+[node name="Chest" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 85.0
+offset_right = 140.0
+offset_bottom = 140.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Chest" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+Slot = 3
+SlotType = 3
+IsEquipSlot = true
+
+[node name="Boots" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 145.0
+offset_right = 140.0
+offset_bottom = 200.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Boots" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+Slot = 4
+SlotType = 4
+IsEquipSlot = true
+
+[node name="QuickSlot1" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 25.0
+offset_right = 280.0
+offset_bottom = 80.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/QuickSlot1" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+Slot = 5
+SlotType = 5
+IsEquipSlot = true
+
+[node name="QuickSlot2" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 85.0
+offset_right = 280.0
+offset_bottom = 140.0
+
+[node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/QuickSlot2" index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+Slot = 6
+SlotType = 5
+IsEquipSlot = true
 
 [editable path="Head/RightHand/SoundSource"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/Rhand"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/LeftHand"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/Head"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/Chest"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/Boots"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/QuickSlot1"]
+[editable path="CanvasLayer/Inventory/Panel/Panel/QuickSlot2"]

@@ -25,6 +25,7 @@ public partial class EquipmentSlot : TextureRect
 
     public void SetItem(InventoryItem item)
     {
+        GD.Print(item);
         Item = item;
         if(item == null)
         {

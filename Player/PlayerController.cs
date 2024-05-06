@@ -28,7 +28,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
 
 
     public Inventory inventory {  get; private set; }
-
+    private UIInvetory uiInvetory;
     public void ChangeState(Type type)
     {
         stateMachine.ChangeState(type);
@@ -47,13 +47,15 @@ public partial class PlayerController : CharacterBody3D, IDamagable
 
     public override void _Ready()
     {
+        inventory = new Inventory();
         numberGenerator = new RandomNumberGenerator();
+        uiInvetory = this.GetChildByType<UIInvetory>();
         AttackSetup();
         SetupStateMachine();
         CameraSetup();
         //temp
         //Input.MouseMode = Input.MouseModeEnum.Captured;
-        inventory = new Inventory();
+        
     }
 
     public override void _Process(double delta)
