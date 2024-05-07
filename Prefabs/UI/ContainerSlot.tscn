@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://blj24shf25bj1"]
+
+[ext_resource type="Texture2D" uid="uid://cxeoavjeyfsir" path="res://Assets/UI/Inv Slot.png" id="1_capyx"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/ChestSlot.cs" id="2_ox2b5"]
+
+[node name="TextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(55, 55)
+texture = ExtResource("1_capyx")
+expand_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 2.5
+offset_top = 2.5
+offset_right = 52.5
+offset_bottom = 52.5
+expand_mode = 2
+script = ExtResource("2_ox2b5")

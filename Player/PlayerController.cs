@@ -27,7 +27,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     public bool sneaking;
 
 
-    public Inventory inventory {  get; private set; }
+    public Inventory inventory;
     private UIInvetory uiInvetory;
     public void ChangeState(Type type)
     {

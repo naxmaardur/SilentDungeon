@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bgxpppktaqd67"]
+[gd_scene load_steps=59 format=3 uid="uid://cbiijw27espqm"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="4_8uax4"]
 [ext_resource type="AudioStream" uid="uid://do1tq0jn21v4n" path="res://Assets/weapons/sounds/sword-hit-7160.mp3" id="4_v5ixt"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIInvetory.cs" id="8_134wr"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIItemContainer.cs" id="8_mxjal"]
+[ext_resource type="PackedScene" uid="uid://blj24shf25bj1" path="res://Prefabs/UI/ContainerSlot.tscn" id="9_2dg4q"]
 [ext_resource type="PackedScene" uid="uid://4geqne8v16qw" path="res://Prefabs/UI/InvSlot.tscn" id="9_tnsn1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
@@ -559,7 +561,6 @@ shape = SubResource("CapsuleShape3D_mmrxv")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Container" type="Control" parent="CanvasLayer"]
-process_mode = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -570,6 +571,7 @@ offset_right = -114.0
 offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("8_mxjal")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Container"]
 layout_mode = 0
@@ -586,116 +588,222 @@ offset_right = 536.0
 offset_bottom = 349.0
 columns = 9
 
-[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect2" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect2" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect3" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect2" index="0"]
+Slot = 1
+
+[node name="TextureRect3" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect4" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect3" index="0"]
+Slot = 2
+
+[node name="TextureRect4" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect5" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect4" index="0"]
+Slot = 3
+
+[node name="TextureRect5" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect6" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect5" index="0"]
+Slot = 4
+
+[node name="TextureRect6" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect7" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect6" index="0"]
+Slot = 5
+
+[node name="TextureRect7" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect8" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect7" index="0"]
+Slot = 6
+
+[node name="TextureRect8" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect9" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect8" index="0"]
+Slot = 7
+
+[node name="TextureRect9" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect10" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect9" index="0"]
+Slot = 8
+
+[node name="TextureRect10" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect11" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect10" index="0"]
+Slot = 9
+
+[node name="TextureRect11" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect12" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect11" index="0"]
+Slot = 10
+
+[node name="TextureRect12" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect13" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect12" index="0"]
+Slot = 11
+
+[node name="TextureRect13" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect14" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect13" index="0"]
+Slot = 12
+
+[node name="TextureRect14" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect15" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect14" index="0"]
+Slot = 13
+
+[node name="TextureRect15" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect16" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect15" index="0"]
+Slot = 14
+
+[node name="TextureRect16" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect17" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect16" index="0"]
+Slot = 15
+
+[node name="TextureRect17" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect18" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect17" index="0"]
+Slot = 16
+
+[node name="TextureRect18" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect19" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect18" index="0"]
+Slot = 17
+
+[node name="TextureRect19" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect20" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect19" index="0"]
+Slot = 18
+
+[node name="TextureRect20" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect21" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect20" index="0"]
+Slot = 19
+
+[node name="TextureRect21" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect22" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect21" index="0"]
+Slot = 20
+
+[node name="TextureRect22" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect23" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect22" index="0"]
+Slot = 21
+
+[node name="TextureRect23" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect24" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect23" index="0"]
+Slot = 22
+
+[node name="TextureRect24" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect25" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect24" index="0"]
+Slot = 23
+
+[node name="TextureRect25" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect26" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect25" index="0"]
+Slot = 24
+
+[node name="TextureRect26" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect27" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect26" index="0"]
+Slot = 25
+
+[node name="TextureRect27" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect28" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect27" index="0"]
+Slot = 26
+
+[node name="TextureRect28" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect29" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect28" index="0"]
+Slot = 27
+
+[node name="TextureRect29" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect30" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect29" index="0"]
+Slot = 28
+
+[node name="TextureRect30" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect31" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect30" index="0"]
+Slot = 29
+
+[node name="TextureRect31" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect32" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect31" index="0"]
+Slot = 30
+
+[node name="TextureRect32" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect33" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect32" index="0"]
+Slot = 31
+
+[node name="TextureRect33" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect34" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect33" index="0"]
+Slot = 32
+
+[node name="TextureRect34" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect35" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect34" index="0"]
+Slot = 33
+
+[node name="TextureRect35" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
 
-[node name="TextureRect36" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_tnsn1")]
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect35" index="0"]
+Slot = 34
+
+[node name="TextureRect36" parent="CanvasLayer/Container/Panel/GridContainer" instance=ExtResource("9_2dg4q")]
 layout_mode = 2
+
+[node name="TextureRect" parent="CanvasLayer/Container/Panel/GridContainer/TextureRect36" index="0"]
+Slot = 35
 
 [node name="Inventory" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("GridContainer")]
 process_mode = 4
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -958,6 +1066,42 @@ SlotType = 5
 IsEquipSlot = true
 
 [editable path="Head/RightHand/SoundSource"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect2"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect3"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect4"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect5"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect6"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect7"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect8"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect9"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect10"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect11"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect12"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect13"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect14"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect15"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect16"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect17"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect18"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect19"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect20"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect21"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect22"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect23"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect24"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect25"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect26"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect27"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect28"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect29"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect30"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect31"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect32"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect33"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect34"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect35"]
+[editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect36"]
 [editable path="CanvasLayer/Inventory/Panel/Panel/Rhand"]
 [editable path="CanvasLayer/Inventory/Panel/Panel/LeftHand"]
 [editable path="CanvasLayer/Inventory/Panel/Panel/Head"]

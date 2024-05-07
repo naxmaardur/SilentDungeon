@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://v3osbamw8yhh"]
 
-[ext_resource type="PackedScene" uid="uid://bgxpppktaqd67" path="res://Player/player.tscn" id="1_hk0ni"]
+[ext_resource type="PackedScene" uid="uid://cbiijw27espqm" path="res://Player/player.tscn" id="1_hk0ni"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_x5t0d"]
 [ext_resource type="PackedScene" uid="uid://d05uxfymokamn" path="res://Assets/Enemies/Skeleton/Spider/spider.gltf" id="3_lvkot"]
 [ext_resource type="PackedScene" uid="uid://6rb30w2fyhs8" path="res://Assets/Enemies/Skeleton/Normal Skeleton/Sand/Skeleton.gltf" id="4_whxc0"]

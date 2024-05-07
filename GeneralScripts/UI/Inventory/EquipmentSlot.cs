@@ -87,38 +87,71 @@ public partial class EquipmentSlot : TextureRect
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
+        try
+        {
+            ChestSlot chestData = (ChestSlot)data;
+            if (Item == null)
+            {
+                chestData.Texture = null;
+            }
+            else
+            {
+                chestData.Texture = Item.Texture;
+            }
+
+            InventoryItem item = chestData.Item;
+            chestData.Item = Item;
+            Item = item;
+            Texture = item.Texture;
+            PlayerController player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
+
+            if (IsEquipSlot)
+            {
+                chestData.Container.MoveItemToEquipeSlot(chestData.Slot, Slot, ref player.inventory);
+            }
+            if (!IsEquipSlot)
+            {
+                chestData.Container.MoveItemToInventory(chestData.Slot, Slot, ref player.inventory);
+            }
+            return;
+        }
+        catch { }
+
         EquipmentSlot passedData = (EquipmentSlot)data;
-        if(passedData == null) { return; }
+        if (passedData != null)
+        {
+            if (Item == null)
+            {
+                passedData.Texture = null;
+            }
+            else
+            {
+                passedData.Texture = Item.Texture;
+            }
+            InventoryItem item = passedData.Item;
+            passedData.Item = Item;
+            Item = item;
+            Texture = item.Texture;
+            PlayerController player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
 
-        if(Item == null)
-        {
-            passedData.Texture = null;
-        }
-        else
-        {
-            passedData.Texture = Item.Texture;
-        }
-        InventoryItem item = passedData.Item;
-        passedData.Item = Item;
-        Item = item;
-        Texture = item.Texture;
-        PlayerController player =  GetTree().GetNodesInGroup("player")[0] as PlayerController;
-
-        if (passedData.IsEquipSlot && IsEquipSlot)
-        {
-            player.inventory.MoveItemInEquipeSlot(passedData.Slot,Slot);
-        }
-        if(passedData.IsEquipSlot &&  !IsEquipSlot)
-        {
-            player.inventory.MoveEquipeToInventory(passedData.Slot,Slot);
-        }
-        if (!passedData.IsEquipSlot && IsEquipSlot)
-        {
-            player.inventory.MoveItemToEquipeSlot(passedData.Slot, Slot);
-        }
-        if (!passedData.IsEquipSlot && !IsEquipSlot)
-        {
-            player.inventory.MoveItemInInventory(passedData.Slot, Slot);
+            if (passedData.IsEquipSlot && IsEquipSlot)
+            {
+                player.inventory.MoveItemInEquipeSlot(passedData.Slot, Slot);
+            }
+            if (passedData.IsEquipSlot && !IsEquipSlot)
+            {
+                player.inventory.MoveEquipeToInventory(passedData.Slot, Slot);
+            }
+            if (!passedData.IsEquipSlot && IsEquipSlot)
+            {
+                player.inventory.MoveItemToEquipeSlot(passedData.Slot, Slot);
+            }
+            if (!passedData.IsEquipSlot && !IsEquipSlot)
+            {
+                player.inventory.MoveItemInInventory(passedData.Slot, Slot);
+            }
         }
     }
+
+   
 }
