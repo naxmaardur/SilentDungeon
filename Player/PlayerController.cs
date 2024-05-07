@@ -29,6 +29,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
 
     public Inventory inventory;
     private UIInvetory uiInvetory;
+    public UIItemContainer uIContainer;
     public void ChangeState(Type type)
     {
         stateMachine.ChangeState(type);
@@ -50,6 +51,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         inventory = new Inventory();
         numberGenerator = new RandomNumberGenerator();
         uiInvetory = this.GetChildByType<UIInvetory>();
+        uIContainer = this.GetChildByType<UIItemContainer>();
         AttackSetup();
         SetupStateMachine();
         CameraSetup();

@@ -47,16 +47,28 @@ public partial class PlayerController
 
             if (uiInvetory.ProcessMode != ProcessModeEnum.Inherit)
             {
-                uiInvetory.Visible = true;
-                uiInvetory.ProcessMode = ProcessModeEnum.Inherit;
-                uiInvetory.OpenInventory();
+                OpenInventory();
             }
             else
             {
-                uiInvetory.Visible = false;
-                uiInvetory.ProcessMode = ProcessModeEnum.Disabled;
+                CloseInventory();
             }
         }
 
+    }
+
+    public void OpenInventory()
+    {
+        uiInvetory.Visible = true;
+        uiInvetory.ProcessMode = ProcessModeEnum.Inherit;
+        uiInvetory.OpenInventory();
+    }
+
+    public void CloseInventory()
+    {
+        uiInvetory.Visible = false;
+        uiInvetory.ProcessMode = ProcessModeEnum.Disabled;
+        uIContainer.Visible = false;
+        uIContainer.ProcessMode = ProcessModeEnum.Disabled;
     }
 }

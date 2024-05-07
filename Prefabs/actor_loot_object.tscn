@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://b1avuxe2ki04v"]
+[gd_scene load_steps=5 format=3 uid="uid://b1avuxe2ki04v"]
+
+[ext_resource type="Script" path="res://GeneralScripts/ContainerInteractable.cs" id="1_cp0b3"]
+[ext_resource type="Shader" path="res://GeneralScripts/HighlightShader.gdshader" id="2_q2afx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5cx3v"]
+render_priority = 0
+shader = ExtResource("2_q2afx")
+shader_parameter/strenght = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pb21u"]
 
 [node name="ActorLootObject" type="Node3D"]
+script = ExtResource("1_cp0b3")
+material = SubResource("ShaderMaterial_5cx3v")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 129
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_pb21u")

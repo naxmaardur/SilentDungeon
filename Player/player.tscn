@@ -955,7 +955,6 @@ offset_right = 200.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Rhand" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0
@@ -971,7 +970,6 @@ offset_right = 80.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/LeftHand" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0
@@ -988,7 +986,6 @@ offset_right = 140.0
 offset_bottom = 80.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Head" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0
@@ -1005,7 +1002,6 @@ offset_right = 140.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Chest" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0
@@ -1022,7 +1018,6 @@ offset_right = 140.0
 offset_bottom = 200.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Boots" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0
@@ -1039,7 +1034,6 @@ offset_right = 280.0
 offset_bottom = 80.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/QuickSlot1" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0
@@ -1056,7 +1050,6 @@ offset_right = 280.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/QuickSlot2" index="0"]
-layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 50.0

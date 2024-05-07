@@ -50,6 +50,14 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public bool isWarden;
     [Export]
     public double attackTime = 0.7;
+
+    [Export]
+    public LootTable lootTable;
+    [Export]
+    public int minLootRolls;
+    [Export]
+    public int maxLootRolls;
+
     
 
     // Called through GD script
