@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cbiijw27espqm"]
+[gd_scene load_steps=61 format=3 uid="uid://cbiijw27espqm"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIItemContainer.cs" id="8_mxjal"]
 [ext_resource type="PackedScene" uid="uid://blj24shf25bj1" path="res://Prefabs/UI/ContainerSlot.tscn" id="9_2dg4q"]
 [ext_resource type="PackedScene" uid="uid://4geqne8v16qw" path="res://Prefabs/UI/InvSlot.tscn" id="9_tnsn1"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/DropItem.cs" id="12_i75g3"]
+[ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="13_4eno7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
 
@@ -560,7 +562,14 @@ shape = SubResource("CapsuleShape3D_mmrxv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1153.0
+offset_bottom = 649.0
+script = ExtResource("12_i75g3")
+dropItem = ExtResource("13_4eno7")
+
 [node name="Container" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

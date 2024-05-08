@@ -87,6 +87,7 @@ public partial class EquipmentSlot : TextureRect
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
+        
         try
         {
             ChestSlot chestData = (ChestSlot)data;

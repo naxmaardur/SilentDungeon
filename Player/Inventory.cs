@@ -40,8 +40,12 @@ public partial class Inventory
 	{
 		inventoryItems[slotId] = null;
 	}
+    public void RemoveItemFromEquipeSlot(int slotId)
+    {
+        EquipedItems[slotId] = null;
+    }
 
-	public void DropItemFromInventory(int slotId)
+    public void DropItemFromInventory(int slotId)
 	{
         //SpawnItem near Player
         RemoveItemFromInventory(slotId);

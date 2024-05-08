@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dbwggjrjttmrv"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dbwggjrjttmrv"]
 
 [ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_d3wj2"]
+[ext_resource type="PackedScene" uid="uid://dk3r7hdr8l66u" path="res://Items/Visuals/SwordVisuals.tscn" id="1_o3umx"]
 [ext_resource type="Texture2D" uid="uid://jdliqga24yny" path="res://Assets/Enemies/Skeleton/Normal Skeleton/blood/T_SK_Skull_AO.jpg" id="1_y1ai7"]
 
 [resource]
 script = ExtResource("1_d3wj2")
 Texture = ExtResource("1_y1ai7")
 SlotType = 1
+ObjectMesh = ExtResource("1_o3umx")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.0
+SpeedMod = 0.0
+Protection = 0.0
+Speed = 0.0

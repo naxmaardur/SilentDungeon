@@ -1,42 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://df0g3aeh446kb"]
+[gd_scene load_steps=6 format=3 uid="uid://df0g3aeh446kb"]
 
 [ext_resource type="Script" path="res://GeneralScripts/PickUpItem.cs" id="1_1b46o"]
 [ext_resource type="Shader" path="res://GeneralScripts/HighlightShader.gdshader" id="2_2aoyl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1niph"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbn6g"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvrva"]
 render_priority = 0
 shader = ExtResource("2_2aoyl")
-shader_parameter/strenght = 0.0
+shader_parameter/strenght = null
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_agaf5"]
-render_priority = 0
-shader = ExtResource("2_2aoyl")
-shader_parameter/strenght = 0.0
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qo34"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bii8w"]
-next_pass = SubResource("ShaderMaterial_agaf5")
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 2.0
-grow_amount = 0.703
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn3hp"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_dl2ct"]
-material = SubResource("StandardMaterial3D_bii8w")
-
-[node name="TestPickUpObject" type="RigidBody3D"]
+[node name="TestPickUpObject" type="RigidBody3D" node_paths=PackedStringArray("collisionObject", "areaCollision")]
 collision_layer = 2
 script = ExtResource("1_1b46o")
+material = SubResource("ShaderMaterial_uvrva")
+collisionObject = NodePath("CollisionShape3D")
+areaCollision = NodePath("Area3D/CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_1niph")
+shape = SubResource("BoxShape3D_7qo34")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 129
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_1niph")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_overlay = SubResource("ShaderMaterial_qbn6g")
-mesh = SubResource("BoxMesh_dl2ct")
+shape = SubResource("BoxShape3D_jn3hp")

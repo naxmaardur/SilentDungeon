@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk3r7hdr8l66u"]
+
+[ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="1_ir16t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_flb4p"]
+size = Vector3(0.25177, 0.101433, 1.16968)
+
+[node name="SwordVisuals" type="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00409317, 0)
+shape = SubResource("BoxShape3D_flb4p")
+
+[node name="Sword_01" parent="." instance=ExtResource("1_ir16t")]
+transform = Transform3D(1, 0, 0, -2.98023e-08, -4.37114e-08, 1, 1.3027e-15, -1, -4.37114e-08, 0, 0, 0.542339)
+script = null
