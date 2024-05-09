@@ -15,8 +15,6 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     [Export] public CollisionShape3D crouchingCollisionShape;
     [Export] public Area3D headBox;
 
-    private bool active = true;
-
     private bool crouchToggle;
 
     public float horizontalFlySpeed;
@@ -30,6 +28,19 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     public Inventory inventory;
     private UIInvetory uiInvetory;
     public UIItemContainer uIContainer;
+
+
+    public bool inputsActive = true;
+    public bool activeActor = true; // for the out of run UI and stuff
+
+
+
+    private float protection;
+    public float SpeedMod { get; private set; }
+    public float SneakSpeedMod { get; private set; }
+    public float RunSpeedMod { get; private set; }
+    public float SoundMod { get; private set; }
+
     public void ChangeState(Type type)
     {
         stateMachine.ChangeState(type);
@@ -56,34 +67,69 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         SetupStateMachine();
         CameraSetup();
         //temp
-        //Input.MouseMode = Input.MouseModeEnum.Captured;
-        
+        inventory.EquipmentUpdated += EquipmentUpdate;
+        EquipmentUpdate();
+        healthUpdate?.Invoke(health);
     }
+
+    public void EquipmentUpdate()
+    {
+        if (inventory.EquipedItems[0] != null)
+        {
+            SetWeaponRight(inventory.EquipedItems[0].WeaponID);
+        }
+        else
+        {
+            SetWeaponRight(0);
+        }
+        SetAttack(rightHandTree, false);
+
+        protection = 0;
+        SpeedMod = 1;
+        SoundMod = 1;
+        SneakSpeedMod = 0;
+        RunSpeedMod = 0;
+
+        foreach(InventoryItem item in inventory.EquipedItems)
+        {
+            if (item != null)
+            {
+                protection += item.Protection;
+                SpeedMod += item.SpeedMod;
+                SoundMod += item.SoundMod;
+                SneakSpeedMod += item.SneakSpeedMod;
+                RunSpeedMod += item.RunSpeedMod;
+            }
+        }
+        protection = 1 - Mathf.Clamp(Mathf.InverseLerp(0, 125, Mathf.Clamp(protection, 0, 125)), 0, 0.8f);
+    }
+
 
     public override void _Process(double delta)
     {
+        if (!activeActor) { return; }
         HandleInputs();
         stateMachine.OnUpdate(delta);
-        CameraInput();
+        if (inputsActive)
+        {
+            CameraInput();
+            CheckForInteractable();
+        }
         attackProcess(delta);
-        CheckForInteractable();
+
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        if (active)
-        {
-            stateMachine.OnPhysicsUpdate(delta);
-            CameraPhysicsProcess(delta);
-        }
+        if (!activeActor) { return; }
+        stateMachine.OnPhysicsUpdate(delta);
+        CameraPhysicsProcess(delta);
     }
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (active)
-        {
-            stateMachine.CurrentState.UnHandledInput(@event);
-            CameraInput(@event);
-        }
+        if (!inputsActive) { return; }
+        stateMachine.CurrentState.UnHandledInput(@event);
+        CameraInput(@event);
     }
 }

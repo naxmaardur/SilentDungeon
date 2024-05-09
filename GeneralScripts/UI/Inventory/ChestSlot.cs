@@ -36,6 +36,7 @@ public partial class ChestSlot : EquipmentSlot
             if (Item == null)
             {
                 chestData.Texture = null;
+                chestData.TooltipText = "";
             }
             else
             {
@@ -44,6 +45,7 @@ public partial class ChestSlot : EquipmentSlot
             chestData.Item = Item;
             Item = item;
             Texture = item.Texture;
+            TooltipText = "a";
             chestData.Container.MoveItemInInventory(chestData.Slot, Slot);
             return;
         } catch { }
@@ -54,6 +56,7 @@ public partial class ChestSlot : EquipmentSlot
             if (Item == null)
             {
                 passedData.Texture = null;
+                passedData.TooltipText = "";
             }
             else
             {
@@ -63,8 +66,8 @@ public partial class ChestSlot : EquipmentSlot
             passedData.Item = Item;
             Item = item;
             Texture = item.Texture;
+            TooltipText = "a";
             PlayerController player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
-
             if (passedData.IsEquipSlot)
             {
                 Container.MoveEquipeToContainer(passedData.Slot, Slot, ref player.inventory);

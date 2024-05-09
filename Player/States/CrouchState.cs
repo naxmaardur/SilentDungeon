@@ -14,10 +14,13 @@ public class CrouchState : State<PlayerController>
             tempVelocity.Y -= ctx.gravity * (float)delta;
         }
 
-        // Handle Jump.
-        if (Input.IsActionJustPressed("jump") && ctx.IsOnFloor())
+        if (ctx.inputsActive)
         {
-            tempVelocity.Y = ctx.jumpVelocity;
+            // Handle Jump.
+            if (Input.IsActionJustPressed("jump") && ctx.IsOnFloor())
+            {
+                tempVelocity.Y = ctx.jumpVelocity;
+            }
         }
 
         // Get the input direction and handle the movement/deceleration.
@@ -27,19 +30,19 @@ public class CrouchState : State<PlayerController>
         {
             if (direction != Vector3.Zero)
             {
-                tempVelocity.X = direction.X * speed;
-                tempVelocity.Z = direction.Z * speed;
+                tempVelocity.X = direction.X * speed * (ctx.SpeedMod +ctx.SneakSpeedMod);
+                tempVelocity.Z = direction.Z * speed * (ctx.SpeedMod + ctx.SneakSpeedMod);
             }
             else
             {
-                tempVelocity.X = (float)Mathf.Lerp(tempVelocity.X, direction.X * speed, delta * 7.0f);
-                tempVelocity.Z = (float)Mathf.Lerp(tempVelocity.Z, direction.Z * speed, delta * 7.0f);
+                tempVelocity.X = (float)Mathf.Lerp(tempVelocity.X, direction.X * speed * (ctx.SpeedMod + ctx.SneakSpeedMod), delta * 7.0f);
+                tempVelocity.Z = (float)Mathf.Lerp(tempVelocity.Z, direction.Z * speed * (ctx.SpeedMod + ctx.SneakSpeedMod), delta * 7.0f);
             }
         }
         else
         {
-            tempVelocity.X = (float)Mathf.Lerp(tempVelocity.X, direction.X * speed, delta * 3.0f);
-            tempVelocity.Z = (float)Mathf.Lerp(tempVelocity.Z, direction.Z * speed, delta * 3.0f);
+            tempVelocity.X = (float)Mathf.Lerp(tempVelocity.X, direction.X * speed * (ctx.SpeedMod + ctx.SneakSpeedMod), delta * 3.0f);
+            tempVelocity.Z = (float)Mathf.Lerp(tempVelocity.Z, direction.Z * speed * (ctx.SpeedMod + ctx.SneakSpeedMod), delta * 3.0f);
         }
 
         ctx.Velocity = tempVelocity;

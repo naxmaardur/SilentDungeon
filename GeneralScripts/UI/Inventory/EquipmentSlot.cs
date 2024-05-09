@@ -13,31 +13,32 @@ public partial class EquipmentSlot : TextureRect
     [Export]
     public bool IsEquipSlot { get; set; }
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
+    }
 
     public void SetItem(InventoryItem item)
     {
-        GD.Print(item);
         Item = item;
-        if(item == null)
+        if (item == null)
         {
             Texture = null;
             return;
         }
         Texture = item.Texture;
+        TooltipText = "a";
     }
 
     public override Variant _GetDragData(Vector2 atPosition)
     {
-        if(Item != null) { 
+        if (Item != null)
+        {
             var data = this;
 
             var rect = new TextureRect();
@@ -45,10 +46,10 @@ public partial class EquipmentSlot : TextureRect
             rect.Texture = Texture;
             rect.ExpandMode = ExpandModeEnum.FitWidth;
             rect.Size = Size;
-		    Control control = new Control();
-		    control.AddChild(rect);
-		    rect.Position = -0.5f * rect.Size;
-		    SetDragPreview(control);
+            Control control = new Control();
+            control.AddChild(rect);
+            rect.Position = -0.5f * rect.Size;
+            SetDragPreview(control);
 
             return data;
         }
@@ -63,9 +64,9 @@ public partial class EquipmentSlot : TextureRect
         if (passedData == null) { return false; }
 
         //check if this slot is valid for this item
-        if(SlotType != 0) 
-        { 
-            if(passedData.Item.SlotType != SlotType)
+        if (SlotType != 0)
+        {
+            if (passedData.Item.SlotType != SlotType)
             {
                 return false;
             }
@@ -87,13 +88,14 @@ public partial class EquipmentSlot : TextureRect
 
     public override void _DropData(Vector2 atPosition, Variant data)
     {
-        
+
         try
         {
             ChestSlot chestData = (ChestSlot)data;
             if (Item == null)
             {
                 chestData.Texture = null;
+                chestData.TooltipText = "";
             }
             else
             {
@@ -114,6 +116,7 @@ public partial class EquipmentSlot : TextureRect
             {
                 chestData.Container.MoveItemToInventory(chestData.Slot, Slot, ref player.inventory);
             }
+            TooltipText = "a";
             return;
         }
         catch { }
@@ -124,6 +127,7 @@ public partial class EquipmentSlot : TextureRect
             if (Item == null)
             {
                 passedData.Texture = null;
+                passedData.TooltipText = "";
             }
             else
             {
@@ -134,7 +138,6 @@ public partial class EquipmentSlot : TextureRect
             Item = item;
             Texture = item.Texture;
             PlayerController player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
-
             if (passedData.IsEquipSlot && IsEquipSlot)
             {
                 player.inventory.MoveItemInEquipeSlot(passedData.Slot, Slot);
@@ -151,8 +154,30 @@ public partial class EquipmentSlot : TextureRect
             {
                 player.inventory.MoveItemInInventory(passedData.Slot, Slot);
             }
+            TooltipText = "a";
         }
     }
 
-   
+
+
+    public override GodotObject _MakeCustomTooltip(string forText)
+    {
+        Node node = ResourceLoader.Load<PackedScene>("res://Prefabs/UI/ToolTip.tscn").Instantiate();
+        ToolTip toolTip = node as ToolTip;
+        toolTip.SetValues(Item);
+
+        var styleBox = new StyleBoxFlat();
+        styleBox.BgColor = (new Color(0.2f, 0.2f, 0.2f,0.4f));
+        styleBox.BorderColor = new Color(0.87f, 0.75f, 0.062f);
+        styleBox.SetBorderWidthAll(2);
+        styleBox.ContentMarginLeft = 4;
+        styleBox.ContentMarginRight = 4;
+        styleBox.ContentMarginTop = 4;
+        styleBox.ContentMarginBottom = 4;
+
+        Theme = new Theme();
+        Theme.SetStylebox("panel", "TooltipPanel", styleBox);
+
+        return toolTip;
+    }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cbiijw27espqm"]
+[gd_scene load_steps=65 format=3 uid="uid://cbiijw27espqm"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
@@ -11,8 +11,10 @@
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIItemContainer.cs" id="8_mxjal"]
 [ext_resource type="PackedScene" uid="uid://blj24shf25bj1" path="res://Prefabs/UI/ContainerSlot.tscn" id="9_2dg4q"]
 [ext_resource type="PackedScene" uid="uid://4geqne8v16qw" path="res://Prefabs/UI/InvSlot.tscn" id="9_tnsn1"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/WardenAlertBar.cs" id="10_mrusv"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/DropItem.cs" id="12_i75g3"]
 [ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="13_4eno7"]
+[ext_resource type="Script" path="res://GeneralScripts/UI/HealthBar.cs" id="14_c1h31"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
 
@@ -463,6 +465,12 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mmrxv"]
 height = 1.24769
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd0qo"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm00"]
+bg_color = Color(0, 0.717647, 0.388235, 1)
+
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox") groups=["player"]]
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
@@ -501,9 +509,12 @@ current = true
 transform = Transform3D(0.423457, 0, -0.905915, 0, 1, 0, 0.905915, 0, 0.423457, 0.776481, -1.07792, -0.379414)
 
 [node name="Sword_01" parent="Head/RightHand" instance=ExtResource("2_68u4v")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, -2.98023e-08, 0, 1, -0.0504824, 0.201794, -0.0134773)
+visible = false
 
 [node name="Axe_01" parent="Head/RightHand" instance=ExtResource("2_f1j6c")]
+process_mode = 4
 transform = Transform3D(1.58919, 0, -5.96046e-08, 0, 1.58919, 0, 5.96046e-08, 0, 1.58919, 0, 0, 0)
 visible = false
 
@@ -562,6 +573,82 @@ shape = SubResource("CapsuleShape3D_mmrxv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="WardenAlert" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_right = 210.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = ExtResource("10_mrusv")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/WardenAlert"]
+custom_minimum_size = Vector2(400, 10)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -13.5
+offset_right = 125.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_rd0qo")
+value = 3.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/WardenAlert"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = 158.0
+offset_right = 53.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 55
+
+[node name="Timer" type="Timer" parent="CanvasLayer/WardenAlert"]
+wait_time = 3.4
+one_shot = true
+
+[node name="HealthBar" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(270, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 270.0
+grow_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HealthBar"]
+custom_minimum_size = Vector2(250, 10)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -13.5
+offset_right = 125.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ohm00")
+value = 100.0
+script = ExtResource("14_c1h31")
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 offset_right = 1153.0
 offset_bottom = 649.0
@@ -571,13 +658,15 @@ dropItem = ExtResource("13_4eno7")
 [node name="Container" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 675.0
-offset_top = 177.0
-offset_right = -114.0
-offset_bottom = -149.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = -156.0
+offset_right = 102.0
+offset_bottom = -156.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_mxjal")
@@ -814,13 +903,15 @@ Slot = 35
 process_mode = 4
 visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 91.0
-offset_top = 152.0
-offset_right = -698.0
-offset_bottom = -174.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -149.0
+offset_right = -479.0
+offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_134wr")
@@ -834,7 +925,7 @@ offset_right = 469.0
 offset_bottom = 416.0
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Inventory/Panel"]
-layout_mode = 0
+layout_mode = 2
 offset_left = 9.0
 offset_top = 267.0
 offset_right = 536.0
@@ -957,22 +1048,19 @@ offset_right = 411.0
 offset_bottom = 246.0
 
 [node name="Rhand" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+layout_mode = 2
 offset_left = 145.0
 offset_top = 85.0
 offset_right = 200.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Rhand" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 50.0
-offset_bottom = 50.0
 SlotType = 1
 IsEquipSlot = true
 
 [node name="LeftHand" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+visible = false
+layout_mode = 2
 offset_left = 25.0
 offset_top = 85.0
 offset_right = 80.0
@@ -988,55 +1076,44 @@ SlotType = 1
 IsEquipSlot = true
 
 [node name="Head" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+layout_mode = 2
 offset_left = 85.0
 offset_top = 25.0
 offset_right = 140.0
 offset_bottom = 80.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Head" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 50.0
-offset_bottom = 50.0
 Slot = 2
 SlotType = 2
 IsEquipSlot = true
 
 [node name="Chest" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+layout_mode = 2
 offset_left = 85.0
 offset_top = 85.0
 offset_right = 140.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Chest" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 50.0
-offset_bottom = 50.0
 Slot = 3
 SlotType = 3
 IsEquipSlot = true
 
 [node name="Boots" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+layout_mode = 2
 offset_left = 85.0
 offset_top = 145.0
 offset_right = 140.0
 offset_bottom = 200.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Boots" index="0"]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 50.0
-offset_bottom = 50.0
 Slot = 4
 SlotType = 4
 IsEquipSlot = true
 
 [node name="QuickSlot1" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+visible = false
+layout_mode = 2
 offset_left = 225.0
 offset_top = 25.0
 offset_right = 280.0
@@ -1052,7 +1129,8 @@ SlotType = 5
 IsEquipSlot = true
 
 [node name="QuickSlot2" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
-layout_mode = 0
+visible = false
+layout_mode = 2
 offset_left = 225.0
 offset_top = 85.0
 offset_right = 280.0

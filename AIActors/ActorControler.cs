@@ -34,7 +34,8 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public LerpVaule MovementX { get; private set; }
     public LerpVaule MovementZ { get; private set; }
 
-    public float alertValue;
+    private float alertValue;
+    public float AlertValue { get { return alertValue; } set { alertValue = value; AlertUpdated?.Invoke(value); } }
 
     public Vector3 positionOfIntrest;
 
@@ -58,7 +59,17 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     [Export]
     public int maxLootRolls;
 
-    
+    public Action<float> AlertUpdated;
+    public Action PlayerAgrod;
+
+
+    [Export]
+    public float playerDetectedValue = 12;
+    [Export]
+    private float PlayerLostValue = 4;
+    [Export]
+    private float playerDetectedNearValue = 9;
+
 
     // Called through GD script
     public override void _Ready()
@@ -79,6 +90,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         runLerp = new(0.1f);
         weapon = this.GetChildByType<Weapon>();
         weapon.SetOwner(this);
+        AlertValue = 0;
     }
 
     private void NavigationAgent3D_VelocityComputed(Vector3 safeVelocity)
@@ -141,14 +153,14 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         Transform = Transform.Scaled(scale);
         stateMachine.OnUpdate( delta );
         tree.Set("parameters/Alive/Run/blend_amount", runLerp.getCurrent(delta));
-        if(alertValue > 0)
+        if(AlertValue > 0)
         {
             if (!seeingPlayer() || !hasSight)
             {
-                alertValue -= (float)delta * 0.3f;
-                if (alertValue < 0)
+                AlertValue -= (float)delta * 0.3f;
+                if (AlertValue < 0)
                 {
-                    alertValue = 0;
+                    AlertValue = 0;
                 }
             }
         }
@@ -166,9 +178,10 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         damagedTimer.Start();
         tree.Set("parameters/Alive/RandomHit/blend_position", randomNumberGenerator.RandfRange(-1, 1));
         tree.Set("parameters/Alive/OneShotHit/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
-        alertValue = 10;
+        AlertValue = 10;
         health -= damage;
-        if(health <= 0)
+        if (isWarden && alertValue < playerDetectedValue) { AlertValue = playerDetectedValue; }
+        if(health <= 0 && !isWarden)
         {
             stateMachine.ChangeState(typeof(DeadState));
         }
@@ -176,11 +189,10 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     public void AddSoundImpulse(float value, Vector3 position)
     {
-        alertValue += value;
-        if(value > 3 || alertValue > 2)
+        AlertValue += value;
+        if(value > 3 || AlertValue > 2)
         {
-            GD.Print(alertValue);
-            if(alertValue > 9)
+            if(AlertValue > playerDetectedNearValue)
             {
                 positionOfIntrest = player.GlobalPosition;
             }

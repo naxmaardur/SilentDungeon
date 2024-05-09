@@ -75,23 +75,29 @@ public partial class ActorControler
 
     private bool DetectedPlayer()
     {
-        if (damagedTimer.TimeLeft > 0) { return true; }
-        if(alertValue > 12) { GD.Print("Detected Player from sound"); return true; }
-        return alertValue > 9 && GlobalPosition.DistanceTo(player.GlobalPosition) < 1 || seeingPlayer();
+        if (damagedTimer.TimeLeft > 0) { PlayerAgrod?.Invoke(); return true; }
+        if(AlertValue > playerDetectedValue) { GD.Print("Detected Player from sound"); PlayerAgrod?.Invoke(); return true; }
+        bool check = AlertValue > playerDetectedNearValue && GlobalPosition.DistanceTo(player.GlobalPosition) < 1 || seeingPlayer();
+        if (check)
+        {
+            PlayerAgrod?.Invoke();
+        }
+        return check;
     }
 
     private bool SearchPlayer()
     {
         if (hasSight && !seeingPlayer()) { return true; }
-        if (alertValue < 2) { return false; }
+        if (AlertValue < 2) { return false; }
         return true;
     }
 
     private bool LostPlayer()
     {
         if(damagedTimer.TimeLeft > 0) { return false; }
-        if(alertValue < 4)
+        if(AlertValue < PlayerLostValue)
         {
+            alertValue -= PlayerLostValue / 1.5f;
             positionOfIntrest = player.GlobalPosition;
             return true;
         }
@@ -121,6 +127,6 @@ public partial class ActorControler
 
     private bool InvestigateFinished()
     {
-        return alertValue < 0.0001f;
+        return AlertValue < 0.0001f;
     }
 }

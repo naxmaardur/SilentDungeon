@@ -8,7 +8,7 @@ namespace AIStates
 
         public override void OnEnter()
         {
-            ctx.alertValue = -2f;
+            ctx.AlertValue = -2f;
             ctx.tree.Set("parameters/conditions/Sleeping", true);
             ctx.tree.Set("parameters/conditions/Awake", false);
         }

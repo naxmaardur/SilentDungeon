@@ -34,7 +34,6 @@ public partial class UIInvetory : Control
         }
         for (int i = 0; i < 36; i++)
         {
-            GD.Print(player.inventory.inventoryItems[i]);
             SetItemInInventorySlot(player.inventory.inventoryItems[i], i);
         }
 

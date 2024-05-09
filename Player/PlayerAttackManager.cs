@@ -1,6 +1,8 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public partial class PlayerController
 {
@@ -22,17 +24,23 @@ public partial class PlayerController
     private void AttackSetup()
 	{
 		weaponsRight = rightHand.GetAllChildrenByType<Weapon>();
-        SoundSourceR = rightHand.GetChildByType<SoundSource>();
         if (weaponsRight.Length == 0)
-		{
-			GD.PrintErr("Weapons Right Array is empty");
-		}
+        {
+            GD.PrintErr("Weapons Right Array is empty");
+        }
+        List<Weapon> weapons = weaponsRight.ToList();
+		weapons.Insert(0, null);
+		weaponsRight = weapons.ToArray();
+        SoundSourceR = rightHand.GetChildByType<SoundSource>();
         SetWeaponRight(0);
         foreach (Weapon weapon in weaponsRight)
 		{
-			weapon.SetOwner(this);
-		}
-	}
+			if(weapon != null)
+			{
+                weapon.SetOwner(this);
+            }
+        }
+    }
 
 	public void SetWeaponRight(int id)
 	{
@@ -40,31 +48,36 @@ public partial class PlayerController
 		{
 			activeWeaponRight.Visible = false;
 			activeWeaponRight.HitNonHitBox -= RightAttackBounceback;
-		}
+            activeWeaponRight.ProcessMode = ProcessModeEnum.Disabled;
+        }
         activeWeaponRight = weaponsRight[id];
-        activeWeaponRight.Visible = true;
-        activeWeaponRight.HitNonHitBox += RightAttackBounceback;
-        switch (activeWeaponRight.weaponType)
+		if(activeWeaponRight != null)
 		{
-			case weaponType.sword:
-                rightHandTree.Set("parameters/conditions/HasAxe", false);
-                rightHandTree.Set("parameters/conditions/HasSword", true);
-                break;
-			case weaponType.axe:
-                rightHandTree.Set("parameters/conditions/HasAxe", true);
-                rightHandTree.Set("parameters/conditions/HasSword", false);
-                break;
-		}
+            activeWeaponRight.Visible = true;
+            activeWeaponRight.ProcessMode = ProcessModeEnum.Inherit;
+            activeWeaponRight.HitNonHitBox += RightAttackBounceback;
+            switch (activeWeaponRight.weaponType)
+            {
+                case weaponType.sword:
+                    rightHandTree.Set("parameters/conditions/HasAxe", false);
+                    rightHandTree.Set("parameters/conditions/HasSword", true);
+                    break;
+                case weaponType.axe:
+                    rightHandTree.Set("parameters/conditions/HasAxe", true);
+                    rightHandTree.Set("parameters/conditions/HasSword", false);
+                    break;
+            }
+        }
     }
 
 	public void EnableHitBoxesRight()
 	{
-        activeWeaponRight.EnableHitBoxes();
+        activeWeaponRight?.EnableHitBoxes();
 	}
 
 	public void DisableHitBoxesRight() 
 	{
-        activeWeaponRight.DisableHitBoxes();
+        activeWeaponRight?.DisableHitBoxes();
     }
 
 
@@ -74,9 +87,9 @@ public partial class PlayerController
 		{
 
 		}
-		if (rightHandTree != null)
+		if (rightHandTree != null && activeWeaponRight != null)
 		{
-            if (Input.IsActionJustPressed("attack"))
+            if (Input.IsActionJustPressed("attack") && inputsActive)
 			{
 				SetAttack(rightHandTree, true);
 			}

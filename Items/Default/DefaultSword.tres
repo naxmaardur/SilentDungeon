@@ -6,12 +6,16 @@
 
 [resource]
 script = ExtResource("1_d3wj2")
+Name = "Short Sword"
 Texture = ExtResource("1_y1ai7")
 SlotType = 1
 ObjectMesh = ExtResource("1_o3umx")
-WeaponID = 0
+WeaponID = 1
 ItemID = 0
 SoundMod = 0.0
 SpeedMod = 0.0
-Protection = 0.0
-Speed = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 1.0
+weaponDamage = 1.0
+Value = 0.0

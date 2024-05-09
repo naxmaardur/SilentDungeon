@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://de3dr2u4ilqqb"]
+
+[ext_resource type="Script" path="res://Prefabs/UI/ToolTip.cs" id="1_ed4d6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_26kjl"]
+font_size = 24
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tyh1"]
+font_size = 12
+
+[node name="ToolTip" type="Container" node_paths=PackedStringArray("nameLable", "ProtectionLable", "SpeedLable", "RunLable", "SneakLable", "SoundLable", "TypeLable")]
+layout_direction = 1
+anchors_preset = -1
+anchor_right = 0.256
+anchor_bottom = 0.256
+offset_right = -94.912
+offset_bottom = -105.888
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ed4d6")
+nameLable = NodePath("VBoxContainer/Label")
+ProtectionLable = NodePath("VBoxContainer/Label2")
+SpeedLable = NodePath("VBoxContainer/Label3")
+RunLable = NodePath("VBoxContainer/Label4")
+SneakLable = NodePath("VBoxContainer/Label5")
+SoundLable = NodePath("VBoxContainer/Label6")
+TypeLable = NodePath("VBoxContainer/Label7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"
+label_settings = SubResource("LabelSettings_26kjl")
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"
+label_settings = SubResource("LabelSettings_4tyh1")
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+text = "Name
+"

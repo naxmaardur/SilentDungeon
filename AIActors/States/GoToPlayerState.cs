@@ -9,9 +9,9 @@ namespace AIStates
         {
             ctx.runLerp.setTarget(1);
             ctx.navigationAgent3D.MaxSpeed = 10;
-            if(ctx.alertValue < 10)
+            if(ctx.AlertValue < 10)
             {
-                ctx.alertValue = 10;
+                ctx.AlertValue = 10;
             }
         }
 

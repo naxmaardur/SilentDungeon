@@ -43,13 +43,13 @@ public partial class Inventory
     public void RemoveItemFromEquipeSlot(int slotId)
     {
         EquipedItems[slotId] = null;
+        EquipmentUpdated?.Invoke();
     }
 
     public void DropItemFromInventory(int slotId)
 	{
         //SpawnItem near Player
         RemoveItemFromInventory(slotId);
-        GD.PrintErr("Not Implemented: Inventory.DropItemFromInventory");
     }
 
     public void MoveItemInInventory(int currentSlot, int newSlot, bool OverWrite = false)

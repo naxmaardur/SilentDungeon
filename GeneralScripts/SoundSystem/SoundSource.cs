@@ -89,7 +89,6 @@ public partial class SoundSource : Node3D
 			{
 				return;
 			}
-			GD.Print(hit.rid);
 			hitPositions.Add(hit.position);
 			Godot.Collections.Array<Rid> exclude = new()
             {
@@ -106,7 +105,6 @@ public partial class SoundSource : Node3D
         StreamPlayer3D.Play();
         particles.Emitting = true;
         Godot.Collections.Array<Node3D> nodes = area.GetOverlappingBodies();
-        GD.Print(nodes);
         Node3D[] nodesArray = nodes.ToArray();
         foreach (Node3D node in nodesArray)
         {
@@ -116,7 +114,6 @@ public partial class SoundSource : Node3D
             List<Vector3> hits = new List<Vector3>();
             StartRaycasting(node, collisionMask, ref hits);
             float currentSoundValue = soundValue;
-            GD.Print(hits.Count);
             if (hits.Count > 0)
             {
                 for (int i = 0; i < hits.Count; i++)
@@ -132,7 +129,6 @@ public partial class SoundSource : Node3D
                         start = hits[i - 1];
                     }
                     float distance = start.DistanceTo(hits[i]);
-                    GD.Print("Distance: " + distance);
                     distance *= falloffvalue;
                     currentSoundValue -= distance;
                     if (currentSoundValue <= 0)

@@ -15,19 +15,22 @@ public class WalkState : State<PlayerController>
         }
 
         // Handle Jump.
-        if (Input.IsActionJustPressed("jump") && ctx.IsOnFloor())
+        if (ctx.inputsActive)
         {
-            tempVelocity.Y = ctx.jumpVelocity;
-        }
+            if (Input.IsActionJustPressed("jump") && ctx.IsOnFloor())
+            {
+                tempVelocity.Y = ctx.jumpVelocity;
+            }
 
-        // Handle Sprint.
-        if (Input.IsActionPressed("run"))
-        {
-            speed = ctx.sprintSpeed;
-        }
-        else
-        {
-            speed = ctx.walkSpeed;
+            // Handle Sprint.
+            if (Input.IsActionPressed("run"))
+            {
+                speed = ctx.sprintSpeed * (ctx.SpeedMod + ctx.RunSpeedMod);
+            }
+            else
+            {
+                speed = ctx.walkSpeed * ctx.SpeedMod;
+            }
         }
 
         // Get the input direction and handle the movement/deceleration.
