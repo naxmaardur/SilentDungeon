@@ -135,6 +135,9 @@ shadow_mesh = SubResource("ArrayMesh_7tui5")
 [sub_resource type="BoxShape3D" id="BoxShape3D_4yx3r"]
 size = Vector3(1, 1.34656, 0.155823)
 
+[sub_resource type="Animation" id="Animation_q0r5f"]
+resource_name = "Idle"
+
 [sub_resource type="Animation" id="Animation_sfgdy"]
 resource_name = "spikeAction"
 length = 2.41667
@@ -250,9 +253,6 @@ tracks/15/path = NodePath("Node3D/Area3D8")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = PackedFloat32Array(0, 1, 0, -0.698448, -0.315471, 0.2, 1, 0, -0.601829, -0.315471, 0.4, 1, 0, 0.120668, -0.315471, 1, 1, 0, 0.120668, -0.315471, 1.2, 1, 0, -0.619886, -0.315471, 1.2001, 1, 0, -0.671881, -0.315471)
-
-[sub_resource type="Animation" id="Animation_q0r5f"]
-resource_name = "Idle"
 
 [sub_resource type="Animation" id="Animation_vamf0"]
 resource_name = "spikeAction_2"

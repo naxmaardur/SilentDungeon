@@ -10,10 +10,9 @@ public partial class UIItemContainer : Control
 
 
     // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public void Setup()
     {
         slots = this.GetAllChildrenByType<ChestSlot>();
-        OpenContainer(new ItemContainer());
     }
 
     public void OpenContainer(ItemContainer container)

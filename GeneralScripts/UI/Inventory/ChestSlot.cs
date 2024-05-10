@@ -4,6 +4,8 @@ using System;
 public partial class ChestSlot : EquipmentSlot
 {
     public ItemContainer Container { get; set; }
+    [Export]
+    private AudioStream sellSound;
 
     public override Variant _GetDragData(Vector2 atPosition)
     {
@@ -47,6 +49,7 @@ public partial class ChestSlot : EquipmentSlot
             Texture = item.Texture;
             TooltipText = "a";
             chestData.Container.MoveItemInInventory(chestData.Slot, Slot);
+            PlayMoveSound(Item.InventoryMoveSound);
             return;
         } catch { }
 
@@ -74,8 +77,25 @@ public partial class ChestSlot : EquipmentSlot
             }
             if (!passedData.IsEquipSlot)
             {
+                GD.Print(Container.mainChest);
+                if (Container.mainChest)
+                {
+                    
+                    if(Item.SlotType == 0)
+                    {
+                        //addScore
+                        PlayMoveSound(sellSound);
+                        Container.soldItem?.Invoke(Item.Value);
+                        Texture = null;
+                        Item = null;
+                        TooltipText = "";
+                        player.inventory.RemoveItemFromInventory(passedData.Slot);
+                        return;
+                    }
+                }
                 Container.MoveInventoryToContainer(passedData.Slot, Slot, ref player.inventory);
             }
+            PlayMoveSound(Item.InventoryMoveSound);
         }
     }
 }

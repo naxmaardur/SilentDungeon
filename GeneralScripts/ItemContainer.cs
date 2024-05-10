@@ -1,10 +1,18 @@
 using Godot;
 using System;
 
-public partial class ItemContainer
+public partial class ItemContainer : Resource
 {
+    [Export]
     public InventoryItem[] Items = new InventoryItem[36];
-    bool mainChest = false;
+    public bool mainChest { get; private set; }
+    public Action<int> soldItem;
+    private const string SAVEPATH = "user://chest.tres";
+
+    public ItemContainer()
+    {
+        
+    }
     public ItemContainer(bool LoadSave = false)
     {
         //Load Inventory of Save file if it exists
@@ -12,6 +20,15 @@ public partial class ItemContainer
         {
             mainChest = true;
             Load();
+        }
+        else
+        {
+            //If Nothing to load
+            Items = new InventoryItem[36];
+            for (int i = 0; i < Items.Length; i++)
+            {
+                Items[i] = null;
+            }
         }
     }
 
@@ -134,17 +151,23 @@ public partial class ItemContainer
 
     public void Save()
     {
-        GD.PrintErr("Not Implemented: ItemContainer.Save");
+        ResourceSaver.Save(this, SAVEPATH);
     }
 
     public void Load()
     {
+        if (ResourceLoader.Exists(SAVEPATH))
+        {
+            ItemContainer container = (ItemContainer)ResourceLoader.Load(SAVEPATH) ;
+            Items = container.Items;
+
+            return;
+        }
         //If Nothing to load
         Items = new InventoryItem[36];
         for (int i = 0; i < Items.Length; i++)
         {
             Items[i] = null;
         }
-        GD.PrintErr("Not Implemented: ItemContainer.Load");
     }
 }

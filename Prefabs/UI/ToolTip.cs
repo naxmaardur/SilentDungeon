@@ -66,7 +66,7 @@ public partial class ToolTip : Control
         {
             ProtectionLable.Text = "Damage: " + item.weaponDamage;
         }
-        else if (item.Value != 0)
+        else if (item.Value != 0 && item.Protection == 0)
         {
             ProtectionLable.Text = "Value: " + item.Value;
         }

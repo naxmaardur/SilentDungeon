@@ -7,7 +7,7 @@ public partial class PlayerController
 
     public Action<float> healthUpdate;
     public Action<bool> healthDisplay;
-
+    public Action PlayerDeath;
     public void TakeDamage(float damage)
     {
         startCameraShake(0.02f,5);
@@ -15,7 +15,7 @@ public partial class PlayerController
         damage *= protection;
         health -= damage;
         healthUpdate?.Invoke(health);
-        if(health <= 0)
+        if(health <= 0.999f)
         {
             death();
         }
@@ -23,6 +23,9 @@ public partial class PlayerController
 
     private void death()
     {
-        GD.PrintErr("Player death not implemented");
+        health = 100; healthUpdate?.Invoke(health);
+        PlayerDeath?.Invoke();
+        ToggleActiveActor(false);
+        inputsActive = false;
     }
 }

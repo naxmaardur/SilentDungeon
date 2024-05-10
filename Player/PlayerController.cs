@@ -14,6 +14,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     [Export] public CollisionShape3D standingCollisionShape;
     [Export] public CollisionShape3D crouchingCollisionShape;
     [Export] public Area3D headBox;
+    [Export] public Control healthbar;
 
     private bool crouchToggle;
 
@@ -30,8 +31,8 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     public UIItemContainer uIContainer;
 
 
-    public bool inputsActive = true;
-    public bool activeActor = true; // for the out of run UI and stuff
+    public bool inputsActive = false;
+    public bool activeActor = false; // for the out of run UI and stuff
 
 
 
@@ -56,20 +57,27 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         SetupTransitions();
         ChangeState(typeof(WalkState));
     }
-
     public override void _Ready()
     {
-        inventory = new Inventory();
-        numberGenerator = new RandomNumberGenerator();
-        uiInvetory = this.GetChildByType<UIInvetory>();
-        uIContainer = this.GetChildByType<UIItemContainer>();
         AttackSetup();
         SetupStateMachine();
         CameraSetup();
-        //temp
         inventory.EquipmentUpdated += EquipmentUpdate;
         EquipmentUpdate();
         healthUpdate?.Invoke(health);
+        ToggleActiveActor(false);
+        OpenInventory();
+    }
+
+
+    public void Setup()
+    {
+        inventory = new Inventory(true);
+        numberGenerator = new RandomNumberGenerator();
+        uiInvetory = this.GetChildByType<UIInvetory>();
+        uIContainer = this.GetChildByType<UIItemContainer>();
+        uiInvetory.Setup();
+        uIContainer.Setup();
     }
 
     public void EquipmentUpdate()
@@ -131,5 +139,19 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         if (!inputsActive) { return; }
         stateMachine.CurrentState.UnHandledInput(@event);
         CameraInput(@event);
+    }
+
+    public void ToggleActiveActor(bool active)
+    {
+        activeActor = active;
+        healthbar.Visible = active;
+    }
+
+
+    public void PlayerInMap()
+    {
+        ToggleActiveActor(true);
+        inputsActive = true;
+        CloseInventory();
     }
 }

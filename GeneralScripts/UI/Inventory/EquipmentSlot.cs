@@ -12,16 +12,29 @@ public partial class EquipmentSlot : TextureRect
     public int SlotType { get; set; }
     [Export]
     public bool IsEquipSlot { get; set; }
+    private AudioStreamPlayer audioStreamPlayer;
+    protected RandomNumberGenerator randomNumberGenerator = new();
+
+
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        audioStreamPlayer = this.GetChildByType<AudioStreamPlayer>();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
     }
+
+    public void PlayMoveSound(AudioStream audioStream)
+    {
+        audioStreamPlayer.Stream = audioStream;
+        audioStreamPlayer.PitchScale = randomNumberGenerator.RandfRange(0.8f, 1.2f);
+        audioStreamPlayer.Play();
+    }
+
 
     public void SetItem(InventoryItem item)
     {
@@ -117,6 +130,7 @@ public partial class EquipmentSlot : TextureRect
                 chestData.Container.MoveItemToInventory(chestData.Slot, Slot, ref player.inventory);
             }
             TooltipText = "a";
+            PlayMoveSound(Item.InventoryMoveSound);
             return;
         }
         catch { }
@@ -155,6 +169,7 @@ public partial class EquipmentSlot : TextureRect
                 player.inventory.MoveItemInInventory(passedData.Slot, Slot);
             }
             TooltipText = "a";
+            PlayMoveSound(Item.InventoryMoveSound);
         }
     }
 

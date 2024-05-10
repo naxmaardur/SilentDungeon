@@ -1,0 +1,145 @@
+[gd_scene load_steps=3 format=3 uid="uid://on1d4h7jaryl"]
+
+[ext_resource type="Script" path="res://GeneralScripts/UI/GameOverScreen.cs" id="1_7p771"]
+[ext_resource type="Texture2D" uid="uid://b1fj6j7jpys6m" path="res://Assets/UI/blood.png" id="1_h04wu"]
+
+[node name="GameOverScreen" type="Control" node_paths=PackedStringArray("mostCollected", "collected", "button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7p771")
+mostCollected = NodePath("Control/Label2")
+collected = NodePath("Control/Label4")
+button = NodePath("Button")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 74.0
+offset_top = -162.0
+offset_right = -54.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h04wu")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.372
+anchor_top = 0.864
+anchor_right = 0.628
+anchor_bottom = 0.938
+offset_left = 0.455994
+offset_top = 0.127991
+offset_right = 0.543945
+offset_bottom = 0.175964
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+text = "Try Again"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -97.5
+offset_top = 100.0
+offset_right = 97.5
+offset_bottom = 163.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 45
+text = "You Died"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.375
+anchor_top = 0.358
+anchor_right = 0.628
+anchor_bottom = 0.73
+offset_left = -3.05176e-05
+offset_top = 0.0159912
+offset_right = -0.456055
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Most collected"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 100.0
+offset_right = 54.0
+offset_bottom = 123.0
+grow_horizontal = 2
+text = "Coin collected"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 30.0
+offset_right = 165.0
+offset_bottom = 53.0
+grow_horizontal = 2
+text = "000000000000000000000000000000000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 130.0
+offset_right = 165.0
+offset_bottom = 153.0
+grow_horizontal = 2
+text = "000000000000000000000000000000000000"
+horizontal_alignment = 1
+vertical_alignment = 1

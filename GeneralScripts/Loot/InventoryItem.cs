@@ -38,5 +38,8 @@ public partial class InventoryItem : Resource
     public float weaponDamage { get; set; }
 
     [Export]
-    public float Value { get; set; }
+    public int Value { get; set; }
+
+    [Export]
+    public AudioStream InventoryMoveSound { get; set; }
 }

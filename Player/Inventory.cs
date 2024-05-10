@@ -1,26 +1,40 @@
 using Godot;
 using System;
 
-public partial class Inventory
+public partial class Inventory : Resource
 {
+    [Export]
 	public InventoryItem[] inventoryItems;
+    [Export]
 	public InventoryItem[] EquipedItems = new InventoryItem[7];
 	public Action EquipmentUpdated;
-	
-	//EquipeSlots
-	//0 hand R
-	//1 hand L
-	//2 head
-	//3 body
-	//4 feet
-	//5 quick Potion
-	//6 quick Spell
-	//7 
 
-	public Inventory() 
+    //EquipeSlots
+    //0 hand R
+    //1 hand L
+    //2 head
+    //3 body
+    //4 feet
+    //5 quick Potion
+    //6 quick Spell
+    //7 
+    private const string SAVEPATH = "user://Inventory.tres";
+    public Inventory()
+    {
+
+    }
+
+	public Inventory(bool load) 
 	{
-		//Load Inventory of Save file if it exists
-		Load();
+        //Load Inventory of Save file if it exists
+        if (load)
+        {
+            Load();
+        }
+        else
+        {
+            LoadDefault();
+        }
     }
 
 	public void AddItemToInventory(InventoryItem item)
@@ -140,26 +154,43 @@ public partial class Inventory
 		return false;
 	}
 
-	public void Save()
-	{
-        GD.PrintErr("Not Implemented: Inventory.Save");
+
+    public void Save()
+    {
+        ResourceSaver.Save(this, SAVEPATH);
     }
 
-	public void Load() 
-	{
-		//If Nothing to load
-		inventoryItems = new InventoryItem[36];
-		for (int i = 0;i < inventoryItems.Length; i++)
-		{
-			inventoryItems[i] = null;
-		}
-		EquipedItems = new InventoryItem[7];
+    public void Load()
+    {
+        if (ResourceLoader.Exists(SAVEPATH))
+        {
+            Inventory inventory = (Inventory)ResourceLoader.Load(SAVEPATH);
+            inventoryItems = inventory.inventoryItems;
+            EquipedItems = inventory.EquipedItems;
+            return;
+        }
+        //If Nothing to load
+        inventoryItems = new InventoryItem[36];
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            inventoryItems[i] = null;
+        }
+        EquipedItems = new InventoryItem[7];
 
-		EquipedItems[0] = GD.Load<InventoryItem>("res://Items/Default/DefaultSword.tres");
+        EquipedItems[0] = GD.Load<InventoryItem>("res://Items/Default/DefaultSword.tres");
+    }
+    
 
-       
+	
+    public void LoadDefault()
+    {
+        inventoryItems = new InventoryItem[36];
+        for (int i = 0; i < inventoryItems.Length; i++)
+        {
+            inventoryItems[i] = null;
+        }
+        EquipedItems = new InventoryItem[7];
 
-
-        GD.PrintErr("Not Implemented: Inventory.Load");
+        EquipedItems[0] = GD.Load<InventoryItem>("res://Items/Default/DefaultSword.tres");
     }
 }

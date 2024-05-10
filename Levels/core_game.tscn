@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://c08wyfewqnutg"]
+
+[ext_resource type="Script" path="res://GeneralScripts/GameManager.cs" id="1_kdn24"]
+[ext_resource type="PackedScene" uid="uid://dqxia8i6b8801" path="res://Prefabs/UI/out_of_run_screen.tscn" id="2_kh2ie"]
+[ext_resource type="PackedScene" uid="uid://bys1xlcu0gkk8" path="res://Prefabs/UI/score_tracker.tscn" id="3_16m84"]
+[ext_resource type="PackedScene" uid="uid://v3osbamw8yhh" path="res://Levels/TestLevel.tscn" id="3_r7qya"]
+[ext_resource type="PackedScene" uid="uid://on1d4h7jaryl" path="res://Prefabs/UI/game_over_screen.tscn" id="4_4xu6f"]
+[ext_resource type="PackedScene" uid="uid://cbiijw27espqm" path="res://Player/player.tscn" id="5_l8be3"]
+[ext_resource type="PackedScene" uid="uid://bfgcbtvrunbp7" path="res://Prefabs/main_chest.tscn" id="6_4q0gx"]
+[ext_resource type="PackedScene" uid="uid://bglnkpujcmlix" path="res://Levels/drop_seller.tscn" id="7_12g4f"]
+
+[node name="CoreGame" type="Node3D"]
+
+[node name="GameManager" type="Node3D" parent="." node_paths=PackedStringArray("activeSceneContainer")]
+script = ExtResource("1_kdn24")
+dropSellerScene = ExtResource("7_12g4f")
+DungeonFloor1 = ExtResource("3_r7qya")
+activeSceneContainer = NodePath("../ActiveSceneContainer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="OutOfRunScreen" parent="CanvasLayer" instance=ExtResource("2_kh2ie")]
+mouse_filter = 2
+
+[node name="ScoreTracker" parent="CanvasLayer" instance=ExtResource("3_16m84")]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource("4_4xu6f")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("5_l8be3")]
+
+[node name="Main Chest" parent="." instance=ExtResource("6_4q0gx")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -1.2849, -0.543591, -0.0424658)
+
+[node name="ActiveSceneContainer" type="Node3D" parent="."]

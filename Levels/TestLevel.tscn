@@ -1,6 +1,5 @@
-[gd_scene load_steps=21 format=3 uid="uid://v3osbamw8yhh"]
+[gd_scene load_steps=20 format=3 uid="uid://v3osbamw8yhh"]
 
-[ext_resource type="PackedScene" uid="uid://cbiijw27espqm" path="res://Player/player.tscn" id="1_hk0ni"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_x5t0d"]
 [ext_resource type="PackedScene" uid="uid://d05uxfymokamn" path="res://Assets/Enemies/Skeleton/Spider/spider.gltf" id="3_lvkot"]
 [ext_resource type="PackedScene" uid="uid://6rb30w2fyhs8" path="res://Assets/Enemies/Skeleton/Normal Skeleton/Sand/Skeleton.gltf" id="4_whxc0"]
@@ -34,9 +33,6 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_2j1pk"]
 
 [node name="Level" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_hk0ni")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999203, 0)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00506, -0.45122, -0.73803)
@@ -78,6 +74,7 @@ transform = Transform3D(1.46455, 0, 0, 0, 1.46455, 0, 0, 0, 1.46455, 12.2595, 1.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -6)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.13147, 0)
 navigation_mesh = SubResource("NavigationMesh_8hyor")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]

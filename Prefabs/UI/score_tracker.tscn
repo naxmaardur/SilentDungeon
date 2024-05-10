@@ -1,0 +1,171 @@
+[gd_scene load_steps=3 format=3 uid="uid://bys1xlcu0gkk8"]
+
+[ext_resource type="Script" path="res://GeneralScripts/ScoreTracker.cs" id="1_3jwsg"]
+[ext_resource type="Texture2D" uid="uid://qs4rgs6aj0xe" path="res://Assets/UI/Coin.png" id="2_hwmqr"]
+
+[node name="ScoreTracker" type="Control" node_paths=PackedStringArray("scoreLabel", "scoreLabel2", "lastScore", "recordScore") groups=["scoreTracker"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3jwsg")
+scoreLabel = NodePath("Control/Label")
+scoreLabel2 = NodePath("Control2/Label")
+lastScore = NodePath("Control4/Label")
+recordScore = NodePath("Control3/Label")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
+offset_top = 142.0
+offset_right = -150.0
+offset_bottom = 165.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control2"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 16.0
+offset_bottom = 20.0
+texture = ExtResource("2_hwmqr")
+
+[node name="Label" type="Label" parent="Control2"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 124.0
+offset_bottom = 23.0
+text = "777777777777"
+
+[node name="Label2" type="Label" parent="Control2"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = -23.0
+offset_right = 126.0
+text = "Current"
+
+[node name="Control3" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
+offset_top = 96.0
+offset_right = -150.0
+offset_bottom = 119.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control3"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control3"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 16.0
+offset_bottom = 20.0
+texture = ExtResource("2_hwmqr")
+
+[node name="Label" type="Label" parent="Control3"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 124.0
+offset_bottom = 23.0
+text = "777777777777"
+
+[node name="Label2" type="Label" parent="Control3"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = -23.0
+offset_right = 126.0
+text = "Record"
+
+[node name="Control4" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -274.0
+offset_top = 184.0
+offset_right = -150.0
+offset_bottom = 207.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control4"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control4"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 16.0
+offset_bottom = 20.0
+texture = ExtResource("2_hwmqr")
+
+[node name="Label" type="Label" parent="Control4"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 124.0
+offset_bottom = 23.0
+text = "777777777777"
+
+[node name="Label2" type="Label" parent="Control4"]
+layout_mode = 2
+offset_left = 16.0
+offset_top = -23.0
+offset_right = 126.0
+text = "Last Death"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_bottom = 23.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 16.0
+offset_bottom = 20.0
+texture = ExtResource("2_hwmqr")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 124.0
+offset_bottom = 23.0
+text = "777777777777"

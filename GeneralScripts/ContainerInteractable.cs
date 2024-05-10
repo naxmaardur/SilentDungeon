@@ -13,7 +13,15 @@ public partial class ContainerInteractable : Node3D, Iinteractable
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        container = new ItemContainer();
+        if (container == null)
+        {
+            container = new ItemContainer(false);
+        }
+        meshInstances = this.GetAllChildrenByType<MeshInstance3D>();
+        foreach (MeshInstance3D child in meshInstances)
+        {
+            child.MaterialOverlay = material;
+        }
     }
 
     public void AddMesh(Node3D node)
@@ -35,7 +43,7 @@ public partial class ContainerInteractable : Node3D, Iinteractable
         foreach (MeshInstance3D meshInstance in meshInstances)
         {
             ShaderMaterial material = meshInstance.MaterialOverlay as ShaderMaterial;
-            material.SetShaderParameter("strenght", 0.4f);
+            material.SetShaderParameter("strenght", 0.2f);
         }
     }
 
