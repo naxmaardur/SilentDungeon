@@ -15,6 +15,10 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     [Export] public CollisionShape3D crouchingCollisionShape;
     [Export] public Area3D headBox;
     [Export] public Control healthbar;
+    [Export] public SoundSource stepSource;
+    [Export] private SoundSource landSource;
+    [Export] private SoundSource hurtSource;
+
 
     private bool crouchToggle;
 
@@ -41,6 +45,17 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     public float SneakSpeedMod { get; private set; }
     public float RunSpeedMod { get; private set; }
     public float SoundMod { get; private set; }
+
+    private bool wasGrounded;
+    private bool canPlay;
+
+
+    [Export]
+    private AudioStream[] stepSounds;
+    [Export]
+    private AudioStream[] SneakSounds;
+    private int stepIndex = -1;
+    public int StepType;
 
     public void ChangeState(Type type)
     {
@@ -125,6 +140,13 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         }
         attackProcess(delta);
 
+        if(IsOnFloor() && !wasGrounded)
+        {
+            landSource.SetRandomPitch(0.8f, 1.05f);
+            landSource.PlaySound();
+        }
+        wasGrounded = IsOnFloor();
+
     }
 
     public override void _PhysicsProcess(double delta)
@@ -132,6 +154,8 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         if (!activeActor) { return; }
         stateMachine.OnPhysicsUpdate(delta);
         CameraPhysicsProcess(delta);
+        
+
     }
 
     public override void _UnhandledInput(InputEvent @event)

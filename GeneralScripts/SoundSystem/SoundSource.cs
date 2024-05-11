@@ -14,7 +14,7 @@ public partial class SoundSource : Node3D
 	private float falloffvalue = 0.25f;
 
 	[Export]
-	private float soundValue = 4;
+	public float soundValue = 4;
 	private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
 	private PackedScene sceneCopy;
@@ -61,16 +61,16 @@ public partial class SoundSource : Node3D
 		GetNode("/root").AddChild(soundSource);
 
         soundSource.GlobalPosition = GlobalPosition;
-        soundSource.SoundBehavior(StreamPlayer3D.Stream, StreamPlayer3D.PitchScale, collisionShape3D.Shape);
+        soundSource.SoundBehavior(StreamPlayer3D.Stream, StreamPlayer3D.PitchScale, collisionShape3D.Shape,soundValue);
 	}
 
-	public void SoundBehavior(AudioStream stream, float pitch, Shape3D shape)
+	public void SoundBehavior(AudioStream stream, float pitch, Shape3D shape,float soundValue)
 	{
 		//Copy Variables -----
 		if(StreamPlayer3D == null) { StreamPlayer3D = this.GetChildByType<AudioStreamPlayer3D>(); }
         if (area == null) { area = this.GetChildByType<Area3D>(); }
         if (particles == null) { particles = this.GetChildByType<GpuParticles3D>(); }
-
+        this.soundValue = soundValue;
         StreamPlayer3D.Stream = stream;
         StreamPlayer3D.PitchScale = pitch;
 		StreamPlayer3D.Finished += destorySelf;
@@ -179,5 +179,8 @@ public partial class SoundSource : Node3D
 	{
 		this.QueueFree();
 	}
-
+    public void SetAudio(AudioStream stream)
+    {
+        StreamPlayer3D.Stream = stream;
+    }
 }

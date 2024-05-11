@@ -23,13 +23,16 @@ public class WalkState : State<PlayerController>
             }
 
             // Handle Sprint.
-            if (Input.IsActionPressed("run"))
+            if (Input.IsActionJustPressed("run"))
             {
                 speed = ctx.sprintSpeed * (ctx.SpeedMod + ctx.RunSpeedMod);
+                ctx.stepSource.soundValue = 5;
             }
-            else
+            
+            if(Input.IsActionJustReleased("run"))
             {
                 speed = ctx.walkSpeed * ctx.SpeedMod;
+                ctx.stepSource.soundValue = 4;
             }
         }
 
@@ -62,6 +65,9 @@ public class WalkState : State<PlayerController>
 
     public override void OnEnter()
     {
+        speed = ctx.walkSpeed * ctx.SpeedMod;
+        ctx.stepSource.soundValue = 4;
+        ctx.StepType = 0;
     }
 
     public override void OnExit()

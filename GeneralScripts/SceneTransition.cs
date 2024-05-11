@@ -16,7 +16,6 @@ public partial class SceneTransition : Area3D
 	{
 		foreach (Node n in GetOverlappingBodies())
 		{
-			GD.Print(n);
 			PlayerController p = n as PlayerController;
 			if (p == null) { continue; }
 			manager.LoadSceneByID(levelIndex);

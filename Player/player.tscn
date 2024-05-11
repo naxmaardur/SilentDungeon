@@ -1,15 +1,25 @@
-[gd_scene load_steps=63 format=3 uid="uid://cbiijw27espqm"]
+[gd_scene load_steps=73 format=3 uid="uid://cbiijw27espqm"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
 [ext_resource type="PackedScene" uid="uid://dmed1kll4qgv4" path="res://Assets/weapons/axe_01.tscn" id="2_f1j6c"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_xhqbb"]
+[ext_resource type="AudioStream" uid="uid://dbd2qj5s5tice" path="res://Assets/Audio/Player/Step2.wav" id="3_bdufx"]
+[ext_resource type="AudioStream" uid="uid://7ercx03r16i" path="res://Assets/Audio/Player/Land.wav" id="3_iacny"]
 [ext_resource type="PackedScene" uid="uid://cnmk81mx5jdkb" path="res://Assets/weapons/shield_03.tscn" id="3_vjllw"]
+[ext_resource type="AudioStream" uid="uid://dc3d22k67cbkm" path="res://Assets/Audio/Player/Step3.wav" id="4_8etgt"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="4_8uax4"]
+[ext_resource type="AudioStream" uid="uid://tm8mul5sh8ut" path="res://Assets/Audio/Player/TakeDamage.wav" id="4_jujeq"]
+[ext_resource type="AudioStream" uid="uid://0x54rr1aoy3k" path="res://Assets/Audio/Player/Step1.wav" id="4_q6hyx"]
 [ext_resource type="AudioStream" uid="uid://do1tq0jn21v4n" path="res://Assets/weapons/sounds/sword-hit-7160.mp3" id="4_v5ixt"]
+[ext_resource type="AudioStream" uid="uid://do531tdrs6ks2" path="res://Assets/Audio/Player/Step4.wav" id="5_un7ok"]
+[ext_resource type="AudioStream" uid="uid://bhai3bff1nsg4" path="res://Assets/Audio/Player/Sneak1.wav" id="6_mr8pq"]
+[ext_resource type="AudioStream" uid="uid://ctnctsttuf0tm" path="res://Assets/Audio/Player/Sneak2.wav" id="7_sobyj"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIInvetory.cs" id="8_134wr"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/UIItemContainer.cs" id="8_mxjal"]
+[ext_resource type="AudioStream" uid="uid://dqemfdt74iq0c" path="res://Assets/Audio/Player/Sneak3.wav" id="8_qr5gi"]
 [ext_resource type="PackedScene" uid="uid://blj24shf25bj1" path="res://Prefabs/UI/ContainerSlot.tscn" id="9_2dg4q"]
+[ext_resource type="AudioStream" uid="uid://da0m0q6ygwvqa" path="res://Assets/Audio/Player/Sneak4.wav" id="9_fbw6j"]
 [ext_resource type="PackedScene" uid="uid://4geqne8v16qw" path="res://Prefabs/UI/InvSlot.tscn" id="9_tnsn1"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/DropItem.cs" id="12_i75g3"]
 [ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="13_4eno7"]
@@ -467,7 +477,7 @@ height = 1.24769
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm00"]
 bg_color = Color(0, 0.717647, 0.388235, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox", "healthbar") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox", "healthbar", "stepSource", "landSource", "hurtSource") groups=["player"]]
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
 rightHand = NodePath("Head/RightHand")
@@ -478,6 +488,30 @@ standingCollisionShape = NodePath("CollisionShape3D")
 crouchingCollisionShape = NodePath("CrouchCollisionShape3D")
 headBox = NodePath("HeadCheck")
 healthbar = NodePath("CanvasLayer/HealthBar")
+stepSource = NodePath("StepSoundSource")
+landSource = NodePath("LandSoundSource")
+hurtSource = NodePath("hurtSoundSource")
+stepSounds = Array[AudioStream]([ExtResource("4_q6hyx"), ExtResource("3_bdufx"), ExtResource("4_8etgt"), ExtResource("5_un7ok")])
+SneakSounds = Array[AudioStream]([ExtResource("6_mr8pq"), ExtResource("7_sobyj"), ExtResource("8_qr5gi"), ExtResource("9_fbw6j")])
+
+[node name="LandSoundSource" parent="." instance=ExtResource("4_8uax4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.89282, 0)
+soundValue = 2.0
+
+[node name="AudioStreamPlayer3D" parent="LandSoundSource" index="0"]
+stream = ExtResource("3_iacny")
+
+[node name="StepSoundSource" parent="." instance=ExtResource("4_8uax4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.946408, 0)
+
+[node name="AudioStreamPlayer3D" parent="StepSoundSource" index="0"]
+stream = ExtResource("4_q6hyx")
+
+[node name="hurtSoundSource" parent="." instance=ExtResource("4_8uax4")]
+soundValue = 1.0
+
+[node name="AudioStreamPlayer3D" parent="hurtSoundSource" index="0"]
+stream = ExtResource("4_jujeq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -1092,6 +1126,9 @@ Slot = 6
 SlotType = 5
 IsEquipSlot = true
 
+[editable path="LandSoundSource"]
+[editable path="StepSoundSource"]
+[editable path="hurtSoundSource"]
 [editable path="Head/RightHand/SoundSource"]
 [editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect"]
 [editable path="CanvasLayer/Container/Panel/GridContainer/TextureRect2"]

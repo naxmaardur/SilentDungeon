@@ -189,6 +189,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     public void AddSoundImpulse(float value, Vector3 position)
     {
+        GD.Print(value);
         AlertValue += value;
         if(value > 3 || AlertValue > 2)
         {

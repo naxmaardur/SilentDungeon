@@ -79,6 +79,36 @@ public partial class PlayerController
         Vector3 pos = Vector3.Zero;
         pos.Y = Mathf.Sin(time * bobFrequency) * bobAmplitude;
         pos.X = Mathf.Cos(time * bobFrequency / 2) * bobAmplitude;
+
+        float lowPos = bobAmplitude - 0.05f;
+
+        if (pos.Y > -lowPos)
+        {
+            canPlay = true;
+        }
+
+        if(pos.Y < -lowPos && canPlay)
+        {
+            canPlay = false;
+            stepIndex++;
+            if(stepIndex > 3)
+            {
+                stepIndex = 0;
+            }
+            switch (StepType)
+            {
+                default:
+                    stepSource.SetAudio(stepSounds[stepIndex]);
+                    break;
+                case 1:
+                    stepSource.SetAudio(SneakSounds[stepIndex]);
+                    break;
+            }
+            stepSource.SetRandomPitch(0.8f, 1.2f);
+            stepSource.PlaySound();
+        }
+
+
         return pos;
     }
     

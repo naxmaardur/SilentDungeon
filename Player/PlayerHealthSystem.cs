@@ -10,6 +10,8 @@ public partial class PlayerController
     public Action PlayerDeath;
     public void TakeDamage(float damage)
     {
+        hurtSource.SetRandomPitch(0.9f,1.1f);
+        hurtSource.PlaySound();
         startCameraShake(0.02f,5);
 
         damage *= protection;
