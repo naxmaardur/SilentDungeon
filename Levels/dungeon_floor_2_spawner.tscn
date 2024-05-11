@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg2mn4i71r15g"]
+
+[ext_resource type="Script" path="res://GeneralScripts/DungeonFloorSpawner.cs" id="1_wajno"]
+
+[node name="DungeonFloor2Spawner" type="Node3D"]
+script = ExtResource("1_wajno")
+floorScenes = Array[PackedScene]([])

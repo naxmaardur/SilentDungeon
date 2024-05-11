@@ -11,8 +11,6 @@ public partial class GameManager : Node
 
 	[Export]
 	private PackedScene dropSellerScene;
-    [Export]
-    private PackedScene DungeonFloor1;
 
     [Export]
 	private Node3D activeSceneContainer;
@@ -20,6 +18,10 @@ public partial class GameManager : Node
 
 	private GameOverScreen gameOverScreen;
 	private OutOfRunScreen outOfRunScreen;
+
+
+	[Export]
+	private PackedScene[] floors;
 
 	public void Save()
 	{
@@ -132,9 +134,20 @@ public partial class GameManager : Node
 		LoadedNewScene();
     }
 
+
+	public void LoadSceneByID(int id)
+	{
+		if(id == -1)
+		{
+			ExitDungeon();
+			return;
+		}
+		LoadScene(floors[id]);
+	}
+
 	private void EnterDungeon()
 	{
-		LoadScene(DungeonFloor1);
+		LoadScene(floors[0]);
         player.CloseInventory();
         player.ToggleActiveActor(true);
         player.inputsActive = true;

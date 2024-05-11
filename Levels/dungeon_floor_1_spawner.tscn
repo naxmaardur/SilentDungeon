@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3j77uol3fia0"]
+
+[ext_resource type="Script" path="res://GeneralScripts/DungeonFloorSpawner.cs" id="1_386pm"]
+[ext_resource type="PackedScene" uid="uid://v3osbamw8yhh" path="res://Levels/TestLevel.tscn" id="2_4bnyt"]
+
+[node name="DungeonFloor1Spawner" type="Node3D"]
+script = ExtResource("1_386pm")
+floorScenes = Array[PackedScene]([ExtResource("2_4bnyt")])

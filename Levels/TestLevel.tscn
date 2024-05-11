@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://v3osbamw8yhh"]
+[gd_scene load_steps=21 format=3 uid="uid://v3osbamw8yhh"]
 
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_x5t0d"]
 [ext_resource type="PackedScene" uid="uid://d05uxfymokamn" path="res://Assets/Enemies/Skeleton/Spider/spider.gltf" id="3_lvkot"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dt6vxqvbqjavt" path="res://AIActors/spider_actor.tscn" id="8_djcbn"]
 [ext_resource type="PackedScene" uid="uid://4wemtc8mky7t" path="res://AIActors/warden_actor.tscn" id="10_ivdta"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="10_jsmj6"]
+[ext_resource type="PackedScene" uid="uid://ca48i1g4dsogi" path="res://Prefabs/scene_trigger.tscn" id="12_bfywg"]
 [ext_resource type="PackedScene" uid="uid://5yxqc1p33ljs" path="res://Prefabs/SpikeTrap.tscn" id="12_clvnc"]
 [ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="12_l4f7o"]
 
@@ -118,5 +119,8 @@ alwaysRun = true
 
 [node name="WardenActor" parent="." instance=ExtResource("10_ivdta")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15862, 0.854908, 11.0229)
+
+[node name="SceneTrigger" parent="." instance=ExtResource("12_bfywg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31239, -0.841108, -9.33283)
 
 [editable path="SoundSource"]
