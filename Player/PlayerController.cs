@@ -75,10 +75,10 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     public override void _Ready()
     {
         AttackSetup();
+        EquipmentUpdate();
         SetupStateMachine();
         CameraSetup();
         inventory.EquipmentUpdated += EquipmentUpdate;
-        EquipmentUpdate();
         healthUpdate?.Invoke(health);
         ToggleActiveActor(false);
         OpenInventory();
@@ -154,8 +154,6 @@ public partial class PlayerController : CharacterBody3D, IDamagable
         if (!activeActor) { return; }
         stateMachine.OnPhysicsUpdate(delta);
         CameraPhysicsProcess(delta);
-        
-
     }
 
     public override void _UnhandledInput(InputEvent @event)

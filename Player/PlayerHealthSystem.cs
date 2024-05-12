@@ -3,7 +3,7 @@ using System;
 
 public partial class PlayerController
 {
-    public float health { get; private set; } = 100;
+    public float health { get;  set; } = 100;
 
     public Action<float> healthUpdate;
     public Action<bool> healthDisplay;

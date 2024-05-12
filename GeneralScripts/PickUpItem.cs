@@ -14,6 +14,9 @@ public partial class PickUpItem : Node3D, Iinteractable
     [Export]
     public CollisionShape3D areaCollision;
 
+    [Export]
+    private SoundSource sound;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -62,6 +65,8 @@ public partial class PickUpItem : Node3D, Iinteractable
     {
         if (!player.inventory.InventoryHasSpace()) {return false;}
         player.inventory.AddItemToInventory(item);
+        sound.SetRandomPitch(0.8f, 1.2f);
+        sound.PlaySound();
         QueueFree();
         return true;
     }

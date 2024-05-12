@@ -7,6 +7,7 @@ namespace AIStates
 	{
         public override void OnEnter()
         {
+            ctx.StepFrequency = ctx.StepFrequencyRunning;
             ctx.runLerp.setTarget(1);
             ctx.navigationAgent3D.MaxSpeed = 10;
             if(ctx.AlertValue < 10)
@@ -29,6 +30,7 @@ namespace AIStates
 
         public override void OnExit() 
         {
+            ctx.StepFrequency = ctx.StepFrequencyNormal;
             ctx.runLerp.setTarget(0);
             ctx.navigationAgent3D.MaxSpeed = 3;
         }

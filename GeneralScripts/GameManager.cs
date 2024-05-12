@@ -147,6 +147,7 @@ public partial class GameManager : Node
 
 	private void EnterDungeon()
 	{
+		player.health = 100;
 		LoadScene(floors[0]);
         player.CloseInventory();
         player.ToggleActiveActor(true);

@@ -21,6 +21,8 @@ public partial class SoundSource : Node3D
 
 	private bool run;
     private int framesWaited = 0;
+    [Export]
+    private bool checkingSource = true;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -61,21 +63,27 @@ public partial class SoundSource : Node3D
 		GetNode("/root").AddChild(soundSource);
 
         soundSource.GlobalPosition = GlobalPosition;
-        soundSource.SoundBehavior(StreamPlayer3D.Stream, StreamPlayer3D.PitchScale, collisionShape3D.Shape,soundValue);
+        soundSource.SoundBehavior(StreamPlayer3D, collisionShape3D.Shape,soundValue, checkingSource);
 	}
 
-	public void SoundBehavior(AudioStream stream, float pitch, Shape3D shape,float soundValue)
+	public void SoundBehavior(AudioStreamPlayer3D stream, Shape3D shape,float soundValue,bool checking)
 	{
 		//Copy Variables -----
 		if(StreamPlayer3D == null) { StreamPlayer3D = this.GetChildByType<AudioStreamPlayer3D>(); }
         if (area == null) { area = this.GetChildByType<Area3D>(); }
         if (particles == null) { particles = this.GetChildByType<GpuParticles3D>(); }
         this.soundValue = soundValue;
-        StreamPlayer3D.Stream = stream;
-        StreamPlayer3D.PitchScale = pitch;
-		StreamPlayer3D.Finished += destorySelf;
+        StreamPlayer3D.Stream = stream.Stream;
+        StreamPlayer3D.AttenuationModel = stream.AttenuationModel;
+        StreamPlayer3D.VolumeDb = stream.VolumeDb;
+        StreamPlayer3D.UnitSize =stream.UnitSize;
+        StreamPlayer3D.MaxDb = stream.MaxDb;
+        StreamPlayer3D.PitchScale = stream.PitchScale;
+        StreamPlayer3D.MaxDistance = stream.MaxDistance;
+        StreamPlayer3D.Finished += destorySelf;
         CollisionShape3D shape3D = area.GetChildByType<CollisionShape3D>();
 		shape3D.Shape = shape;
+        checkingSource = checking;
         //-------------------
 
         run = true;
@@ -103,6 +111,7 @@ public partial class SoundSource : Node3D
 	private void runSound()
 	{
         StreamPlayer3D.Play();
+        if (!checkingSource) { return; }
         particles.Emitting = true;
         Godot.Collections.Array<Node3D> nodes = area.GetOverlappingBodies();
         Node3D[] nodesArray = nodes.ToArray();
