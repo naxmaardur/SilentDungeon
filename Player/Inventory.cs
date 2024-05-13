@@ -176,8 +176,6 @@ public partial class Inventory : Resource
             inventoryItems[i] = null;
         }
         EquipedItems = new InventoryItem[7];
-
-        EquipedItems[0] = GD.Load<InventoryItem>("res://Items/Default/DefaultSword.tres");
     }
     
 
@@ -190,7 +188,5 @@ public partial class Inventory : Resource
             inventoryItems[i] = null;
         }
         EquipedItems = new InventoryItem[7];
-
-        EquipedItems[0] = GD.Load<InventoryItem>("res://Items/Default/DefaultSword.tres");
     }
 }

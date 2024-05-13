@@ -57,6 +57,7 @@ public class CrouchState : State<PlayerController>
         ctx.standingCollisionShape.Disabled = true;
         ctx.sneaking = true;
         ctx.stepSource.soundValue = 1f;
+        ctx.stepSource.checkingSource = false;
         ctx.StepType = 1;
     }
 

@@ -1029,6 +1029,7 @@ offset_right = 407.0
 offset_bottom = 246.0
 
 [node name="Rhand" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
+visible = false
 layout_mode = 2
 offset_left = 145.0
 offset_top = 85.0
@@ -1058,9 +1059,9 @@ IsEquipSlot = true
 
 [node name="Head" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-offset_left = 85.0
+offset_left = 123.0
 offset_top = 25.0
-offset_right = 140.0
+offset_right = 178.0
 offset_bottom = 80.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Head" index="0"]
@@ -1070,9 +1071,9 @@ IsEquipSlot = true
 
 [node name="Chest" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-offset_left = 85.0
+offset_left = 123.0
 offset_top = 85.0
-offset_right = 140.0
+offset_right = 178.0
 offset_bottom = 140.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Chest" index="0"]
@@ -1082,9 +1083,9 @@ IsEquipSlot = true
 
 [node name="Boots" parent="CanvasLayer/Inventory/Panel/Panel" instance=ExtResource("9_tnsn1")]
 layout_mode = 2
-offset_left = 85.0
+offset_left = 123.0
 offset_top = 145.0
-offset_right = 140.0
+offset_right = 178.0
 offset_bottom = 200.0
 
 [node name="TextureRect" parent="CanvasLayer/Inventory/Panel/Panel/Boots" index="0"]

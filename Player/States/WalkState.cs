@@ -67,6 +67,7 @@ public class WalkState : State<PlayerController>
     {
         speed = ctx.walkSpeed * ctx.SpeedMod;
         ctx.stepSource.soundValue = 4;
+        ctx.stepSource.checkingSource = true;
         ctx.StepType = 0;
     }
 
