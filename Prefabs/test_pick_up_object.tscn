@@ -1,14 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://df0g3aeh446kb"]
+[gd_scene load_steps=7 format=3 uid="uid://df0g3aeh446kb"]
 
 [ext_resource type="Script" path="res://GeneralScripts/PickUpItem.cs" id="1_1b46o"]
 [ext_resource type="Shader" path="res://GeneralScripts/HighlightShader.gdshader" id="2_2aoyl"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="3_ow6e4"]
 [ext_resource type="AudioStream" uid="uid://lttnf361fnch" path="res://Assets/UI/Sounds/cloth-inventory.wav" id="4_yxyup"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uvrva"]
-render_priority = 0
-shader = ExtResource("2_2aoyl")
-shader_parameter/strenght = null
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7qo34"]
 
@@ -17,7 +12,7 @@ shader_parameter/strenght = null
 [node name="TestPickUpObject" type="RigidBody3D" node_paths=PackedStringArray("collisionObject", "areaCollision", "sound")]
 collision_layer = 2
 script = ExtResource("1_1b46o")
-material = SubResource("ShaderMaterial_uvrva")
+shader = ExtResource("2_2aoyl")
 collisionObject = NodePath("CollisionShape3D")
 areaCollision = NodePath("Area3D/CollisionShape3D")
 sound = NodePath("SoundSource")

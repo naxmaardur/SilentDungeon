@@ -13,6 +13,7 @@ shader_parameter/strenght = 0.0
 [node name="ActorLootObject" type="Node3D"]
 script = ExtResource("1_cp0b3")
 material = SubResource("ShaderMaterial_5cx3v")
+shader = ExtResource("2_q2afx")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 129
