@@ -37,7 +37,7 @@ namespace AIStates
                 ctx.weapon.EnableHitBoxes();
                 if(ctx.isWarden) 
                 {
-                    ctx.player.TakeDamage(10); // you can't run
+                    ctx.player.TakeDamage(35); // you can't run
                 }
             }
             ctx.Velocity = Vector3.Zero;

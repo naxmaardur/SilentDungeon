@@ -190,7 +190,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         {
             if (!seeingPlayer() || !hasSight)
             {
-                AlertValue -= (float)delta * 0.3f;
+                AlertValue -= (float)delta * 0.1f;
                 if (AlertValue < 0)
                 {
                     AlertValue = 0;
@@ -239,6 +239,11 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     public void AddSoundImpulse(float value, Vector3 position)
     {
+        if(isWarden && value < 0.1f)
+        {
+            value = 0.1f;
+        }
+
         AlertValue += value;
         if (value > 3 || AlertValue > 2)
         {

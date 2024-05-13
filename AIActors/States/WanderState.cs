@@ -15,7 +15,11 @@ namespace AIStates
 
         public override void OnUpdate(double delta)
         {
-            if(randomPointAroundPlayer.DistanceTo(ctx.GlobalPosition) < 2)
+            if (ctx.navigationAgent3D.GetCurrentNavigationPathIndex() == ctx.navigationAgent3D.GetCurrentNavigationPath().Length-1 && ctx.navigationAgent3D.GetNextPathPosition().DistanceTo(ctx.GlobalPosition) < 2)
+            {
+                randomPointAroundPlayer =  getRandomPoint();
+            }
+            if (ctx.GlobalPosition.DistanceTo(ctx.player.GlobalPosition) > 15)
             {
                 randomPointAroundPlayer = getRandomPoint();
             }
@@ -33,7 +37,7 @@ namespace AIStates
         private Vector3 getRandomPoint()
         {
             Vector3 playerPoint = ctx.GlobalPosition;
-            Vector3 randomPoint = playerPoint + new Vector3(ctx.randomNumberGenerator.RandfRange(-25,25),0, ctx.randomNumberGenerator.RandfRange(-25, 25));
+            Vector3 randomPoint = playerPoint + new Vector3(ctx.randomNumberGenerator.RandfRange(-15,15),0, ctx.randomNumberGenerator.RandfRange(-15, 15));
             return randomPoint;
         }
     }

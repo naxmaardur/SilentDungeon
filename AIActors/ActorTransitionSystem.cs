@@ -87,8 +87,8 @@ public partial class ActorControler
 
     private bool SearchPlayer()
     {
-        if (hasSight && !seeingPlayer()) { return true; }
         if (AlertValue < 2) { return false; }
+        if (hasSight && !seeingPlayer()) { return true; }
         return true;
     }
 
