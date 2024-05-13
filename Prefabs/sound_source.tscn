@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ds6fsihdcglfi" path="res://Assets/Particles/circle_01.png" id="2_elbgx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_52gog"]
-radius = 7.59548
+radius = 288.147
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_di6tr"]
 transparency = 1

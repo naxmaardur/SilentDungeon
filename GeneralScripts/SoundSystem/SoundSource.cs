@@ -22,7 +22,7 @@ public partial class SoundSource : Node3D
 	private bool run;
     private int framesWaited = 0;
     [Export]
-    private bool checkingSource = true;
+    public bool checkingSource = true;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
