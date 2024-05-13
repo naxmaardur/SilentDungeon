@@ -7,7 +7,7 @@ public partial class PickUpItem : Node3D, Iinteractable
     [Export]
     public InventoryItem item;
     [Export]
-    public Material material;
+    public Shader shader;
 
     [Export]
     public CollisionShape3D collisionObject;
@@ -37,6 +37,9 @@ public partial class PickUpItem : Node3D, Iinteractable
         meshInstances = node.GetAllChildrenByType<MeshInstance3D>();
         foreach (MeshInstance3D child in meshInstances)
         {
+            ShaderMaterial material = new ShaderMaterial();
+            material.Shader = shader;
+
             child.MaterialOverlay = material;
         }
     }

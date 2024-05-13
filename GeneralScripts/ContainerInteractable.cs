@@ -7,9 +7,8 @@ public partial class ContainerInteractable : Node3D, Iinteractable
 
     public ItemContainer container;
 
-
     [Export]
-    private Material material;
+    private Shader shader;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
@@ -20,6 +19,9 @@ public partial class ContainerInteractable : Node3D, Iinteractable
         meshInstances = this.GetAllChildrenByType<MeshInstance3D>();
         foreach (MeshInstance3D child in meshInstances)
         {
+            ShaderMaterial material = new ShaderMaterial();
+            material.Shader = shader;
+
             child.MaterialOverlay = material;
         }
     }
@@ -29,6 +31,9 @@ public partial class ContainerInteractable : Node3D, Iinteractable
         meshInstances = node.GetAllChildrenByType<MeshInstance3D>();
         foreach (MeshInstance3D child in meshInstances)
         {
+            ShaderMaterial material = new ShaderMaterial();
+            material.Shader = shader;
+
             child.MaterialOverlay = material;
         }
     }
