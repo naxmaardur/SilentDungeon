@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://rgxgx7bxoco4"]
+
+[ext_resource type="Script" path="res://GeneralScripts/ItemSpawner.cs" id="1_vspkk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s6b5y"]
+
+[node name="ItemSpawner" type="Node3D"]
+script = ExtResource("1_vspkk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_s6b5y")
