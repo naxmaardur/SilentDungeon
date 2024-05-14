@@ -26,13 +26,15 @@ public class WalkState : State<PlayerController>
             if (Input.IsActionJustPressed("run"))
             {
                 speed = ctx.sprintSpeed * (ctx.SpeedMod + ctx.RunSpeedMod);
-                ctx.stepSource.soundValue = 5;
+                ctx.stepSource.soundValue = 2;
+                ctx.stepSource.falloffvalue = 0;
             }
             
             if(Input.IsActionJustReleased("run"))
             {
                 speed = ctx.walkSpeed * ctx.SpeedMod;
-                ctx.stepSource.soundValue = 4;
+                ctx.stepSource.soundValue = 2;
+                ctx.stepSource.falloffvalue = 0.25f;
             }
         }
 
@@ -69,9 +71,11 @@ public class WalkState : State<PlayerController>
         ctx.stepSource.soundValue = 4;
         ctx.stepSource.checkingSource = true;
         ctx.StepType = 0;
+        ctx.stepSource.falloffvalue = 0.25f;
     }
 
     public override void OnExit()
     {
+        ctx.stepSource.falloffvalue = 0.25f;
     }
 }

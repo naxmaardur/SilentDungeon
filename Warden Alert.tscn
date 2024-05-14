@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://by7kohja75es5"]
+
+[ext_resource type="PackedScene" uid="uid://d0tbxv6ym8dxi" path="res://Prefabs/warden_alert.tscn" id="1_ld425"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 0
+
+[node name="WardenAlert" parent="." instance=ExtResource("1_ld425")]

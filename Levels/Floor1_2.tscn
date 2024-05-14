@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://d01l3w6pggbnl"]
+[gd_scene load_steps=41 format=3 uid="uid://d01l3w6pggbnl"]
 
 [ext_resource type="PackedScene" uid="uid://ca48i1g4dsogi" path="res://Prefabs/scene_trigger.tscn" id="1_xcx3d"]
 [ext_resource type="PackedScene" uid="uid://dtbd4j4x8s3o6" path="res://Prefabs/Map/Props/chandelier.tscn" id="2_sh6oa"]
@@ -35,6 +35,7 @@
 [ext_resource type="Resource" uid="uid://bu7mvqc4rv783" path="res://Items/LootTable/Floor1Normal.tres" id="33_vau2g"]
 [ext_resource type="PackedScene" uid="uid://5yxqc1p33ljs" path="res://Prefabs/SpikeTrap.tscn" id="34_8nkrw"]
 [ext_resource type="Resource" uid="uid://c44o64yp3cvkk" path="res://Items/LootTable/Floor1Special.tres" id="34_u3ewm"]
+[ext_resource type="PackedScene" uid="uid://by7kohja75es5" path="res://Warden Alert.tscn" id="36_rbqjl"]
 
 [sub_resource type="Environment" id="Environment_lpqlr"]
 ssr_depth_tolerance = 8.11
@@ -370,134 +371,6 @@ bake_mask = 4294967291
 [node name="WardenActor" parent="." instance=ExtResource("31_bnqvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8614, 0.154033, -16.0426)
 
-[node name="ItemSpawner" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68259, -0.346634, -8.54028)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner2" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9019, -0.346634, -5.63997)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner3" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7097, -0.346634, -7.54834)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner4" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9363, 0.512376, -6.37224)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner5" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.8279, 0.322304, -42.2536)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner6" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 23.2296, 0.322304, -42.2969)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner7" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27.1481, 0.322304, -53.6559)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner8" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 32.7704, 0.167215, -53.8689)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner9" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27.181, 0.167215, -48.1203)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner10" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3402, 0.167211, -52.2599)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner11" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9678, 0.167211, -52.4184)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner12" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7647, 0.167212, -50.0431)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner13" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4706, 0.698294, -80.0356)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner14" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3859, 0.265794, -75.6929)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner15" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42791, 0.851248, -71.8677)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner16" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18752, 0.698293, -66.2622)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner17" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34745, 0.698293, -58.7947)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner18" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48119, 0.698293, -58.2734)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner19" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6847, 1.52172, -56.6052)
-lootTable = ExtResource("34_u3ewm")
-
-[node name="ItemSpawner20" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6215, -0.175149, -56.6381)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner21" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7244, 0.698294, -56.5292)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner22" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1696, 0.348161, -56.5778)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner23" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9547, -0.298695, -61.4261)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner24" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8743, 0.145984, -65.2887)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner25" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5478, 0.145984, -65.7719)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner26" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07437, 0.145984, -48.1253)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner27" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1738, 0.145984, -38.8571)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner28" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4719, 0.145984, -37.6555)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner29" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9667, 0.145984, -36.94)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner30" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0075, 0.145984, -30.4923)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner31" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10711, 0.145984, -31.1573)
-lootTable = ExtResource("33_vau2g")
-
-[node name="ItemSpawner32" parent="." instance=ExtResource("32_7k4qi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131977, 0.145984, -36.5938)
-lootTable = ExtResource("33_vau2g")
-
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="SpikeTrap" parent="Node3D" instance=ExtResource("34_8nkrw")]
@@ -647,6 +520,138 @@ activetimer = NodePath("../SpikeTrap/ActiveTimer")
 transform = Transform3D(2.20541e-07, 0, 1, 0, 1, 0, -1, 0, 2.20541e-07, 31.6618, -0.90133, -50.042)
 delaytimer = NodePath("../SpikeTrap/DelayTimer")
 activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="ItemSpawner" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68259, -0.346634, -8.54028)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner2" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9019, -0.346634, -5.63997)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner3" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7097, -0.346634, -7.54834)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner4" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9363, 0.512376, -6.37224)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner5" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.8279, 0.322304, -42.2536)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner6" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 23.2296, 0.322304, -42.2969)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner7" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27.1481, 0.322304, -53.6559)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner8" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 32.7704, 0.167215, -53.8689)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner9" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27.181, 0.167215, -48.1203)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner10" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3402, 0.167211, -52.2599)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner11" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9678, 0.167211, -52.4184)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner12" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7647, 0.167212, -50.0431)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner13" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4706, 0.698294, -80.0356)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner14" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3859, 0.265794, -75.6929)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner15" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42791, 0.851248, -71.8677)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner16" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18752, 0.698293, -66.2622)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner17" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34745, 0.698293, -58.7947)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner18" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48119, 0.698293, -58.2734)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner19" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6847, 1.52172, -56.6052)
+lootTable = ExtResource("34_u3ewm")
+
+[node name="ItemSpawner20" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6215, -0.175149, -56.6381)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner21" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7244, 0.698294, -56.5292)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner22" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1696, 0.348161, -56.5778)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner23" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9547, -0.298695, -61.4261)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner24" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8743, 0.145984, -65.2887)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner25" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5478, 0.145984, -65.7719)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner26" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07437, 0.145984, -48.1253)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner27" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1738, 0.145984, -38.8571)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner28" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4719, 0.145984, -37.6555)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner29" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9667, 0.145984, -36.94)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner30" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0075, 0.145984, -30.4923)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner31" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10711, 0.145984, -31.1573)
+lootTable = ExtResource("33_vau2g")
+
+[node name="ItemSpawner32" parent="Node3D2" instance=ExtResource("32_7k4qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131977, 0.145984, -36.5938)
+lootTable = ExtResource("33_vau2g")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("36_rbqjl")]
 
 [editable path="SceneTrigger"]
 [editable path="SceneTrigger2"]

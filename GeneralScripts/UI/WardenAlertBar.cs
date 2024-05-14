@@ -9,16 +9,28 @@ public partial class WardenAlertBar : Control
     private bool labelAnimation;
     private RandomNumberGenerator randomNumberGenerator = new();
 
-	public override void _Ready()
-	{
-		bar = this.GetChildByType<ProgressBar>();
+    private float alertValue;
+    private int wardens = 0;
+
+
+    public override void _Ready()
+    {
+        bar = this.GetChildByType<ProgressBar>();
         label = this.GetChildByType<Label>();
         timer = this.GetChildByType<Timer>();
-        ActorControler warden = GetTree().GetNodesInGroup("Warden")[0] as ActorControler;
-        warden.AlertUpdated += AlertStatusUpdated;
-        warden.PlayerAgrod += WardenAgro;
-        bar.MaxValue = warden.playerDetectedValue;
+
+        ;
+        foreach(Node n in GetTree().GetNodesInGroup("Warden"))
+        {
+            ActorControler warden = n as ActorControler;
+            warden.AlertUpdated += AlertStatusUpdated;
+            warden.PlayerAgrod += WardenAgro;
+            bar.MaxValue = warden.playerDetectedValue;
+            warden.wardenAlertBar = this;
+            wardens++;
+        }
         label.Text = "";
+        AlertStatusUpdated(alertValue);
     }
 
 	public override void _Process(double delta)
@@ -65,7 +77,21 @@ public partial class WardenAlertBar : Control
         timer.Start();
     }
 
+    public void addAlertValue(float add)
+    {
+        alertValue += add / wardens;
+        AlertStatusUpdated(alertValue);
+    }
+    public void removeAlertValue(float remove)
+    {
+        alertValue -= remove /wardens;
+        AlertStatusUpdated(alertValue);
+    }
 
+    public float getAlertValue()
+    {
+        return alertValue;
+    }
 
 	public void AlertStatusUpdated(float Alert)
 	{

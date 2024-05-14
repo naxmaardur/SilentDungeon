@@ -519,7 +519,7 @@ skeleton = NodePath("")
 [node name="Node3D" type="Node3D" parent="Sketchfab_Scene"]
 transform = Transform3D(10.7, 0, 0, 0, 10.7, 0, 0, 0, 10.7, 0, 0, 0)
 script = ExtResource("3_ac1y7")
-damage = 25.0
+damage = 5.0
 
 [node name="Area3D" type="Area3D" parent="Sketchfab_Scene/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.814838, 1.34006)

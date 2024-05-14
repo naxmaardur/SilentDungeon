@@ -38,7 +38,35 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     public LerpVaule MovementZ { get; private set; }
 
     private float alertValue;
-    public float AlertValue { get { return alertValue; } set { alertValue = value; AlertUpdated?.Invoke(value); } }
+    public float AlertValue 
+    { 
+        get 
+        {
+            if (isWarden)
+            {
+                return wardenAlertBar.getAlertValue();
+            }
+            return alertValue; 
+        } 
+        set 
+        {
+            if (isWarden)
+            {
+                if(value > wardenAlertBar.getAlertValue())
+                {
+                    wardenAlertBar.addAlertValue(value - wardenAlertBar.getAlertValue());
+                }
+                else
+                {
+                    wardenAlertBar.removeAlertValue(wardenAlertBar.getAlertValue() - value);
+                }
+            }
+            else
+            {
+                alertValue = value; AlertUpdated?.Invoke(value);
+            }
+        } 
+    }
 
     public Vector3 positionOfIntrest;
 
@@ -97,6 +125,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     private AudioStream[] stepSounds;
     private int stepIndex = -1;
     private double deltaSinceLastUpdate;
+    public WardenAlertBar wardenAlertBar;
 
     // Called through GD script
     public override void _Ready()
@@ -117,7 +146,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         runLerp = new(0.1f);
         weapon = this.GetChildByType<Weapon>();
         weapon.SetOwner(this);
-        AlertValue = 0;
+        alertValue = 0;
         PlayerAgrod += AgroRoar;
         livingSoundTimer.WaitTime = randomNumberGenerator.RandfRange(1.5f, 4.5f);
         livingSoundTimer.Start();

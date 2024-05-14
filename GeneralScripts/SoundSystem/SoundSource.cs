@@ -11,7 +11,7 @@ public partial class SoundSource : Node3D
 	private GpuParticles3D particles { get; set; }
 	private CollisionShape3D collisionShape3D { get; set; }
 
-	private float falloffvalue = 0.25f;
+	public float falloffvalue = 0.25f;
 
 	[Export]
 	public float soundValue = 4;
@@ -63,6 +63,7 @@ public partial class SoundSource : Node3D
 		GetNode("/root").AddChild(soundSource);
 
         soundSource.GlobalPosition = GlobalPosition;
+        soundSource.falloffvalue = falloffvalue;
         soundSource.SoundBehavior(StreamPlayer3D, collisionShape3D.Shape,soundValue, checkingSource);
 	}
 
@@ -145,7 +146,10 @@ public partial class SoundSource : Node3D
                         currentSoundValue = 0;
                         break;
                     }
-                    currentSoundValue /= 2;
+                    if(falloffvalue > 0)
+                    {
+                        currentSoundValue /= 2;
+                    }
                 }
             }
             else

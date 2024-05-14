@@ -75,11 +75,12 @@ public partial class ActorControler
 
     private bool DetectedPlayer()
     {
-        if (damagedTimer.TimeLeft > 0) { PlayerAgrod?.Invoke(); return true; }
+        if (damagedTimer.TimeLeft > 0) { PlayerAgrod?.Invoke(); GD.Print("Damaged"); return true; }
         if(AlertValue > playerDetectedValue) { GD.Print("Detected Player from sound"); PlayerAgrod?.Invoke(); return true; }
         bool check = AlertValue > playerDetectedNearValue && GlobalPosition.DistanceTo(player.GlobalPosition) < 1 || seeingPlayer();
         if (check)
         {
+            GD.Print("Check true");
             PlayerAgrod?.Invoke();
         }
         return check;
