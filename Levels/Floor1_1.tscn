@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://r46y1youn51x"]
+[gd_scene load_steps=39 format=3 uid="uid://r46y1youn51x"]
 
 [ext_resource type="PackedScene" uid="uid://ca48i1g4dsogi" path="res://Prefabs/scene_trigger.tscn" id="1_ilbbm"]
 [ext_resource type="PackedScene" uid="uid://d21gvf2irpg2x" path="res://Prefabs/Map/room_i.tscn" id="1_souef"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://rgxgx7bxoco4" path="res://Prefabs/item_spawner.tscn" id="32_jldfx"]
 [ext_resource type="PackedScene" uid="uid://c2ac66dum0ofw" path="res://Prefabs/Map/Props/cupboard_14_break_grp.tscn" id="33_mwipv"]
 [ext_resource type="Resource" uid="uid://bu7mvqc4rv783" path="res://Items/LootTable/Floor1Normal.tres" id="33_pw5mj"]
+[ext_resource type="PackedScene" uid="uid://5yxqc1p33ljs" path="res://Prefabs/SpikeTrap.tscn" id="34_4yov8"]
 [ext_resource type="PackedScene" uid="uid://bbduymlaov8li" path="res://Prefabs/Map/Props/bones_pile_02_grp.tscn" id="34_i51y1"]
 [ext_resource type="PackedScene" uid="uid://4wemtc8mky7t" path="res://AIActors/warden_actor.tscn" id="34_qi3w3"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dea8krkn4oeo2" path="res://Levels/Floor1_1.occ" id="35_4f51r"]
@@ -362,7 +363,6 @@ light_color = Color(0.756863, 0, 0, 1)
 omni_range = 7.40383
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
-visible = false
 occluder = ExtResource("35_4f51r")
 bake_mask = 4294967291
 
@@ -496,6 +496,154 @@ lootTable = ExtResource("33_pw5mj")
 [node name="ItemSpawner32" parent="." instance=ExtResource("32_jldfx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131977, 0.145984, -36.5938)
 lootTable = ExtResource("33_pw5mj")
+
+[node name="SpikeTrap" parent="." instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.723797, -0.862998, -17.9885)
+
+[node name="SpikeTrap2" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.723797, -0.862998, -15.2366)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap3" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.723797, -0.862998, -12.1197)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap4" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.6522, -0.862998, -31.9959)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap5" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.4184, -0.862998, -36.058)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap6" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.5324, -0.862998, -48.8736)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap7" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.5292, -0.862998, -46.942)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap8" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.5315, -0.862998, -47.956)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap9" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.68513, -0.862998, -45.8252)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap10" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.60947, -0.862998, -50.1961)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap11" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.31974, -0.862998, -50.1656)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap12" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.731666, -0.862998, -64.0742)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap13" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.588031, -0.862998, -59.9047)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap14" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.06649, -0.862998, -61.4431)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap15" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.29516, -0.862998, -61.2348)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap16" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7.12795, -0.862999, -61.4633)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap17" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 14.4965, -0.862998, -57.4275)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap18" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 18.9305, -0.862999, -62.6277)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap19" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 11.9259, -0.897638, -62.7132)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap20" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -13.1507, -0.897638, -73.9523)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap21" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -13.1507, -0.897638, -78.0667)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap22" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -27.3271, -0.897638, -50.0587)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap23" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -27.2765, -0.897638, -45.9347)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap24" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -23.0103, -0.897638, -33.9007)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap25" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -24.1285, -0.897638, -20.0818)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap26" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -41.4707, -0.897638, -8.97989)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap27" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -51.306, -0.897638, -4.98107)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap28" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -51.1365, -0.90133, -9.01366)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap29" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -59.5067, -0.90133, -9.01366)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
+
+[node name="SpikeTrap30" parent="." node_paths=PackedStringArray("delaytimer", "activetimer") instance=ExtResource("34_4yov8")]
+transform = Transform3D(-1.33118e-07, 0, -1, 0, 1, 0, 1, 0, -1.33118e-07, -59.5067, -0.90133, -4.96219)
+delaytimer = NodePath("../SpikeTrap/DelayTimer")
+activetimer = NodePath("../SpikeTrap/ActiveTimer")
 
 [editable path="SceneTrigger"]
 [editable path="SceneTrigger2"]
