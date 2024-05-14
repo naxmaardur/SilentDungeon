@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=11 format=3 uid="uid://c44o64yp3cvkk"]
+
+[ext_resource type="Resource" uid="uid://dbrmgbjdemiho" path="res://Items/LootItem13.tres" id="1_qk5vj"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/LootTable.cs" id="1_tyy1q"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/LootDorp.cs" id="2_oj0mx"]
+[ext_resource type="Resource" uid="uid://dceayj3tkssty" path="res://Items/LootItem14.tres" id="3_dajgn"]
+[ext_resource type="Resource" uid="uid://dfthr6ovqddlu" path="res://Items/LootItem16.tres" id="4_1c6yy"]
+[ext_resource type="Resource" uid="uid://b8b03hyn6m81o" path="res://Items/LootItem15.tres" id="5_a3uc6"]
+
+[sub_resource type="Resource" id="Resource_suiuv"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("1_qk5vj")
+dropChance = 25.0
+
+[sub_resource type="Resource" id="Resource_c6t2m"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("3_dajgn")
+dropChance = 25.0
+
+[sub_resource type="Resource" id="Resource_n348w"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("4_1c6yy")
+dropChance = 25.0
+
+[sub_resource type="Resource" id="Resource_lylvg"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("5_a3uc6")
+dropChance = 25.0
+
+[resource]
+script = ExtResource("1_tyy1q")
+lootDorps = Array[Object]([SubResource("Resource_suiuv"), SubResource("Resource_c6t2m"), SubResource("Resource_n348w"), SubResource("Resource_lylvg")])

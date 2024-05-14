@@ -1,0 +1,591 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 4019,
+      "max": [
+        0.4486936032772064,
+        0.4454731047153473,
+        0.7461931705474854
+      ],
+      "min": [
+        -0.4488973021507263,
+        -0.44547316431999207,
+        -0.8330624103546143
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 48228,
+      "componentType": 5126,
+      "count": 4019,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 4019,
+      "max": [
+        0.9999995827674866,
+        0.9999997019767761,
+        0.9999780654907227,
+        1.0
+      ],
+      "min": [
+        -0.9999995231628418,
+        -0.9999997019767761,
+        -0.9995869994163513,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 4019,
+      "max": [
+        0.9166481494903564,
+        0.9996910095214844
+      ],
+      "min": [
+        0.0003090593090746552,
+        0.0003090593090746552
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 32152,
+      "componentType": 5126,
+      "count": 4019,
+      "max": [
+        0.9166481494903564,
+        0.9996910095214844
+      ],
+      "min": [
+        0.0003090593090746552,
+        0.0003090593090746552
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 64304,
+      "componentType": 5126,
+      "count": 4019,
+      "max": [
+        0.9166481494903564,
+        0.9996910095214844
+      ],
+      "min": [
+        0.0003090593090746552,
+        0.0003090593090746552
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 18084,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 96456,
+      "componentType": 5126,
+      "count": 288,
+      "max": [
+        0.12649860978126526,
+        0.12649862468242645,
+        0.12802481651306152
+      ],
+      "min": [
+        -0.12649860978126526,
+        -0.12649860978126526,
+        -0.12802481651306152
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 99912,
+      "componentType": 5126,
+      "count": 288,
+      "max": [
+        0.9988665580749512,
+        0.998866617679596,
+        1.0
+      ],
+      "min": [
+        -0.998866617679596,
+        -0.998866617679596,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 64304,
+      "componentType": 5126,
+      "count": 288,
+      "max": [
+        0.9642031788825989,
+        0.9999707937240601,
+        0.4811086356639862,
+        1.0
+      ],
+      "min": [
+        -0.9999708533287048,
+        -0.9999707341194153,
+        -0.601402759552002,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 96456,
+      "componentType": 5126,
+      "count": 288,
+      "max": [
+        0.9406188726425171,
+        0.8492989540100098
+      ],
+      "min": [
+        0.8686007261276245,
+        0.0003090593090746552
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 98760,
+      "componentType": 5126,
+      "count": 288,
+      "max": [
+        0.9406188726425171,
+        0.8492989540100098
+      ],
+      "min": [
+        0.8686007261276245,
+        0.0003090593090746552
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 101064,
+      "componentType": 5126,
+      "count": 288,
+      "max": [
+        0.9406188726425171,
+        0.8492989540100098
+      ],
+      "min": [
+        0.8686007261276245,
+        0.0003090593090746552
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 72336,
+      "componentType": 5125,
+      "count": 720,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 103368,
+      "componentType": 5126,
+      "count": 432,
+      "max": [
+        0.4639057219028473,
+        0.4639057517051697,
+        0.5740652680397034
+      ],
+      "min": [
+        -0.4639057517051697,
+        -0.4639057219028473,
+        0.48632287979125977
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 108552,
+      "componentType": 5126,
+      "count": 432,
+      "max": [
+        0.9777470827102661,
+        0.9777467846870422,
+        0.9909027218818665
+      ],
+      "min": [
+        -0.9777465462684631,
+        -0.9777473211288452,
+        -0.9351648688316345
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 103368,
+      "componentType": 5126,
+      "count": 432,
+      "max": [
+        1.0,
+        0.47238200902938843
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 75216,
+      "componentType": 5125,
+      "count": 432,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Mandrake (https://sketchfab.com/mandrake_3d)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/golden-goblet-a69c357fe0ab4c28bdeebfe6671c0e7e",
+      "title": "Golden Goblet"
+    },
+    "generator": "Sketchfab-12.67.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 76944,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 106824,
+      "byteOffset": 76944,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 113736,
+      "byteOffset": 183768,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 68912,
+      "byteOffset": 297504,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 366416,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_transmission"
+  ],
+  "images": [
+    {
+      "uri": "textures/goblet_baseColor.png"
+    },
+    {
+      "uri": "textures/goblet_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/goblet_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "goblet",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_transmission": {
+          "transmissionFactor": 1.0
+        }
+      },
+      "name": "ruby",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7999999999999999,
+          0.010728200000000007,
+          0.06795169999999996,
+          0.25
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.9422381773489573
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "goblet_goblet_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "goblet part_goblet_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11,
+            "TEXCOORD_2": 12
+          },
+          "indices": 13,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "gem goblet_ruby_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 15,
+            "POSITION": 14,
+            "TEXCOORD_0": 16
+          },
+          "indices": 17,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "8d661038aaa94d04bcb7774b4de80740.fbx"
+    },
+    {
+      "children": [
+        3,
+        5,
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        83.79864501953125,
+        0.0,
+        1.0
+      ],
+      "name": "goblet"
+    },
+    {
+      "mesh": 0,
+      "name": "goblet_goblet_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        62.70426940917969,
+        0.0,
+        1.0
+      ],
+      "name": "goblet part"
+    },
+    {
+      "mesh": 1,
+      "name": "goblet part_goblet_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        1.9470718848335622e-05,
+        0.0,
+        99.99999999999811,
+        0.0,
+        99.99999999999679,
+        -1.6292067961387602e-05,
+        -1.9470718859437852e-05,
+        0.0,
+        1.6292067955836487e-05,
+        99.99999999999869,
+        -3.197442310920451e-12,
+        0.0,
+        0.0,
+        83.82218933105469,
+        0.0,
+        1.0
+      ],
+      "name": "gem goblet"
+    },
+    {
+      "mesh": 2,
+      "name": "gem goblet_ruby_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

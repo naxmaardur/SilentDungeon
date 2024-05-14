@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://cbiijw27espqm"]
+[gd_scene load_steps=74 format=3 uid="uid://cbiijw27espqm"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="PackedScene" uid="uid://bfjxg5h8pnqk" path="res://Assets/weapons/sword_01.tscn" id="2_68u4v"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/DropItem.cs" id="12_i75g3"]
 [ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="13_4eno7"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/HealthBar.cs" id="14_c1h31"]
+[ext_resource type="Texture2D" uid="uid://elpjlir40o0w" path="res://Assets/UI/cross.png" id="25_0mbll"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
 
@@ -477,7 +478,7 @@ height = 1.24769
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohm00"]
 bg_color = Color(0, 0.717647, 0.388235, 1)
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox", "healthbar", "stepSource", "landSource", "hurtSource") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox", "healthbar", "stepSource", "landSource", "hurtSource", "crosshair") groups=["player"]]
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
 rightHand = NodePath("Head/RightHand")
@@ -491,6 +492,7 @@ healthbar = NodePath("CanvasLayer/HealthBar")
 stepSource = NodePath("StepSoundSource")
 landSource = NodePath("LandSoundSource")
 hurtSource = NodePath("hurtSoundSource")
+crosshair = NodePath("CanvasLayer/Control")
 stepSounds = Array[AudioStream]([ExtResource("4_q6hyx"), ExtResource("3_bdufx"), ExtResource("4_8etgt"), ExtResource("5_un7ok")])
 SneakSounds = Array[AudioStream]([ExtResource("6_mr8pq"), ExtResource("7_sobyj"), ExtResource("8_qr5gi"), ExtResource("9_fbw6j")])
 
@@ -645,9 +647,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 86.0
+offset_left = 97.0
 offset_top = -42.0
-offset_right = 86.0
+offset_right = 97.0
 offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -888,9 +890,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -479.0
+offset_left = -489.0
 offset_top = -149.0
-offset_right = -479.0
+offset_right = -489.0
 offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -1126,6 +1128,35 @@ offset_bottom = 50.0
 Slot = 6
 SlotType = 5
 IsEquipSlot = true
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("25_0mbll")
 
 [editable path="LandSoundSource"]
 [editable path="StepSoundSource"]

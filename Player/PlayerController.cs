@@ -18,6 +18,7 @@ public partial class PlayerController : CharacterBody3D, IDamagable
     [Export] public SoundSource stepSource;
     [Export] private SoundSource landSource;
     [Export] private SoundSource hurtSource;
+    [Export] private Control crosshair;
 
 
     private bool crouchToggle;

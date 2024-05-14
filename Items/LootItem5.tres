@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dqwg7byaywxqq"]
+
+[ext_resource type="PackedScene" uid="uid://dt140s3yn3cp0" path="res://Items/Visuals/treasure_1.tscn" id="1_n7sk5"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_xp1t5"]
+[ext_resource type="Texture2D" uid="uid://dsf0svuvfuig6" path="res://Items/UI/6.JPG" id="2_5xr5p"]
+
+[resource]
+script = ExtResource("1_xp1t5")
+Name = "Treasure"
+Texture = ExtResource("2_5xr5p")
+SlotType = 0
+ObjectMesh = ExtResource("1_n7sk5")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.0
+SpeedMod = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 0.0
+weaponDamage = 0.0
+Value = 100

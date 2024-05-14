@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=15 format=3 uid="uid://b7j7xhrpqicfs"]
+
+[ext_resource type="Script" path="res://GeneralScripts/Loot/LootTable.cs" id="1_ic1hj"]
+[ext_resource type="Resource" uid="uid://cx68vuywgbpb4" path="res://Items/LootItem12.tres" id="1_nhus7"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/LootDorp.cs" id="2_j1nux"]
+[ext_resource type="Resource" uid="uid://dbrmgbjdemiho" path="res://Items/LootItem13.tres" id="3_sw78n"]
+[ext_resource type="Resource" uid="uid://dceayj3tkssty" path="res://Items/LootItem14.tres" id="4_lfico"]
+[ext_resource type="Resource" uid="uid://b8b03hyn6m81o" path="res://Items/LootItem15.tres" id="5_ya4ks"]
+[ext_resource type="Resource" uid="uid://dfthr6ovqddlu" path="res://Items/LootItem16.tres" id="6_4iskt"]
+[ext_resource type="Resource" uid="uid://02ilk263e45w" path="res://Items/LootItem17.tres" id="7_y512v"]
+
+[sub_resource type="Resource" id="Resource_son3i"]
+script = ExtResource("2_j1nux")
+item = ExtResource("1_nhus7")
+dropChance = 16.66
+
+[sub_resource type="Resource" id="Resource_fmkgn"]
+script = ExtResource("2_j1nux")
+item = ExtResource("3_sw78n")
+dropChance = 16.66
+
+[sub_resource type="Resource" id="Resource_didhe"]
+script = ExtResource("2_j1nux")
+item = ExtResource("4_lfico")
+dropChance = 16.66
+
+[sub_resource type="Resource" id="Resource_fquyo"]
+script = ExtResource("2_j1nux")
+item = ExtResource("5_ya4ks")
+dropChance = 16.66
+
+[sub_resource type="Resource" id="Resource_uxvft"]
+script = ExtResource("2_j1nux")
+item = ExtResource("6_4iskt")
+dropChance = 16.66
+
+[sub_resource type="Resource" id="Resource_5ychb"]
+script = ExtResource("2_j1nux")
+item = ExtResource("7_y512v")
+dropChance = 16.66
+
+[resource]
+script = ExtResource("1_ic1hj")
+lootDorps = Array[Object]([SubResource("Resource_son3i"), SubResource("Resource_fmkgn"), SubResource("Resource_didhe"), SubResource("Resource_fquyo"), SubResource("Resource_uxvft"), SubResource("Resource_5ychb")])

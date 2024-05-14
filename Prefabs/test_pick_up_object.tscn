@@ -11,6 +11,7 @@
 
 [node name="TestPickUpObject" type="RigidBody3D" node_paths=PackedStringArray("collisionObject", "areaCollision", "sound")]
 collision_layer = 2
+continuous_cd = true
 script = ExtResource("1_1b46o")
 shader = ExtResource("2_2aoyl")
 collisionObject = NodePath("CollisionShape3D")
@@ -30,5 +31,8 @@ shape = SubResource("BoxShape3D_jn3hp")
 
 [node name="AudioStreamPlayer3D" parent="SoundSource" index="0"]
 stream = ExtResource("4_yxyup")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 0.1
 
 [editable path="SoundSource"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://r46y1youn51x"]
+[gd_scene load_steps=38 format=3 uid="uid://r46y1youn51x"]
 
 [ext_resource type="PackedScene" uid="uid://ca48i1g4dsogi" path="res://Prefabs/scene_trigger.tscn" id="1_ilbbm"]
 [ext_resource type="PackedScene" uid="uid://d21gvf2irpg2x" path="res://Prefabs/Map/room_i.tscn" id="1_souef"]
@@ -27,7 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://rif2vca2nbbv" path="res://Prefabs/Map/Props/cage_pile_01.tscn" id="30_3cywn"]
 [ext_resource type="PackedScene" uid="uid://6uvqi17e5cxm" path="res://Prefabs/Map/Props/rock_pile_grp_03.tscn" id="31_d0x0b"]
 [ext_resource type="PackedScene" uid="uid://cac53w2tisdxs" path="res://Prefabs/Map/Props/cloth_b.tscn" id="32_8vtsp"]
+[ext_resource type="PackedScene" uid="uid://rgxgx7bxoco4" path="res://Prefabs/item_spawner.tscn" id="32_jldfx"]
 [ext_resource type="PackedScene" uid="uid://c2ac66dum0ofw" path="res://Prefabs/Map/Props/cupboard_14_break_grp.tscn" id="33_mwipv"]
+[ext_resource type="Resource" uid="uid://bu7mvqc4rv783" path="res://Items/LootTable/Floor1Normal.tres" id="33_pw5mj"]
 [ext_resource type="PackedScene" uid="uid://bbduymlaov8li" path="res://Prefabs/Map/Props/bones_pile_02_grp.tscn" id="34_i51y1"]
 [ext_resource type="PackedScene" uid="uid://4wemtc8mky7t" path="res://AIActors/warden_actor.tscn" id="34_qi3w3"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dea8krkn4oeo2" path="res://Levels/Floor1_1.occ" id="35_4f51r"]
@@ -366,6 +368,134 @@ bake_mask = 4294967291
 
 [node name="WardenActor" parent="." instance=ExtResource("34_qi3w3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8614, 0.154033, -16.0426)
+
+[node name="ItemSpawner" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68259, -0.346634, -8.54028)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner2" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9019, -0.346634, -5.63997)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner3" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7097, -0.346634, -7.54834)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner4" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9363, 0.512376, -6.37224)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner5" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.6728, 0.322304, -12.7506)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner6" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.0745, 0.322304, -12.7073)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner7" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.993, 0.322304, -1.34832)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner8" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.6153, 0.167215, -1.13527)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner9" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.0259, 0.167215, -6.88383)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner10" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3402, 0.167211, -52.2599)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner11" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9678, 0.167211, -52.4184)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner12" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7647, 0.167212, -50.0431)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner13" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4706, 0.698294, -80.0356)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner14" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.3859, 0.265794, -75.6929)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner15" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42791, 0.851248, -71.8677)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner16" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.18752, 0.698293, -66.2622)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner17" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.34745, 0.698293, -58.7947)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner18" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48119, 0.698293, -58.2734)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner19" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6847, 1.52172, -56.6052)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner20" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.6215, -0.175149, -56.6381)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner21" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7244, 0.698294, -56.5292)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner22" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1696, 0.348161, -56.5778)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner23" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9547, 0.350247, -62.2097)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner24" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8743, 0.145984, -65.2887)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner25" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5478, 0.145984, -65.7719)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner26" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07437, 0.145984, -48.1253)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner27" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1738, 0.145984, -38.8571)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner28" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.4719, 0.145984, -37.6555)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner29" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9667, 0.145984, -36.94)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner30" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0075, 0.145984, -30.4923)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner31" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10711, 0.145984, -31.1573)
+lootTable = ExtResource("33_pw5mj")
+
+[node name="ItemSpawner32" parent="." instance=ExtResource("32_jldfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131977, 0.145984, -36.5938)
+lootTable = ExtResource("33_pw5mj")
 
 [editable path="SceneTrigger"]
 [editable path="SceneTrigger2"]

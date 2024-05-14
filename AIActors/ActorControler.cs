@@ -8,6 +8,8 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
     [Export]
     float health = 15;
     [Export]
+    public float walkSpeed;
+    [Export]
     public float runSpeed;
     [Export]
     public bool randomStartState = false;
@@ -207,6 +209,28 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
                 livingSoundTimer.Start();
                 livingSource.SetRandomPitch(0.8f, 1.2f);
                 livingSource.PlaySound();
+            }
+        }
+
+        if (isWarden)
+        {
+            if(GlobalPosition.DistanceTo(player.GlobalPosition) < 4)
+            {
+                if(this.RayCast3D(GlobalPosition,player.GlobalPosition,out var hit))
+                {
+                    if(hit.collider == player )
+                    {
+                        AlertValue += (float)delta * 2f;
+                    }
+                    else
+                    {
+                        Node n = hit.collider as Node;
+                        if(n.Owner == player)
+                        {
+                            AlertValue += (float)delta * 2f;
+                        }
+                    }
+                }
             }
         }
     }

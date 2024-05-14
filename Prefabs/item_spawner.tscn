@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://rgxgx7bxoco4"]
+[gd_scene load_steps=4 format=3 uid="uid://rgxgx7bxoco4"]
 
 [ext_resource type="Script" path="res://GeneralScripts/ItemSpawner.cs" id="1_vspkk"]
+[ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="2_uhyny"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s6b5y"]
 
 [node name="ItemSpawner" type="Node3D"]
 script = ExtResource("1_vspkk")
+dropItem = ExtResource("2_uhyny")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_s6b5y")

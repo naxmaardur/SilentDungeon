@@ -23,6 +23,7 @@ public partial class GameManager : Node
 	[Export]
 	private PackedScene[] floors;
 
+	private AudioStreamPlayer audioPlayer;
 	public void Save()
 	{
 		player.inventory.Save();
@@ -47,6 +48,8 @@ public partial class GameManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+        audioPlayer = this.GetChildByType<AudioStreamPlayer>();
+
         player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
 		player.Setup();
         scoreTracker = GetTree().GetNodesInGroup("scoreTracker")[0] as ScoreTracker;
@@ -110,6 +113,20 @@ public partial class GameManager : Node
 
 	public void ExitDungeon()
 	{
+		int sold = 0;
+		for(int i = 0; i < 36; i++)
+		{
+			if (player.inventory.inventoryItems[i] == null) { continue; }
+            if (player.inventory.inventoryItems[i].SlotType != 0) { continue; }
+			scoreTracker.scoreObject.AddScore(player.inventory.inventoryItems[i].Value);
+			player.inventory.RemoveItemFromInventory(i);
+			sold++;
+        }
+		if(sold > 0)
+		{
+			audioPlayer.Play();
+        }
+
 		Save();
 		LoadScene(dropSellerScene);
 		OpenOutOfGame();
@@ -148,6 +165,7 @@ public partial class GameManager : Node
 	private void EnterDungeon()
 	{
 		player.health = 100;
+		player.healthUpdate?.Invoke(100);
 		LoadScene(floors[0]);
         player.CloseInventory();
         player.ToggleActiveActor(true);

@@ -31,16 +31,18 @@ public partial class PickUpItem : Node3D, Iinteractable
     public void AddMesh(Node3D node)
     {
         CollisionShape3D collisionObject = node.GetChildByType<CollisionShape3D>();
+        this.collisionObject.Shape = new BoxShape3D();
         this.collisionObject.Shape.Set("size", collisionObject.Shape.Get("size"));
-        areaCollision.Shape.Set("size", collisionObject.Shape.Get("size"));
+        //areaCollision.Shape.Set("size", collisionObject.Shape.Get("size"));
 
         meshInstances = node.GetAllChildrenByType<MeshInstance3D>();
         foreach (MeshInstance3D child in meshInstances)
         {
             ShaderMaterial material = new ShaderMaterial();
             material.Shader = shader;
-
             child.MaterialOverlay = material;
+            material.SetShaderParameter("emission", new Color(0.7f, 0.7f, 0.7f));
+            material.SetShaderParameter("strenght", 0.1f);
         }
     }
 
@@ -49,6 +51,7 @@ public partial class PickUpItem : Node3D, Iinteractable
         foreach(MeshInstance3D meshInstance in meshInstances)
         {
             ShaderMaterial material = meshInstance.MaterialOverlay as ShaderMaterial;
+            material.SetShaderParameter("emission", new Color(0.7f, 0.7f, 0.7f));
             material.SetShaderParameter("strenght", 1);
         }
     }
@@ -59,7 +62,8 @@ public partial class PickUpItem : Node3D, Iinteractable
         foreach (MeshInstance3D meshInstance in meshInstances)
         {
             ShaderMaterial material = meshInstance.MaterialOverlay as ShaderMaterial;
-            material.SetShaderParameter("strenght", 0);
+            material.SetShaderParameter("emission", new Color(0.7f, 0.7f, 0.7f));
+            material.SetShaderParameter("strenght", 0.1f);
         }
     }
 

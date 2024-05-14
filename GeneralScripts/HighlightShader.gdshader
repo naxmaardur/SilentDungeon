@@ -1,5 +1,6 @@
 shader_type spatial;
-uniform float strenght;
+uniform float strenght = 0.1;
+uniform vec3 emission;
 
 
 void vertex() {
@@ -10,6 +11,7 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	ALBEDO = vec3(0.88,1.0,0.0);
 	ALPHA = strenght;
+	EMISSION = emission;
 }
 
 //void light() {

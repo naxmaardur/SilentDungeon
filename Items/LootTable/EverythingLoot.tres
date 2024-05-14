@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="LootTable" load_steps=37 format=3 uid="uid://bpytamsjrof7u"]
+
+[ext_resource type="Script" path="res://GeneralScripts/Loot/LootTable.cs" id="1_oxgnu"]
+[ext_resource type="Resource" uid="uid://rj4vd3m4ovi8" path="res://Items/LootItem1.tres" id="1_r757c"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/LootDorp.cs" id="2_vxasu"]
+[ext_resource type="Resource" uid="uid://d3ajt7tcfy4x7" path="res://Items/LootItem2.tres" id="3_hocwx"]
+[ext_resource type="Resource" uid="uid://nj6pl2jk2coj" path="res://Items/LootItem3.tres" id="4_lm7hd"]
+[ext_resource type="Resource" uid="uid://cb1imql88o0xa" path="res://Items/LootItem4.tres" id="5_d41g3"]
+[ext_resource type="Resource" uid="uid://dqwg7byaywxqq" path="res://Items/LootItem5.tres" id="6_l8a3v"]
+[ext_resource type="Resource" uid="uid://bw714uuyxefyu" path="res://Items/LootItem6.tres" id="7_g7m25"]
+[ext_resource type="Resource" uid="uid://cr2katvkr6hyi" path="res://Items/LootItem7.tres" id="8_pgf6k"]
+[ext_resource type="Resource" uid="uid://cf4cjrdamxj6g" path="res://Items/LootItem8.tres" id="9_odyey"]
+[ext_resource type="Resource" uid="uid://fcov5ie3nlha" path="res://Items/LootItem9.tres" id="10_tinpm"]
+[ext_resource type="Resource" uid="uid://rwcc8cp6r5x7" path="res://Items/LootItem10.tres" id="11_4cyrj"]
+[ext_resource type="Resource" uid="uid://clgktt3ffbcyx" path="res://Items/LootItem11.tres" id="12_l2dlk"]
+[ext_resource type="Resource" uid="uid://cx68vuywgbpb4" path="res://Items/LootItem12.tres" id="13_dd153"]
+[ext_resource type="Resource" uid="uid://dbrmgbjdemiho" path="res://Items/LootItem13.tres" id="14_dw86d"]
+[ext_resource type="Resource" uid="uid://dceayj3tkssty" path="res://Items/LootItem14.tres" id="15_108su"]
+[ext_resource type="Resource" uid="uid://b8b03hyn6m81o" path="res://Items/LootItem15.tres" id="16_ahjvu"]
+[ext_resource type="Resource" uid="uid://dfthr6ovqddlu" path="res://Items/LootItem16.tres" id="17_58v6w"]
+[ext_resource type="Resource" uid="uid://02ilk263e45w" path="res://Items/LootItem17.tres" id="18_a5cpq"]
+
+[sub_resource type="Resource" id="Resource_7kbdx"]
+script = ExtResource("2_vxasu")
+item = ExtResource("1_r757c")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_7hq7l"]
+script = ExtResource("2_vxasu")
+item = ExtResource("3_hocwx")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_7nl1h"]
+script = ExtResource("2_vxasu")
+item = ExtResource("4_lm7hd")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_e6ixc"]
+script = ExtResource("2_vxasu")
+item = ExtResource("5_d41g3")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_v0ucy"]
+script = ExtResource("2_vxasu")
+item = ExtResource("6_l8a3v")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_qahr1"]
+script = ExtResource("2_vxasu")
+item = ExtResource("7_g7m25")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_k47ny"]
+script = ExtResource("2_vxasu")
+item = ExtResource("8_pgf6k")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_onhwq"]
+script = ExtResource("2_vxasu")
+item = ExtResource("9_odyey")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_24cxc"]
+script = ExtResource("2_vxasu")
+item = ExtResource("10_tinpm")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_iccn7"]
+script = ExtResource("2_vxasu")
+item = ExtResource("11_4cyrj")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_tljei"]
+script = ExtResource("2_vxasu")
+item = ExtResource("12_l2dlk")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_ry3ha"]
+script = ExtResource("2_vxasu")
+item = ExtResource("13_dd153")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_na58f"]
+script = ExtResource("2_vxasu")
+item = ExtResource("14_dw86d")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_tlal8"]
+script = ExtResource("2_vxasu")
+item = ExtResource("15_108su")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_khb7r"]
+script = ExtResource("2_vxasu")
+item = ExtResource("16_ahjvu")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_mrugu"]
+script = ExtResource("2_vxasu")
+item = ExtResource("17_58v6w")
+dropChance = 5.88
+
+[sub_resource type="Resource" id="Resource_cyp41"]
+script = ExtResource("2_vxasu")
+item = ExtResource("18_a5cpq")
+dropChance = 5.88
+
+[resource]
+script = ExtResource("1_oxgnu")
+lootDorps = Array[Object]([SubResource("Resource_7kbdx"), SubResource("Resource_7hq7l"), SubResource("Resource_7nl1h"), SubResource("Resource_e6ixc"), SubResource("Resource_v0ucy"), SubResource("Resource_qahr1"), SubResource("Resource_k47ny"), SubResource("Resource_onhwq"), SubResource("Resource_24cxc"), SubResource("Resource_iccn7"), SubResource("Resource_tljei"), SubResource("Resource_ry3ha"), SubResource("Resource_na58f"), SubResource("Resource_tlal8"), SubResource("Resource_khb7r"), SubResource("Resource_mrugu"), SubResource("Resource_cyp41")])

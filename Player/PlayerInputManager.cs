@@ -75,6 +75,7 @@ public partial class PlayerController
 
     public void OpenInventory()
     {
+        crosshair.Visible = false;
         inputsActive = false;
         Input.MouseMode = Input.MouseModeEnum.Visible;
         uiInvetory.Visible = true;
@@ -84,6 +85,7 @@ public partial class PlayerController
 
     public void CloseInventory()
     {
+        crosshair.Visible = true;
         inputsActive = true;
         Input.MouseMode = Input.MouseModeEnum.Captured;
         uiInvetory.Visible = false;

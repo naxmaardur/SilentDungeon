@@ -18,7 +18,7 @@ namespace AIStates
         public override void OnUpdate(double delta)
         {
             ctx.Velocity = Vector3.Zero;
-            Vector3 directionToPlayer = (ctx.player.GlobalPosition - ctx.GlobalPosition).Normalized();
+            Vector3 directionToPlayer = (ctx.player.GlobalPosition - ctx.GlobalPosition).Normalized() * ctx.walkSpeed;
             double newAgle = Mathf.LerpAngle(ctx.Rotation.Y, Mathf.Atan2(directionToPlayer.X, directionToPlayer.Z), delta * 70);
             double radian = ((Math.PI / 180) * newAgle) - ((Math.PI / 180) * ctx.Rotation.Y);
             ctx.RotateY((float)radian);
