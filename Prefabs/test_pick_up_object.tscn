@@ -8,7 +8,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_jn3hp"]
 
 [node name="TestPickUpObject" type="StaticBody3D" node_paths=PackedStringArray("areaCollision", "sound")]
-collision_layer = 129
+collision_layer = 128
 script = ExtResource("1_1b46o")
 shader = ExtResource("2_2aoyl")
 areaCollision = NodePath("CollisionShape3D")

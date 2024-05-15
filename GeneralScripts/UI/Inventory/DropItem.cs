@@ -35,7 +35,7 @@ public partial class DropItem : Control
             Node3D visuals = v as Node3D;
             pickUpItem.AddChild(visuals);
             pickUpItem.AddMesh(visuals);
-            gameManager.activeSceneContainer.AddChild(pickUpItem);
+            gameManager.activeSceneContainer.GetChild(0).AddChild(pickUpItem);
             pickUpItem.GlobalPosition = player.GlobalPosition + player.Forward();
 
             ChestSlot chestdata = passedData as ChestSlot;

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LootTable" load_steps=17 format=3 uid="uid://bu7mvqc4rv783"]
+[gd_resource type="Resource" script_class="LootTable" load_steps=20 format=3 uid="uid://bu7mvqc4rv783"]
 
 [ext_resource type="Resource" uid="uid://dqwg7byaywxqq" path="res://Items/LootItem5.tres" id="1_gl44i"]
 [ext_resource type="Script" path="res://GeneralScripts/Loot/LootTable.cs" id="1_jk1pu"]
@@ -9,42 +9,53 @@
 [ext_resource type="Resource" uid="uid://fcov5ie3nlha" path="res://Items/LootItem9.tres" id="6_ieqt2"]
 [ext_resource type="Resource" uid="uid://rwcc8cp6r5x7" path="res://Items/LootItem10.tres" id="7_eu56y"]
 [ext_resource type="Resource" uid="uid://clgktt3ffbcyx" path="res://Items/LootItem11.tres" id="8_b3l4s"]
+[ext_resource type="Resource" uid="uid://cu237hl4e801k" path="res://Items/Armor/LeatherBoots.tres" id="9_qjip6"]
 
 [sub_resource type="Resource" id="Resource_23lei"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("1_gl44i")
-dropChance = 14.28
+dropChance = 12.5
 
 [sub_resource type="Resource" id="Resource_v2gyq"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("3_udch5")
-dropChance = 14.28
+dropChance = 12.5
 
 [sub_resource type="Resource" id="Resource_54coi"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("4_gd8iu")
-dropChance = 14.28
+dropChance = 12.5
 
 [sub_resource type="Resource" id="Resource_3v4dq"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("5_75xgn")
-dropChance = 14.28
+dropChance = 12.5
 
 [sub_resource type="Resource" id="Resource_ebuvj"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("6_ieqt2")
-dropChance = 14.28
+dropChance = 12.5
 
 [sub_resource type="Resource" id="Resource_xc3v3"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("7_eu56y")
-dropChance = 14.28
+dropChance = 12.5
 
 [sub_resource type="Resource" id="Resource_vxjk2"]
 script = ExtResource("2_7nkfx")
 item = ExtResource("8_b3l4s")
-dropChance = 14.28
+dropChance = 12.5
+
+[sub_resource type="Resource" id="Resource_mhxvy"]
+script = ExtResource("2_7nkfx")
+item = ExtResource("9_qjip6")
+dropChance = 6.25
+
+[sub_resource type="Resource" id="Resource_j22kp"]
+script = ExtResource("2_7nkfx")
+item = ExtResource("9_qjip6")
+dropChance = 6.25
 
 [resource]
 script = ExtResource("1_jk1pu")
-lootDorps = Array[Object]([SubResource("Resource_23lei"), SubResource("Resource_v2gyq"), SubResource("Resource_54coi"), SubResource("Resource_3v4dq"), SubResource("Resource_ebuvj"), SubResource("Resource_xc3v3"), SubResource("Resource_vxjk2")])
+lootDorps = Array[Object]([SubResource("Resource_23lei"), SubResource("Resource_v2gyq"), SubResource("Resource_54coi"), SubResource("Resource_3v4dq"), SubResource("Resource_ebuvj"), SubResource("Resource_xc3v3"), SubResource("Resource_vxjk2"), SubResource("Resource_mhxvy"), SubResource("Resource_j22kp")])

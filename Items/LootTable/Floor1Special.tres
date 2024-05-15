@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="LootTable" load_steps=11 format=3 uid="uid://c44o64yp3cvkk"]
+[gd_resource type="Resource" script_class="LootTable" load_steps=17 format=3 uid="uid://c44o64yp3cvkk"]
 
 [ext_resource type="Resource" uid="uid://dbrmgbjdemiho" path="res://Items/LootItem13.tres" id="1_qk5vj"]
 [ext_resource type="Script" path="res://GeneralScripts/Loot/LootTable.cs" id="1_tyy1q"]
@@ -6,27 +6,45 @@
 [ext_resource type="Resource" uid="uid://dceayj3tkssty" path="res://Items/LootItem14.tres" id="3_dajgn"]
 [ext_resource type="Resource" uid="uid://dfthr6ovqddlu" path="res://Items/LootItem16.tres" id="4_1c6yy"]
 [ext_resource type="Resource" uid="uid://b8b03hyn6m81o" path="res://Items/LootItem15.tres" id="5_a3uc6"]
+[ext_resource type="Resource" uid="uid://csji12ptn2wmy" path="res://Items/Armor/Chain Helmet.tres" id="6_50651"]
+[ext_resource type="Resource" uid="uid://v3a6fhon44m0" path="res://Items/Armor/Chain Armor.tres" id="7_pn322"]
+[ext_resource type="Resource" uid="uid://dbeove6xjf0ef" path="res://Items/Armor/PlateBoots.tres" id="8_l41bo"]
 
 [sub_resource type="Resource" id="Resource_suiuv"]
 script = ExtResource("2_oj0mx")
 item = ExtResource("1_qk5vj")
-dropChance = 25.0
+dropChance = 20.0
 
 [sub_resource type="Resource" id="Resource_c6t2m"]
 script = ExtResource("2_oj0mx")
 item = ExtResource("3_dajgn")
-dropChance = 25.0
+dropChance = 20.0
 
 [sub_resource type="Resource" id="Resource_n348w"]
 script = ExtResource("2_oj0mx")
 item = ExtResource("4_1c6yy")
-dropChance = 25.0
+dropChance = 20.0
 
 [sub_resource type="Resource" id="Resource_lylvg"]
 script = ExtResource("2_oj0mx")
 item = ExtResource("5_a3uc6")
-dropChance = 25.0
+dropChance = 20.0
+
+[sub_resource type="Resource" id="Resource_36cqf"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("6_50651")
+dropChance = 6.66
+
+[sub_resource type="Resource" id="Resource_6dug0"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("7_pn322")
+dropChance = 6.66
+
+[sub_resource type="Resource" id="Resource_3fxsi"]
+script = ExtResource("2_oj0mx")
+item = ExtResource("8_l41bo")
+dropChance = 6.66
 
 [resource]
 script = ExtResource("1_tyy1q")
-lootDorps = Array[Object]([SubResource("Resource_suiuv"), SubResource("Resource_c6t2m"), SubResource("Resource_n348w"), SubResource("Resource_lylvg")])
+lootDorps = Array[Object]([SubResource("Resource_suiuv"), SubResource("Resource_c6t2m"), SubResource("Resource_n348w"), SubResource("Resource_lylvg"), SubResource("Resource_36cqf"), SubResource("Resource_6dug0"), SubResource("Resource_3fxsi")])
