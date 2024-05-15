@@ -170,12 +170,7 @@ public partial class Inventory : Resource
             return;
         }
         //If Nothing to load
-        inventoryItems = new InventoryItem[36];
-        for (int i = 0; i < inventoryItems.Length; i++)
-        {
-            inventoryItems[i] = null;
-        }
-        EquipedItems = new InventoryItem[7];
+        LoadDefault();
     }
     
 
@@ -188,5 +183,7 @@ public partial class Inventory : Resource
             inventoryItems[i] = null;
         }
         EquipedItems = new InventoryItem[7];
+        EquipedItems[4] = GD.Load<InventoryItem>("res://Items/Armor/WornBoots.tres");
+        EquipedItems[3] = GD.Load<InventoryItem>("res://Items/Armor/Shirt.tres");
     }
 }

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://kclewv4byogs"]
+
+[ext_resource type="PackedScene" uid="uid://ijbhj7g4tydw" path="res://Items/Armor/Visuals/boots_4.tscn" id="1_mneyf"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_ojior"]
+[ext_resource type="Texture2D" uid="uid://2mwa4vsjyvdw" path="res://Items/Armor/UI/7.JPG" id="2_1kgbv"]
+
+[resource]
+script = ExtResource("1_ojior")
+Name = "Vampire Boots"
+Texture = ExtResource("2_1kgbv")
+SlotType = 4
+ObjectMesh = ExtResource("1_mneyf")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.0
+SpeedMod = 0.5
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 40.0
+weaponDamage = 0.0
+Value = 1400

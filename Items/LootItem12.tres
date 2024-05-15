@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cx68vuywgbpb4"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=5 format=3 uid="uid://cx68vuywgbpb4"]
 
+[ext_resource type="AudioStream" uid="uid://cmnxskoo0fxsa" path="res://Assets/UI/Sounds/ring_inventory.wav" id="1_70ilo"]
 [ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_jqpyi"]
 [ext_resource type="PackedScene" uid="uid://c0a26y3htmutq" path="res://Items/Visuals/treasure_8.tscn" id="1_p2oae"]
 [ext_resource type="Texture2D" uid="uid://ctphlssbyh2tj" path="res://Items/UI/13.JPG" id="2_4j4a5"]
@@ -19,3 +20,4 @@ RunSpeedMod = 0.0
 Protection = 0.0
 weaponDamage = 0.0
 Value = 235
+InventoryMoveSound = ExtResource("1_70ilo")

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cu237hl4e801k"]
+
+[ext_resource type="PackedScene" uid="uid://l0kacxmt8ny5" path="res://Items/Armor/Visuals/boots_1.tscn" id="1_0xt6k"]
+[ext_resource type="Texture2D" uid="uid://lxstx5vdxot0" path="res://Items/Armor/UI/5.JPG" id="2_jg7an"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="3_1kofr"]
+
+[resource]
+script = ExtResource("3_1kofr")
+Name = "Leather Boots"
+Texture = ExtResource("2_jg7an")
+SlotType = 4
+ObjectMesh = ExtResource("1_0xt6k")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.0
+SpeedMod = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 10.0
+weaponDamage = 0.0
+Value = 100

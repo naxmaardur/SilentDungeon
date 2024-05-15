@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://blnshr8j3jeam"]
+
+[ext_resource type="PackedScene" uid="uid://ct7bekb8na23b" path="res://Items/Armor/Visuals/armor_8.tscn" id="1_m6k5y"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_q3isv"]
+[ext_resource type="Texture2D" uid="uid://bmrngjcs31nk4" path="res://Items/Armor/UI/16.JPG" id="2_87035"]
+
+[resource]
+script = ExtResource("1_q3isv")
+Name = "Shirt"
+Texture = ExtResource("2_87035")
+SlotType = 3
+ObjectMesh = ExtResource("1_m6k5y")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.0
+SpeedMod = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 0.0
+weaponDamage = 0.0
+Value = 0

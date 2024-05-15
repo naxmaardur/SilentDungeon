@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dtt7va1yukp7j"]
+
+[ext_resource type="PackedScene" uid="uid://boqiafxe0su8h" path="res://Items/Armor/Visuals/armor_7.tscn" id="1_16wpw"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_uux0q"]
+[ext_resource type="Texture2D" uid="uid://b16or6nc70rcs" path="res://Items/Armor/UI/15.JPG" id="2_bcxk4"]
+
+[resource]
+script = ExtResource("1_uux0q")
+Name = "Breastplate"
+Texture = ExtResource("2_bcxk4")
+SlotType = 3
+ObjectMesh = ExtResource("1_16wpw")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.3
+SpeedMod = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 65.0
+weaponDamage = 0.0
+Value = 1000

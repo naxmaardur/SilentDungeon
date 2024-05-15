@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dbeove6xjf0ef"]
+
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_6k4ms"]
+[ext_resource type="PackedScene" uid="uid://dolqgtga11qo5" path="res://Items/Armor/Visuals/boots_3.tscn" id="1_ammjt"]
+[ext_resource type="Texture2D" uid="uid://bedm4a6qe8csl" path="res://Items/Armor/UI/6.JPG" id="2_3fvbj"]
+
+[resource]
+script = ExtResource("1_6k4ms")
+Name = "Plate Boots"
+Texture = ExtResource("2_3fvbj")
+SlotType = 4
+ObjectMesh = ExtResource("1_ammjt")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.3
+SpeedMod = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 25.0
+weaponDamage = 0.0
+Value = 300

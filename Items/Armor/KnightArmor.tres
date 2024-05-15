@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://dxeryw48gb1sl"]
+
+[ext_resource type="PackedScene" uid="uid://dgsp1ei4ljgm5" path="res://Items/Armor/Visuals/armor_5.tscn" id="1_3mox8"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_ithvk"]
+[ext_resource type="Texture2D" uid="uid://4st7u8rmgya0" path="res://Items/Armor/UI/13.JPG" id="2_30d3h"]
+
+[resource]
+script = ExtResource("1_ithvk")
+Name = ""
+Texture = ExtResource("2_30d3h")
+SlotType = 3
+ObjectMesh = ExtResource("1_3mox8")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.3
+SpeedMod = 0.0
+SneakSpeedMod = 0.4
+RunSpeedMod = 0.0
+Protection = 45.0
+weaponDamage = 0.0
+Value = 1000

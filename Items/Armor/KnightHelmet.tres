@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cvseqf0k1e871"]
+
+[ext_resource type="PackedScene" uid="uid://bkyok50w5rvmq" path="res://Items/Armor/Visuals/helmet_2.tscn" id="1_74uvx"]
+[ext_resource type="Script" path="res://GeneralScripts/Loot/InventoryItem.cs" id="1_a0kmj"]
+[ext_resource type="Texture2D" uid="uid://m14ovnto3rap" path="res://Items/Armor/UI/3.JPG" id="2_i870k"]
+
+[resource]
+script = ExtResource("1_a0kmj")
+Name = "Knight Helmet"
+Texture = ExtResource("2_i870k")
+SlotType = 2
+ObjectMesh = ExtResource("1_74uvx")
+WeaponID = 0
+ItemID = 0
+SoundMod = 0.0
+SpeedMod = 0.0
+SneakSpeedMod = 0.0
+RunSpeedMod = 0.0
+Protection = 25.0
+weaponDamage = 0.0
+Value = 400

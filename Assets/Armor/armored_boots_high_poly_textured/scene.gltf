@@ -1,0 +1,391 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        8.661332130432129,
+        7.149386405944824,
+        4.779390335083008
+      ],
+      "min": [
+        -6.204256057739258,
+        -0.1854560524225235,
+        -6.334028720855713
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 786384,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.9999937415122986,
+        1.0,
+        0.9999589323997498
+      ],
+      "min": [
+        -0.999994158744812,
+        -1.0,
+        -0.9999983906745911
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.9999980926513672,
+        0.9999690651893616,
+        0.9999999403953552,
+        1.0
+      ],
+      "min": [
+        -0.9999821186065674,
+        -0.9999765157699585,
+        -0.9999775886535645,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.9853479862213135,
+        0.9739515781402588
+      ],
+      "min": [
+        0.015636876225471497,
+        0.023513078689575195
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 342522,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1572768,
+      "componentType": 5126,
+      "count": 9114,
+      "max": [
+        0.09086394309997559,
+        6.330456733703613,
+        4.270735740661621
+      ],
+      "min": [
+        -3.4287610054016113,
+        0.8069643974304199,
+        -4.380152225494385
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1682136,
+      "componentType": 5126,
+      "count": 9114,
+      "max": [
+        0.9999877214431763,
+        1.0,
+        0.9998432993888855
+      ],
+      "min": [
+        -0.9997838735580444,
+        -1.0,
+        -0.9998962879180908
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 1048512,
+      "componentType": 5126,
+      "count": 9114,
+      "max": [
+        0.9999997615814209,
+        0.9997825026512146,
+        0.9999995827674866,
+        1.0
+      ],
+      "min": [
+        -0.9999710321426392,
+        -0.9999927878379822,
+        -0.9999872446060181,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 524256,
+      "componentType": 5126,
+      "count": 9114,
+      "max": [
+        0.29959285259246826,
+        0.8952965140342712
+      ],
+      "min": [
+        0.0366135835647583,
+        0.030665144324302673
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1370088,
+      "componentType": 5125,
+      "count": 44244,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "christina.christie3@gmail.com (https://sketchfab.com/christiec)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/armored-boots-high-poly-textured-020d96d53dd641a0885953794c0c189d",
+      "title": "Armored Boots, High Poly, Textured"
+    },
+    "generator": "Sketchfab-12.68.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1547064,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 597168,
+      "byteOffset": 1547064,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1791504,
+      "byteOffset": 2144232,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1194336,
+      "byteOffset": 3935736,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 5130072,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/lambert3_baseColor.png"
+    },
+    {
+      "uri": "textures/lambert3_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/lambert3_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "lambert3",
+      "normalTexture": {
+        "index": 2,
+        "scale": 0.6028787786310369
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "polySurface317_lambert3_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "polySurface317_lambert3_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.21210931241512299,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        4.709772847613602e-17,
+        -0.21210931241512299,
+        0.0,
+        0.0,
+        0.21210931241512299,
+        4.709772847613602e-17,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "015c7a0ed5b2420184681aec8b299424.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        0.0,
+        1.0,
+        -3.3306690738754696e-16,
+        0.0,
+        -1.1102230246251565e-16,
+        2.220446049250313e-16,
+        1.0,
+        0.0,
+        1.0,
+        -1.1102230246251565e-16,
+        0.0,
+        0.0,
+        0.8981916904449463,
+        -100.0999984741211,
+        1.559603214263916,
+        1.0
+      ],
+      "name": "bottom"
+    },
+    {
+      "name": "Object_4"
+    },
+    {
+      "children": [
+        6,
+        7
+      ],
+      "name": "polySurface317"
+    },
+    {
+      "mesh": 0,
+      "name": "polySurface317_lambert3_0"
+    },
+    {
+      "mesh": 1,
+      "name": "polySurface317_lambert3_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

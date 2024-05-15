@@ -1,0 +1,476 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 19983,
+      "max": [
+        0.20467500388622284,
+        0.16594411432743073,
+        1.908691167831421
+      ],
+      "min": [
+        -0.20467500388622284,
+        -0.2778807580471039,
+        1.3953440189361572
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 239796,
+      "componentType": 5126,
+      "count": 19983,
+      "max": [
+        0.9994657039642334,
+        0.9996260404586792,
+        0.9999873638153076
+      ],
+      "min": [
+        -0.9994657039642334,
+        -0.9991395473480225,
+        -0.9999991655349731
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 19983,
+      "max": [
+        0.9981695413589478,
+        0.9999081492424011,
+        0.9999685287475586,
+        1.0
+      ],
+      "min": [
+        -0.9999082088470459,
+        -0.9999991655349731,
+        -0.9999931454658508,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 319728,
+      "componentType": 5126,
+      "count": 19983,
+      "max": [
+        0.9960784316062927,
+        0.9960784316062927,
+        0.9960784316062927,
+        1.0
+      ],
+      "min": [
+        0.3176470696926117,
+        0.3176470696926117,
+        0.3176470696926117,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 19983,
+      "max": [
+        3.0793001651763916,
+        4.596556663513184
+      ],
+      "min": [
+        -16.891799926757813,
+        -15.199078559875488
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 159864,
+      "componentType": 5126,
+      "count": 19983,
+      "max": [
+        3.0793001651763916,
+        4.596556663513184
+      ],
+      "min": [
+        -16.891799926757813,
+        -15.199078559875488
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 87024,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 479592,
+      "componentType": 5126,
+      "count": 14401,
+      "max": [
+        0.20392248034477234,
+        0.16573737561702728,
+        1.9089858531951904
+      ],
+      "min": [
+        -0.20392248034477234,
+        -0.1764463633298874,
+        1.4023140668869019
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 652404,
+      "componentType": 5126,
+      "count": 14401,
+      "max": [
+        0.9998918771743774,
+        0.9996750354766846,
+        0.9999935030937195
+      ],
+      "min": [
+        -0.9998919367790222,
+        -0.9919558763504028,
+        -0.965605616569519
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 639456,
+      "componentType": 5126,
+      "count": 14401,
+      "max": [
+        0.9992182850837708,
+        0.9992464184761047,
+        0.9998884201049805,
+        1.0
+      ],
+      "min": [
+        -0.9998949766159058,
+        -0.996006429195404,
+        -0.9996284246444702,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 869872,
+      "componentType": 5126,
+      "count": 14401,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        0.027450980618596077,
+        0.027450980618596077,
+        0.027450980618596077,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 319728,
+      "componentType": 5126,
+      "count": 14401,
+      "max": [
+        3.0772440433502197,
+        4.5490570068359375
+      ],
+      "min": [
+        -16.891799926757813,
+        -13.07214641571045
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 434936,
+      "componentType": 5126,
+      "count": 14401,
+      "max": [
+        3.0772440433502197,
+        4.5490570068359375
+      ],
+      "min": [
+        -16.891799926757813,
+        -13.07214641571045
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 348096,
+      "componentType": 5125,
+      "count": 45672,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "ChamberSu1996 (https://sketchfab.com/chambersu1996)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/haveto-red-mage-helmet-flow-ver-preview-2c9304a0cd6f4df887dfe3c1ff041b6f",
+      "title": "Haveto: Red Mage Helmet Flow Ver. Preview"
+    },
+    "generator": "Sketchfab-12.67.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 530784,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 550144,
+      "byteOffset": 530784,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 825216,
+      "byteOffset": 1080928,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1100288,
+      "byteOffset": 1906144,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 3006432,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Metal_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/Metal_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Metal_normal.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Metal",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Retopo.005_Metal_0",
+      "primitives": [
+        {
+          "attributes": {
+            "COLOR_0": 3,
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 4,
+            "TEXCOORD_1": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Retopo.004_RPanel.005_Metal_0",
+      "primitives": [
+        {
+          "attributes": {
+            "COLOR_0": 10,
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 11,
+            "TEXCOORD_1": 12
+          },
+          "indices": 13,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "94fc636bc19944969d7fd8228847d40b.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Retopo.005"
+    },
+    {
+      "mesh": 0,
+      "name": "Retopo.005_Metal_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Retopo.004_RPanel.005"
+    },
+    {
+      "mesh": 1,
+      "name": "Retopo.004_RPanel.005_Metal_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
