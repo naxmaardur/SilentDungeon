@@ -6,13 +6,13 @@ public class TrapObject
     private bool playerDetected;
     private bool alwaysRun;
 
-    private Weapon weapon;
+    public Weapon weapon;
     private Timer delaytimer;
     private Timer activetimer;
     private AnimationTree animationTree;
     private SoundSource soundSource;
     private AudioStreamPlayer3D audioStreamPlayer;
-    private Area3D area3D;
+    public Area3D area3D;
     private Godot.RandomNumberGenerator randomNumberGenerator;
 
     public TrapObject(Timer timer1, Timer timer2, SoundSource sound, AudioStreamPlayer3D streamPlayer, AnimationTree tree, Weapon weapon, Area3D area3D, bool alwaysRun)
@@ -36,6 +36,7 @@ public class TrapObject
 
         if (alwaysRun)
         {
+            area3D.Monitoring = false;
             playerDetected = true;
             delaytimer.Start();
         }
@@ -50,6 +51,7 @@ public class TrapObject
             {
                 playerDetected = true;
                 delaytimer.Start();
+                area3D.SetDeferred("Monitoring", false);
             }
         }
     }
@@ -85,6 +87,10 @@ public class TrapObject
         {
             playerDetected = true;
             delaytimer.Start();
+        }
+        else
+        {
+            area3D.SetDeferred("Monitoring", true);
         }
     }
 }

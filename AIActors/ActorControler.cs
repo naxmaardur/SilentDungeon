@@ -232,6 +232,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
         if(livingSource != null)
         {
+
             if(livingSoundTimer.TimeLeft <= 0)
             {
                 livingSoundTimer.WaitTime = randomNumberGenerator.RandfRange(7, 26);

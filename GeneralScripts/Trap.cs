@@ -1,12 +1,8 @@
 using Godot;
 using System.Linq;
 
-public partial class Trap : Area3D
+public partial class Trap : Node3D
 {
-    [Export]
-    private Timer delaytimer;
-    [Export]
-    private Timer activetimer;
     [Export]
     private bool alwaysRun;
 
@@ -20,9 +16,12 @@ public partial class Trap : Area3D
         AnimationTree animationTree = this.GetChildByType<AnimationTree>();
         SoundSource soundSource = this.GetChildByType<SoundSource>();
         AudioStreamPlayer3D audioStreamPlayer = this.GetChildByType<AudioStreamPlayer3D>();
+        Area3D area3D = this.GetChildByType<Area3D>();
 
-        TrapObject trapObject = new(delaytimer, activetimer, soundSource, audioStreamPlayer, animationTree, weapon, this, alwaysRun);
+
+        TrapObject trapObject = new(GetChild(0) as Timer, GetChild(1) as Timer, soundSource, audioStreamPlayer, animationTree, weapon, area3D, alwaysRun);
         manager.trapObjects.Add(trapObject);
+        
         this.SetScript("");
     }
 }

@@ -65,6 +65,8 @@ mesh = SubResource("ArrayMesh_ulw2f")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
+monitoring = false
+monitorable = false
 script = ExtResource("4_8bxio")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -72,6 +74,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00280762, 0.789935, 0.00122
 shape = SubResource("BoxShape3D_aug7b")
 
 [node name="Area3D2" type="Area3D" parent="."]
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00109863, 0.324768, 0.00122071)

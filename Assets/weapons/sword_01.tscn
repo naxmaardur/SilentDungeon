@@ -61,6 +61,8 @@ mesh = SubResource("ArrayMesh_7hdiq")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
+monitoring = false
+monitorable = false
 script = ExtResource("4_n88ae")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

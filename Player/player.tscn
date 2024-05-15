@@ -22,8 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://da0m0q6ygwvqa" path="res://Assets/Audio/Player/Sneak4.wav" id="9_fbw6j"]
 [ext_resource type="PackedScene" uid="uid://4geqne8v16qw" path="res://Prefabs/UI/InvSlot.tscn" id="9_tnsn1"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/Inventory/DropItem.cs" id="12_i75g3"]
-[ext_resource type="PackedScene" uid="uid://df0g3aeh446kb" path="res://Prefabs/test_pick_up_object.tscn" id="13_4eno7"]
 [ext_resource type="Script" path="res://GeneralScripts/UI/HealthBar.cs" id="14_c1h31"]
+[ext_resource type="PackedScene" uid="uid://qte7wb6o3cuh" path="res://Prefabs/Physics_pick_up_object.tscn" id="20_6o35e"]
 [ext_resource type="Texture2D" uid="uid://elpjlir40o0w" path="res://Assets/UI/cross.png" id="25_0mbll"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lrfaj"]
@@ -638,7 +638,7 @@ script = ExtResource("14_c1h31")
 offset_right = 1153.0
 offset_bottom = 649.0
 script = ExtResource("12_i75g3")
-dropItem = ExtResource("13_4eno7")
+dropItem = ExtResource("20_6o35e")
 
 [node name="Container" type="Control" parent="CanvasLayer"]
 layout_mode = 3

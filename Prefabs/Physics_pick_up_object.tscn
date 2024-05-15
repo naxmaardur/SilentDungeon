@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://qte7wb6o3cuh"]
+
+[ext_resource type="Script" path="res://GeneralScripts/PickUpItem.cs" id="1_rrdl3"]
+[ext_resource type="Shader" path="res://GeneralScripts/HighlightShader.gdshader" id="2_lh1bw"]
+[ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="3_1dup4"]
+[ext_resource type="AudioStream" uid="uid://lttnf361fnch" path="res://Assets/UI/Sounds/cloth-inventory.wav" id="4_c78rk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn3hp"]
+
+[node name="TestPickUpObject" type="RigidBody3D" node_paths=PackedStringArray("areaCollision", "sound")]
+collision_layer = 129
+continuous_cd = true
+script = ExtResource("1_rrdl3")
+shader = ExtResource("2_lh1bw")
+areaCollision = NodePath("CollisionShape3D")
+sound = NodePath("SoundSource")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jn3hp")
+
+[node name="SoundSource" parent="." instance=ExtResource("3_1dup4")]
+soundValue = 6.0
+
+[node name="AudioStreamPlayer3D" parent="SoundSource" index="0"]
+stream = ExtResource("4_c78rk")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 0.1
+
+[editable path="SoundSource"]

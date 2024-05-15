@@ -1,22 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfgcbtvrunbp7"]
+[gd_scene load_steps=4 format=3 uid="uid://bfgcbtvrunbp7"]
 
 [ext_resource type="Script" path="res://GeneralScripts/ContainerInteractable.cs" id="1_vl0h2"]
-[ext_resource type="Shader" path="res://GeneralScripts/HighlightShader.gdshader" id="2_xpg07"]
-[ext_resource type="PackedScene" path="res://Assets/Props/TurnInChest/scene.glb" id="3_og3rh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rimbh"]
-render_priority = 0
-shader = ExtResource("2_xpg07")
-shader_parameter/strenght = null
+[ext_resource type="PackedScene" uid="uid://cc44bxpwpqxkk" path="res://Assets/Props/TurnInChest/scene.glb" id="3_og3rh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0yxsm"]
 
 [node name="Main Chest" type="Node3D" groups=["container"]]
 script = ExtResource("1_vl0h2")
-material = SubResource("ShaderMaterial_rimbh")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 129
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_0yxsm")

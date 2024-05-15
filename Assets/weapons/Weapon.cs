@@ -25,6 +25,7 @@ public partial class Weapon : Node3D
         {
             item.BodyEntered += onEntered;
         }
+        DisableHitBoxes();
     }
     public void ClearList()
     {

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://GeneralScripts/GameManager.cs" id="1_kdn24"]
 [ext_resource type="PackedScene" uid="uid://dqxia8i6b8801" path="res://Prefabs/UI/out_of_run_screen.tscn" id="2_kh2ie"]
 [ext_resource type="PackedScene" uid="uid://bys1xlcu0gkk8" path="res://Prefabs/UI/score_tracker.tscn" id="3_16m84"]
-[ext_resource type="PackedScene" uid="uid://d3j77uol3fia0" path="res://Levels/dungeon_floor_1_spawner.tscn" id="3_xtvfl"]
+[ext_resource type="PackedScene" uid="uid://qbie0btfifiu" path="res://Levels/Floor2_1.tscn" id="3_ynghh"]
 [ext_resource type="PackedScene" uid="uid://on1d4h7jaryl" path="res://Prefabs/UI/game_over_screen.tscn" id="4_4xu6f"]
 [ext_resource type="PackedScene" uid="uid://bg2mn4i71r15g" path="res://Levels/dungeon_floor_2_spawner.tscn" id="4_vevsl"]
 [ext_resource type="PackedScene" uid="uid://chocif8uq8f6p" path="res://Levels/dungeon_floor_3_spawner.tscn" id="5_52q8f"]
@@ -18,7 +18,7 @@
 script = ExtResource("1_kdn24")
 dropSellerScene = ExtResource("7_12g4f")
 activeSceneContainer = NodePath("../ActiveSceneContainer")
-floors = Array[PackedScene]([ExtResource("3_xtvfl"), ExtResource("4_vevsl"), ExtResource("5_52q8f")])
+floors = Array[PackedScene]([ExtResource("3_ynghh"), ExtResource("4_vevsl"), ExtResource("5_52q8f")])
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameManager"]
 stream = ExtResource("6_vtpds")

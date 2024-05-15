@@ -26,11 +26,12 @@ public partial class SoundSource : Node3D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-		area = this.GetChildByType<Area3D>();
+        area = this.GetChildByType<Area3D>();
 		StreamPlayer3D = this.GetChildByType<AudioStreamPlayer3D>();
 		particles = this.GetChildByType<GpuParticles3D>();
 		collisionShape3D = this.GetChildByType<CollisionShape3D>();
         sceneCopy = GD.Load<PackedScene>("res://Prefabs/sound_source.tscn");
+        ProcessMode = ProcessModeEnum.Disabled;
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,6 +62,7 @@ public partial class SoundSource : Node3D
 			return;
 		}
 		GetNode("/root").AddChild(soundSource);
+        soundSource.ProcessMode = ProcessModeEnum.Inherit;
 
         soundSource.GlobalPosition = GlobalPosition;
         soundSource.falloffvalue = falloffvalue;
@@ -86,7 +88,7 @@ public partial class SoundSource : Node3D
 		shape3D.Shape = shape;
         checkingSource = checking;
         //-------------------
-
+        area.Monitoring = true;
         run = true;
     }
 
@@ -115,6 +117,7 @@ public partial class SoundSource : Node3D
         if (!checkingSource) { return; }
         particles.Emitting = true;
         Godot.Collections.Array<Node3D> nodes = area.GetOverlappingBodies();
+        area.ProcessMode = ProcessModeEnum.Disabled;
         Node3D[] nodesArray = nodes.ToArray();
         foreach (Node3D node in nodesArray)
         {

@@ -14,7 +14,7 @@ public partial class GameManager : Node
 	private PackedScene dropSellerScene;
 
     [Export]
-	private Node3D activeSceneContainer;
+	public Node3D activeSceneContainer;
 
 
 	private GameOverScreen gameOverScreen;
@@ -73,7 +73,6 @@ public partial class GameManager : Node
 		outOfRunScreen.OnStartButtonPressed += EnterDungeon;
 		gameOverScreen.OnButtonPressed += OpenOutOfGame;
 
-
         //Work around stuff because shit is weird
         CanvasLayer canvaslayer = Owner.GetChildByType<CanvasLayer>();
 		Control control = new Control();
@@ -109,12 +108,28 @@ public partial class GameManager : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+        foreach (TrapObject trap in trapObjects)
+        {
+			if (IsInstanceValid(trap.area3D))
+			{
+
+				if (trap.area3D.GlobalPosition.DistanceTo(player.GlobalPosition) > 5)
+				{
+					trap.area3D.ProcessMode = ProcessModeEnum.Disabled;
+					trap.weapon.ProcessMode = ProcessModeEnum.Disabled;
+				}
+				else
+				{
+					trap.area3D.ProcessMode = ProcessModeEnum.Inherit;
+					trap.weapon.ProcessMode= ProcessModeEnum.Inherit;
+				}
+			}
+		}
 	}
 
 	public void LoadedNewScene()
 	{
-		trapObjects.Clear();
-		player.GlobalPosition = Vector3.Zero;
+        player.GlobalPosition = Vector3.Zero;
 	}
 
 	public void ExitDungeon()
@@ -148,7 +163,8 @@ public partial class GameManager : Node
 
 	private void LoadScene(PackedScene scene)
 	{
-		if(activeSceneContainer.GetChildCount() != 0)
+        trapObjects.Clear();
+        if (activeSceneContainer.GetChildCount() != 0)
 		{
             activeSceneContainer.GetChild(0).QueueFree();
         }
@@ -178,4 +194,6 @@ public partial class GameManager : Node
         player.inputsActive = true;
         scoreTracker.OutofRun(false);
     }
+
+
 }

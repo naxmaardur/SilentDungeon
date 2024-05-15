@@ -5,7 +5,14 @@ public partial class DropItem : Control
 {
 	[Export]
 	private PackedScene dropItem;
+    private PlayerController player;
+    private GameManager gameManager;
+    public override void _Ready()
+    {
+        player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
+        gameManager = GetTree().Root.GetChildByType<GameManager>();
 
+    }
 
     public override bool _CanDropData(Vector2 atPosition, Variant data)
     {
@@ -21,7 +28,6 @@ public partial class DropItem : Control
             passedData.Texture = null;
             InventoryItem item = passedData.Item;
             passedData.Item = null;
-            PlayerController player = GetTree().GetNodesInGroup("player")[0] as PlayerController;
             Node n = dropItem.Instantiate();
             PickUpItem pickUpItem = n as PickUpItem;
             pickUpItem.item = item;
@@ -29,9 +35,8 @@ public partial class DropItem : Control
             Node3D visuals = v as Node3D;
             pickUpItem.AddChild(visuals);
             pickUpItem.AddMesh(visuals);
-            player.GetParent().AddChild(pickUpItem);
+            gameManager.activeSceneContainer.AddChild(pickUpItem);
             pickUpItem.GlobalPosition = player.GlobalPosition + player.Forward();
-
 
             ChestSlot chestdata = passedData as ChestSlot;
             if(chestdata != null)

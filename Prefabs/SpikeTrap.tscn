@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://5yxqc1p33ljs"]
+[gd_scene load_steps=28 format=3 uid="uid://5yxqc1p33ljs"]
 
 [ext_resource type="Texture2D" uid="uid://cyfugssge4nlh" path="res://Assets/Traps/SpikeTrap/textures/Material_baseColor.jpeg" id="1_pc15y"]
 [ext_resource type="Script" path="res://GeneralScripts/Trap.cs" id="1_r72gp"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Hitbox/HurtBox.cs" id="4_61fak"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="6_bana4"]
 [ext_resource type="AudioStream" uid="uid://b3bddv315hlmn" path="res://Assets/Traps/SpikeTrap/SpikeTrapAudio.wav" id="7_amv80"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v00tv"]
+size = Vector3(1, 1, 2.0116)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4y3kj"]
 resource_name = "Material"
@@ -132,8 +135,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7tui5")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4yx3r"]
-size = Vector3(1, 1.34656, 0.155823)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jwwnj"]
+size = Vector3(1, 1.347, 0.156)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eruu8"]
+size = Vector3(1, 1.347, 0.156)
 
 [sub_resource type="Animation" id="Animation_q0r5f"]
 resource_name = "Idle"
@@ -200,56 +206,56 @@ tracks/7/keys = PackedFloat32Array(0, 1, 0, -14.7583, -0.50268, 0.0333333, 1, 0,
 tracks/8/type = "position_3d"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Node3D/Area3D")
+tracks/8/path = NodePath("Node3D/Area3D9/Area3D")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = PackedFloat32Array(0, 1, 0, -0.670826, 1.34006, 1.4, 1, 0, -0.670826, 1.34006, 1.6, 1, 0, 0.146855, 1.34006, 2.1, 1, 0, 0.146855, 1.34006, 2.4, 1, 0, -0.610701, 1.34006, 2.4001, 1, 0, -0.696754, 1.34006)
 tracks/9/type = "position_3d"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Node3D/Area3D2")
+tracks/9/path = NodePath("Node3D/Area3D9/Area3D2")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = PackedFloat32Array(-0.000407812, 1, 0, -0.664457, 1.12814, -3.43749e-05, 1, 0, -0.688891, 1.12814, 1.19498, 1, 0, -0.688891, 1.12814, 1.2, 1, 0, -0.612463, 1.12814, 1.4, 1, 0, 0.146655, 1.12814, 2, 1, 0, 0.146655, 1.12814, 2.2, 1, 0, -0.599249, 1.12814, 2.2001, 1, 0, -0.689398, 1.12814)
 tracks/10/type = "position_3d"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Node3D/Area3D3")
+tracks/10/path = NodePath("Node3D/Area3D9/Area3D3")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, 0, -0.679749, 0.898255, 1.1, 1, 0, -0.679749, 0.898255, 1.3, 1, 0, 0.149804, 0.898255, 1.8, 1, 0, 0.149804, 0.898255, 2.1, 1, 0, -0.613736, 0.898255, 2.1001, 1, 0, -0.699554, 0.898255)
 tracks/11/type = "position_3d"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Node3D/Area3D4")
+tracks/11/path = NodePath("Node3D/Area3D9/Area3D4")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = PackedFloat32Array(0, 1, 0, -0.664662, 0.671171, 0.9, 1, 0, -0.664662, 0.671171, 1.1, 1, 0, 0.149995, 0.671171, 1.6, 1, 0, 0.149995, 0.671171, 1.9, 1, 0, -0.618222, 0.671171, 1.9001, 1, 0, -0.70464, 0.671171)
 tracks/12/type = "position_3d"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Node3D/Area3D5")
+tracks/12/path = NodePath("Node3D/Area3D9/Area3D5")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = PackedFloat32Array(0, 1, 0, -0.678281, 0.404326, 0.7, 1, 0, -0.678281, 0.404326, 0.9, 1, 0, 0.138094, 0.404326, 1.5, 1, 0, 0.138094, 0.404326, 1.8, 1, 0, -0.609888, 0.404326, 1.8001, 1, 0, -0.691937, 0.404326)
 tracks/13/type = "position_3d"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Node3D/Area3D6")
+tracks/13/path = NodePath("Node3D/Area3D9/Area3D6")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, 0, -0.682006, 0.146228, 0.5, 1, 0, -0.682006, 0.146228, 0.7, 1, 0, 0.130212, 0.146228, 1.3, 1, 0, 0.130212, 0.146228, 1.6, 1, 0, -0.616492, 0.146228, 1.6001, 1, 0, -0.672762, 0.146228)
 tracks/14/type = "position_3d"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Node3D/Area3D7")
+tracks/14/path = NodePath("Node3D/Area3D9/Area3D7")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = PackedFloat32Array(0, 1, 0, -0.677821, -0.083682, 0.4, 1, 0, -0.677821, -0.083682, 0.6, 1, 0, 0.12794, -0.083682, 1.1, 1, 0, 0.12794, -0.083682, 1.4, 1, 0, -0.637393, -0.083682, 1.4001, 1, 0, -0.676514, -0.083682)
 tracks/15/type = "position_3d"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Node3D/Area3D8")
+tracks/15/path = NodePath("Node3D/Area3D9/Area3D8")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = PackedFloat32Array(0, 1, 0, -0.698448, -0.315471, 0.2, 1, 0, -0.601829, -0.315471, 0.4, 1, 0, 0.120668, -0.315471, 1, 1, 0, 0.120668, -0.315471, 1.2, 1, 0, -0.619886, -0.315471, 1.2001, 1, 0, -0.671881, -0.315471)
@@ -316,56 +322,56 @@ tracks/7/keys = PackedFloat32Array(0, 1, 0, -14.7583, -0.50268)
 tracks/8/type = "position_3d"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Node3D/Area3D")
+tracks/8/path = NodePath("Node3D/Area3D9/Area3D")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = PackedFloat32Array(0, 1, 0, -0.814838, 1.34006)
 tracks/9/type = "position_3d"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Node3D/Area3D2")
+tracks/9/path = NodePath("Node3D/Area3D9/Area3D2")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = PackedFloat32Array(0, 1, 0, -0.880033, 1.12814)
 tracks/10/type = "position_3d"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Node3D/Area3D3")
+tracks/10/path = NodePath("Node3D/Area3D9/Area3D3")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = PackedFloat32Array(0, 1, 0, -0.7504, 0.898255)
 tracks/11/type = "position_3d"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Node3D/Area3D4")
+tracks/11/path = NodePath("Node3D/Area3D9/Area3D4")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = PackedFloat32Array(0, 1, 0, -0.874842, 0.671171)
 tracks/12/type = "position_3d"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Node3D/Area3D5")
+tracks/12/path = NodePath("Node3D/Area3D9/Area3D5")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = PackedFloat32Array(0, 1, 0, -0.715053, 0.404326)
 tracks/13/type = "position_3d"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Node3D/Area3D6")
+tracks/13/path = NodePath("Node3D/Area3D9/Area3D6")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = PackedFloat32Array(0, 1, 0, -0.751979, 0.146228)
 tracks/14/type = "position_3d"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("Node3D/Area3D7")
+tracks/14/path = NodePath("Node3D/Area3D9/Area3D7")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = PackedFloat32Array(0, 1, 0, -0.820842, -0.083682)
 tracks/15/type = "position_3d"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("Node3D/Area3D8")
+tracks/15/path = NodePath("Node3D/Area3D9/Area3D8")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = PackedFloat32Array(0, 1, 0, -0.757253, -0.315471)
@@ -401,13 +407,23 @@ states/spikeAction_2/node = SubResource("AnimationNodeAnimation_7kr5x")
 states/spikeAction_2/position = Vector2(349, 111)
 transitions = ["Start", "spikeAction_2", SubResource("AnimationNodeStateMachineTransition_ct4c3"), "spikeAction_2", "spikeAction", SubResource("AnimationNodeStateMachineTransition_tcfik"), "spikeAction", "spikeAction_2", SubResource("AnimationNodeStateMachineTransition_bcwft")]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v00tv"]
-size = Vector3(1, 1, 2.0116)
-
-[node name="SpikeTrap" type="Area3D" node_paths=PackedStringArray("delaytimer", "activetimer")]
+[node name="SpikeTrap" type="Node3D"]
 script = ExtResource("1_r72gp")
-delaytimer = NodePath("DelayTimer")
-activetimer = NodePath("ActiveTimer")
+
+[node name="DelayTimer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="ActiveTimer" type="Timer" parent="."]
+wait_time = 2.4
+one_shot = true
+
+[node name="Area3D" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573328, 0.505798)
+shape = SubResource("BoxShape3D_v00tv")
 
 [node name="Sketchfab_Scene" type="Node3D" parent="."]
 transform = Transform3D(0.0934581, 0, 0, 0, 0.0934581, 0, 0, 0, 0.0934581, 0, 0, 0)
@@ -521,61 +537,41 @@ transform = Transform3D(10.7, 0, 0, 0, 10.7, 0, 0, 0, 10.7, 0, 0, 0)
 script = ExtResource("3_ac1y7")
 damage = 5.0
 
-[node name="Area3D" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D9" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+monitorable = false
+script = ExtResource("4_61fak")
+
+[node name="Area3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.814838, 1.34006)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_jwwnj")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D2" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D2" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.880033, 1.12814)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_eruu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D2"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D3" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D3" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7504, 0.898255)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_eruu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D3"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D4" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D4" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.874842, 0.671171)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_eruu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D4"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D5" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D5" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.715053, 0.404326)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_eruu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D5"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D6" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D6" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.751979, 0.146228)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_eruu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D6"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D7" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D7" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.820842, -0.083682)
-script = ExtResource("4_61fak")
+shape = SubResource("BoxShape3D_eruu8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D7"]
-shape = SubResource("BoxShape3D_4yx3r")
-
-[node name="Area3D8" type="Area3D" parent="Sketchfab_Scene/Node3D"]
+[node name="Area3D8" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.757253, -0.315471)
-script = ExtResource("4_61fak")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Node3D/Area3D8"]
-shape = SubResource("BoxShape3D_4yx3r")
+shape = SubResource("BoxShape3D_eruu8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sketchfab_Scene"]
 libraries = {
@@ -590,18 +586,6 @@ tree_root = SubResource("AnimationNodeStateMachine_p0tgh")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/Active = false
 parameters/conditions/NotActive = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.573328, 0.505798)
-shape = SubResource("BoxShape3D_v00tv")
-
-[node name="DelayTimer" type="Timer" parent="."]
-wait_time = 0.25
-one_shot = true
-
-[node name="ActiveTimer" type="Timer" parent="."]
-wait_time = 2.4
-one_shot = true
 
 [node name="SoundSource" parent="." instance=ExtResource("6_bana4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38053, 0.478056)

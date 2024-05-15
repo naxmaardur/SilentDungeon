@@ -26,6 +26,9 @@ public partial class ContainerInteractable : Node3D, Iinteractable
         }
     }
 
+   
+
+
     public void AddMesh(Node3D node)
     {
         meshInstances = node.GetAllChildrenByType<MeshInstance3D>();
