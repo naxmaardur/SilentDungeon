@@ -34,6 +34,8 @@ public partial class Score: Resource
         }
         lastScore = currentscore;
         currentscore = 0;
+        Save();
+        scoreUpdated?.Invoke();
     }
 
     public void Save()

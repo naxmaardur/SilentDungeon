@@ -19,7 +19,7 @@ namespace AIStates
             {
                 randomPointAroundPlayer =  getRandomPoint();
             }
-            if (ctx.GlobalPosition.DistanceTo(ctx.player.GlobalPosition) > 15)
+            if (ctx.GlobalPosition.DistanceTo(ctx.player.GlobalPosition) > 10)
             {
                 randomPointAroundPlayer = getRandomPoint();
             }
@@ -37,7 +37,7 @@ namespace AIStates
         private Vector3 getRandomPoint()
         {
             Vector3 playerPoint = ctx.GlobalPosition;
-            Vector3 randomPoint = playerPoint + new Vector3(ctx.randomNumberGenerator.RandfRange(-15,15),0, ctx.randomNumberGenerator.RandfRange(-15, 15));
+            Vector3 randomPoint = playerPoint + new Vector3(ctx.randomNumberGenerator.RandfRange(-7,7),0, ctx.randomNumberGenerator.RandfRange(-7, 7));
             return randomPoint;
         }
     }

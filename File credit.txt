@@ -9,15 +9,12 @@ Inventory Sounds https://opengameart.org/content/inventory-sound-effects , CC-BY
 "Diamond" (https://skfb.ly/6wQWx) by Miléd Hammoud is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Golden Goblet" (https://skfb.ly/6VAxN) by Mandrake is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Gold Ring with Lapis Lazuli stone (game-ready)" (https://skfb.ly/oFpFI) by Delandi is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-"Palace Bottle Assets - for treasure scene" (https://skfb.ly/oOUtJ) by Samuel Francis Johnson (Oneironauticus) is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
 
 "Halloween Armor Mod" (https://skfb.ly/QSuL) by Feliix is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "4 Piece Leather Armor - MetaHuman (rigged)" (https://skfb.ly/oKSBL) by DevonLux is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Witcher Outfit" (https://skfb.ly/oK7LL) by Blue Spirit is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-"Witcher Outfit" (https://skfb.ly/oK7LA) by Blue Spirit is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Armored Boots, High Poly, Textured" (https://skfb.ly/6px8u) by christina.christie3@gmail.com is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-"Free Fantasy Female Cloth - For Unreal Skeleton" (https://skfb.ly/oGyFZ) by Kaan Tezcan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Free Female Fantasy Cloth - 2" (https://skfb.ly/oFwYI) by Kaan Tezcan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Free Game Female Cloth - 4" (https://skfb.ly/oHvZU) by Kaan Tezcan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "helmet" (https://skfb.ly/oxFy8) by Vanuartw is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
@@ -25,4 +22,3 @@ Inventory Sounds https://opengameart.org/content/inventory-sound-effects , CC-BY
 "Vampire Gangster Boss Armor #3 Type Zero" (https://skfb.ly/6Up8n) by ChamberSu1996 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Female Noble Knight Armor" (https://skfb.ly/oQJDx) by Meast is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 "Medivel_Armor" (https://skfb.ly/oJNFz) by vinhvan is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
-

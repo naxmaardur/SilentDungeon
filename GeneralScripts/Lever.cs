@@ -13,6 +13,10 @@ public partial class Lever : Node3D, Iinteractable
     [Export]
     private AnimationTree door;
 
+    [Export]
+    private Node[] ToEnable;
+
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -70,6 +74,11 @@ public partial class Lever : Node3D, Iinteractable
         opened = true;
         tree.Set("parameters/conditions/Open", true);
         door.Set("parameters/conditions/Open", true);
+
+        foreach(Node n in ToEnable)
+        {
+            n.ProcessMode = ProcessModeEnum.Inherit;
+        }
         return true;
     }
 }

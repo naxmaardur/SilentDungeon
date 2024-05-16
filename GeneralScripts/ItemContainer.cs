@@ -59,7 +59,7 @@ public partial class ItemContainer : Resource
     {
         if (Items[newSlot] != null && !OverWrite)
         {
-            InventoryItem oldItem = Items[newSlot];
+            InventoryItem oldItem = Items[currentSlot];
             MoveItemInInventory(newSlot, currentSlot, true);
             Items[newSlot] = oldItem;
         }
@@ -77,7 +77,7 @@ public partial class ItemContainer : Resource
     {
         if (inventory.EquipedItems[newSlot] != null && !OverWrite)
         {
-            InventoryItem oldItem = Items[newSlot];
+            InventoryItem oldItem = Items[currentSlot];
             MoveEquipeToContainer(newSlot, currentSlot, ref inventory, true);
             inventory.EquipedItems[newSlot] = oldItem;
             inventory.EquipmentUpdated?.Invoke();
@@ -135,7 +135,7 @@ public partial class ItemContainer : Resource
     {
         if (inventory.inventoryItems[newSlot] != null && !OverWrite)
         {
-            InventoryItem oldItem = Items[newSlot];
+            InventoryItem oldItem = Items[currentSlot];
             MoveInventoryToContainer(newSlot, currentSlot, ref inventory, true);
             inventory.inventoryItems[newSlot] = oldItem;
         }

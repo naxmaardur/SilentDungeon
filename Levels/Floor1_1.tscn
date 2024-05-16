@@ -373,7 +373,8 @@ occluder = ExtResource("35_4f51r")
 bake_mask = 4294967291
 
 [node name="WardenActor" parent="." instance=ExtResource("34_qi3w3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8614, 1.8021, -16.0426)
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.4536, 1.8021, -10.0057)
 
 [node name="Node3D" type="Node3D" parent="."]
 
@@ -598,6 +599,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131977, 0.145984, -36.5938
 lootTable = ExtResource("33_pw5mj")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("37_jmx2q")]
+process_mode = 4
 
 [node name="Entrance Door" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.0978)
@@ -617,25 +619,30 @@ transform = Transform3D(1.74066, 0, 0, 0, 1, 0, 0, 0, 1, -2.07979, -0.863208, 0.
 [node name="Doorway" parent="Node3D5" instance=ExtResource("38_4qdmu")]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.08383, -0.866946, -0.458057)
 
-[node name="Node3D3" parent="." node_paths=PackedStringArray("door") instance=ExtResource("39_w7cxi")]
+[node name="Node3D3" parent="." node_paths=PackedStringArray("door", "ToEnable") instance=ExtResource("39_w7cxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1617, 0.798232, -7.60194)
 door = NodePath("../Entrance Door/Node3D3/AnimationTree")
+ToEnable = [NodePath("../CanvasLayer"), NodePath("../WardenActor")]
 
-[node name="Node3D4" parent="." node_paths=PackedStringArray("door") instance=ExtResource("39_w7cxi")]
+[node name="Node3D4" parent="." node_paths=PackedStringArray("door", "ToEnable") instance=ExtResource("39_w7cxi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.2306, 0.700153, -64.7256)
 door = NodePath("../Node3D5/Node3D3/AnimationTree")
+ToEnable = []
 
-[node name="Node3D6" parent="." node_paths=PackedStringArray("door") instance=ExtResource("39_w7cxi")]
+[node name="Node3D6" parent="." node_paths=PackedStringArray("door", "ToEnable") instance=ExtResource("39_w7cxi")]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -7.86047, 0.865811, -78.748)
 door = NodePath("../Node3D5/Node3D3/AnimationTree")
+ToEnable = []
 
-[node name="Node3D7" parent="." node_paths=PackedStringArray("door") instance=ExtResource("39_w7cxi")]
+[node name="Node3D7" parent="." node_paths=PackedStringArray("door", "ToEnable") instance=ExtResource("39_w7cxi")]
 transform = Transform3D(-5.96046e-08, 0, 1, 0, 1, 0, -1, 0, -5.96046e-08, -33.7927, 0.501628, -48.5515)
 door = NodePath("../Node3D5/Node3D3/AnimationTree")
+ToEnable = []
 
-[node name="Node3D8" parent="." node_paths=PackedStringArray("door") instance=ExtResource("39_w7cxi")]
+[node name="Node3D8" parent="." node_paths=PackedStringArray("door", "ToEnable") instance=ExtResource("39_w7cxi")]
 transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -53.8666, 0.698015, -9.38802)
 door = NodePath("../Node3D5/Node3D3/AnimationTree")
+ToEnable = []
 
 [node name="Node3D9" type="Node3D" parent="." node_paths=PackedStringArray("nodes")]
 script = ExtResource("40_tbkjy")

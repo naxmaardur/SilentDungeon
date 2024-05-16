@@ -154,6 +154,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
 
     private void NavigationAgent3D_VelocityComputed(Vector3 safeVelocity)
     {
+        if(ProcessMode == ProcessModeEnum.Disabled) { return; }
         Velocity = safeVelocity;
 
         bobTime += (float)deltaSinceLastUpdate * Velocity.Length();
@@ -303,7 +304,7 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         }
 
         AlertValue += value;
-        if (value > 3 || AlertValue > 2)
+        if (value > 3 || AlertValue > 2 || isWarden)
         {
             if (AlertValue > playerDetectedNearValue)
             {
