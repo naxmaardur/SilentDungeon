@@ -379,6 +379,8 @@ mesh = SubResource("ArrayMesh_ay3l2")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LOD_Cupboard_01_Grp/Cupboard_01_Lod0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LOD_Cupboard_01_Grp/Cupboard_01_Lod0/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_l5mh5")
@@ -389,6 +391,8 @@ mesh = SubResource("ArrayMesh_5lr0m")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LOD_Cupboard_01_Grp/Cupboard_01_Drawer_Lod03"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LOD_Cupboard_01_Grp/Cupboard_01_Drawer_Lod03/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5oxul")
@@ -402,6 +406,8 @@ mesh = SubResource("ArrayMesh_nokhp")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LOD_Cupboard_01_Grp/PIVOT_Door_Right3/Cupboard_01_Door_R_Lod0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="LOD_Cupboard_01_Grp/PIVOT_Door_Right3/Cupboard_01_Door_R_Lod0/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_grij2")
@@ -415,6 +421,8 @@ mesh = SubResource("ArrayMesh_ifki2")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LOD_Cupboard_01_Grp/PIVOT_Door_Left3/Cupboard_01_Door_L_Lod0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="LOD_Cupboard_01_Grp/PIVOT_Door_Left3/Cupboard_01_Door_L_Lod0/StaticBody3D"]
 transform = Transform3D(1, 0, -2.84217e-14, 0, 1, 0, 2.84217e-14, 0, 1, 0, 0, 0)

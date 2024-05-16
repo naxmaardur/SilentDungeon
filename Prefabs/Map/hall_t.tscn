@@ -152,6 +152,8 @@ mesh = SubResource("ArrayMesh_p57v4")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hall_T_brickwall1_0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hall_T_brickwall1_0/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_f1a1e")
@@ -161,6 +163,8 @@ mesh = SubResource("ArrayMesh_mln64")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hall_T_stonefloor_0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hall_T_stonefloor_0/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_isb3l")
@@ -170,6 +174,8 @@ mesh = SubResource("ArrayMesh_j4234")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Hall_T_stonetrims_0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hall_T_stonetrims_0/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3b6v4")

@@ -515,7 +515,7 @@ transform = Transform3D(-1.19209e-07, -4.37114e-08, -1, -1, -4.37114e-08, 1.1920
 alwaysRun = true
 
 [node name="SpikeTrap28" parent="NavigationRegion3D/Room_I/Hall_L/Hall_T/HallI/Hall_L/HallI3/Hall_T/Hall_L/Room_L/HallI/Hall_L2/RoomCap/Node3D" instance=ExtResource("34_6jjil")]
-transform = Transform3D(-1.19209e-07, -4.37114e-08, -1, -1, -4.37114e-08, 1.19209e-07, -4.37114e-08, 1, -4.37114e-08, -4.02659, -4.25466, -0.0718726)
+transform = Transform3D(-1.19209e-07, -4.37114e-08, -1, -1, -4.37114e-08, 1.19209e-07, -4.37114e-08, 1, -4.37114e-08, -4.02659, -4.25466, 8.09556)
 alwaysRun = true
 
 [node name="SpikeTrap29" parent="NavigationRegion3D/Room_I/Hall_L/Hall_T/HallI/Hall_L/HallI3/Hall_T/Hall_L/Room_L/HallI/Hall_L2/RoomCap/Node3D" instance=ExtResource("34_6jjil")]
@@ -1022,15 +1022,15 @@ transform = Transform3D(3.17865e-08, 1, 1.19249e-08, -4.37114e-08, -1.19249e-08,
 lootTable = ExtResource("42_3d1df")
 
 [node name="WardenActor" parent="." instance=ExtResource("31_1kt5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8512, 0.196559, -25.8772)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8512, 1.05911, -25.8772)
 walkSpeed = 3.0
 
 [node name="WardenActor2" parent="." instance=ExtResource("31_1kt5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7567, -0.0883867, -52.7241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7567, 0.774167, -52.7241)
 walkSpeed = 3.0
 
 [node name="WardenActor3" parent="." instance=ExtResource("31_1kt5d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5533, -0.13104, -81.4019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5533, 0.731517, -81.4019)
 walkSpeed = 3.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("11_evdd4")]

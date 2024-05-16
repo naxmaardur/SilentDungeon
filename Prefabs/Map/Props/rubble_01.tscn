@@ -156,9 +156,10 @@ mesh = SubResource("ArrayMesh_wjuup")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Rubble_01A_Lod0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Rubble_01A_Lod0/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_03v8w")
 
 [node name="Rubble_01B_Lod0" type="MeshInstance3D" parent="."]

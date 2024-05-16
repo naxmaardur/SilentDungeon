@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://b2tbgp8n8xrga"]
+
+[ext_resource type="PackedScene" uid="uid://co4tqdiq1a4xg" path="res://Prefabs/Map/portcullis_3.tscn" id="1_3jki6"]
+
+[sub_resource type="Animation" id="Animation_5irp2"]
+resource_name = "Close"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portcullis_3")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -2.11426, 0, 2.83603)
+
+[sub_resource type="Animation" id="Animation_7knck"]
+resource_name = "Open"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portcullis_3")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -2.11426, 0, 2.83603, 1, 1, -2.11426, 4.22776, 2.83603)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ua8ju"]
+_data = {
+"Close": SubResource("Animation_5irp2"),
+"Open": SubResource("Animation_7knck")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w7xa3"]
+animation = &"Close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v3pfg"]
+animation = &"Open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mgv8o"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xu5ug"]
+advance_mode = 2
+advance_condition = &"Open"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dromn"]
+states/Close/node = SubResource("AnimationNodeAnimation_w7xa3")
+states/Close/position = Vector2(392, 100)
+states/Open/node = SubResource("AnimationNodeAnimation_v3pfg")
+states/Open/position = Vector2(527, 96)
+transitions = ["Start", "Close", SubResource("AnimationNodeStateMachineTransition_mgv8o"), "Close", "Open", SubResource("AnimationNodeStateMachineTransition_xu5ug")]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2659, 0, 0.868339)
+
+[node name="Portcullis_3" parent="." instance=ExtResource("1_3jki6")]
+transform = Transform3D(0.0168459, 0, 0, 0, 0.0168459, -3.74055e-18, 0, 3.74055e-18, 0.0168459, -2.11426, 0, 2.83603)
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Portcullis_3"]
+transform = Transform3D(59.3616, 0, 0, 0, 59.3616, 1.3181e-14, 0, -1.3181e-14, 59.3616, 197.517, -4.84467e-14, -218.184)
+radius = 1.62
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ua8ju")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ua8ju")
+}
+tree_root = SubResource("AnimationNodeStateMachine_dromn")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/Open = false

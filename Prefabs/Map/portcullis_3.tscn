@@ -62,6 +62,8 @@ mesh = SubResource("ArrayMesh_ngddk")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Portcullis_3_standardSurface5_0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Portcullis_3_standardSurface5_0/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_h0heb")

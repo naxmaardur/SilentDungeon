@@ -11,7 +11,7 @@ public partial class WardenAlertBar : Control
 
     private float alertValue;
     private int wardens = 0;
-
+    private float minimumAlert = 0;
 
     public override void _Ready()
     {
@@ -49,6 +49,12 @@ public partial class WardenAlertBar : Control
                 labelAnimation = false;
             }
         }
+        minimumAlert += (float)delta / 15;
+        if(alertValue < minimumAlert)
+        {
+            alertValue = minimumAlert;
+            AlertStatusUpdated(alertValue);
+        }
 	}
 
 
@@ -79,7 +85,7 @@ public partial class WardenAlertBar : Control
 
     public void addAlertValue(float add)
     {
-        alertValue += add / wardens;
+        alertValue += add;
         AlertStatusUpdated(alertValue);
     }
     public void removeAlertValue(float remove)

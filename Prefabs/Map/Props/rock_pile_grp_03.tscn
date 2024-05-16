@@ -208,6 +208,8 @@ mesh = SubResource("ArrayMesh_wuaco")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor_Rock_Pile_03A_Lod0"]
+collision_layer = 64
+collision_mask = 64
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Floor_Rock_Pile_03A_Lod0/StaticBody3D"]
 transform = Transform3D(0.961539, 0, 0, 0, 0.961539, 0, 0, 0, 0.961539, 0.0769231, -0.711538, 1.17308)

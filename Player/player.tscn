@@ -479,6 +479,7 @@ height = 1.24769
 bg_color = Color(0, 0.717647, 0.388235, 1)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("rightHandTree", "rightHand", "CameraHeightAnimation", "shakePivot", "pivot", "standingCollisionShape", "crouchingCollisionShape", "headBox", "healthbar", "stepSource", "landSource", "hurtSource", "crosshair") groups=["player"]]
+collision_mask = 65
 script = ExtResource("1_3jdax")
 rightHandTree = NodePath("Head/RightHand/AnimationTree")
 rightHand = NodePath("Head/RightHand")

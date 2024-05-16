@@ -246,9 +246,13 @@ public partial class ActorControler : CharacterBody3D, IDamagable, ISoundListner
         {
             if(GlobalPosition.DistanceTo(player.GlobalPosition) < 4)
             {
-                if(this.RayCast3D(GlobalPosition,player.GlobalPosition,out var hit))
+                Godot.Collections.Array<Rid> exclude = new()
                 {
-                    if(hit.collider == player )
+                    GetRid()
+                };
+                if (this.RayCast3D(GlobalPosition,player.GlobalPosition,out var hit, exclude))
+                {
+                    if (hit.collider == player )
                     {
                         AlertValue += (float)delta * 2f;
                     }
