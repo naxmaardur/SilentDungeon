@@ -1,18 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://co4tqdiq1a4xg"]
 
-[ext_resource type="ArrayMesh" uid="uid://bykgt43atr1tu" path="res://Prefabs/Map/Mesh/portcullis_3.mesh" id="1_cergg"]
-[ext_resource type="Shape3D" uid="uid://trd11tpmw2co" path="res://Prefabs/Map/Collision/portcullis_3.shape" id="2_qwd67"]
+[ext_resource type="ArrayMesh" uid="uid://ngcr6nf031yp" path="res://Prefabs/Map/Mesh/portcullis_31.mesh" id="1_s7h2a"]
+[ext_resource type="Shape3D" uid="uid://tw7kt1ef32yh" path="res://Prefabs/Map/Collision/portcullis_31.shape" id="2_qr1tb"]
 
 [node name="Portcullis_3" type="Node3D"]
 transform = Transform3D(0.0168459, 0, 0, 0, 0.0168459, -3.74055e-18, 0, 3.74055e-18, 0.0168459, 0, 0, 0)
 
-[node name="Portcullis_3_standardSurface5_0" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_cergg")
+[node name="Portcullis_3_standardSurface5_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.996118, 0, 0, 0, 0.996118, -9.26442e-23, 0, 9.26442e-23, 0.996118, 0, 0, 0)
+mesh = ExtResource("1_s7h2a")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Portcullis_3_standardSurface5_0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Portcullis_3_standardSurface5_1"]
+transform = Transform3D(1.0039, 0, 0, 0, 1.0039, 1.05879e-22, 0, -1.05879e-22, 1.0039, 0, 0, 0)
 collision_layer = 64
 collision_mask = 64
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Portcullis_3_standardSurface5_0/StaticBody3D"]
-shape = ExtResource("2_qwd67")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portcullis_3_standardSurface5_1/StaticBody3D"]
+transform = Transform3D(0.996118, 0, 0, 0, 0.996118, -1.19114e-22, 0, 1.19114e-22, 0.996118, 0, 0, 0)
+shape = ExtResource("2_qr1tb")

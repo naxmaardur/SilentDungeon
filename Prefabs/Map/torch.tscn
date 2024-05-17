@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://de7aey8osl5wr"]
 
-[ext_resource type="ArrayMesh" uid="uid://ccpdpy88vbghn" path="res://Prefabs/Map/Mesh/torch.mesh" id="1_dgu3v"]
+[ext_resource type="ArrayMesh" uid="uid://brbn5g62mtg64" path="res://Prefabs/Map/Mesh/torch1.mesh" id="1_kf27a"]
 [ext_resource type="Texture2D" uid="uid://cy0ead2c72qj6" path="res://Assets/Particles/flame_06.png" id="4_j6fjd"]
 
 [sub_resource type="Gradient" id="Gradient_v4346"]
@@ -38,9 +38,9 @@ material = SubResource("StandardMaterial3D_0r3ur")
 [node name="Torch" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
-[node name="Cube_064_Set4_0" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.873, 0, 0, 0, 1.873, 0, 0, 0, 1.873, 0, 0, 0)
-mesh = ExtResource("1_dgu3v")
+[node name="Cube_064_Set4_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.89555, 0, 0, 0, 1.89555, 0, 0, 0, 1.89555, 0.00202788, 4.95315e-05, 2.16509e-12)
+mesh = ExtResource("1_kf27a")
 skeleton = NodePath("")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

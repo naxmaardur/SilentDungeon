@@ -1,10 +1,9 @@
-[gd_scene load_steps=72 format=3 uid="uid://cbiijw27espqm"]
+[gd_scene load_steps=71 format=3 uid="uid://cbiijw27espqm"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.cs" id="1_3jdax"]
 [ext_resource type="Script" path="res://Hitbox/HitBox.cs" id="2_xhqbb"]
 [ext_resource type="AudioStream" uid="uid://dbd2qj5s5tice" path="res://Assets/Audio/Player/Step2.wav" id="3_bdufx"]
 [ext_resource type="AudioStream" uid="uid://7ercx03r16i" path="res://Assets/Audio/Player/Land.wav" id="3_iacny"]
-[ext_resource type="PackedScene" path="res://Assets/weapons/shield_03.tscn" id="3_vjllw"]
 [ext_resource type="AudioStream" uid="uid://dc3d22k67cbkm" path="res://Assets/Audio/Player/Step3.wav" id="4_8etgt"]
 [ext_resource type="PackedScene" uid="uid://cq75p44ekke5v" path="res://Prefabs/sound_source.tscn" id="4_8uax4"]
 [ext_resource type="AudioStream" uid="uid://tm8mul5sh8ut" path="res://Assets/Audio/Player/TakeDamage.wav" id="4_jujeq"]
@@ -569,10 +568,6 @@ parameters/conditions/HasSword = false
 
 [node name="LeftHand" type="Node3D" parent="Head"]
 transform = Transform3D(0.587799, 0, 0.809007, 0, 1, 0, -0.809007, 0, 0.587799, -0.712563, -0.419241, -0.396827)
-
-[node name="Shield_03" parent="Head/LeftHand" instance=ExtResource("3_vjllw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Head"]
 libraries = {
