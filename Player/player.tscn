@@ -1161,6 +1161,7 @@ texture = ExtResource("25_0mbll")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(1, 0.823529, 0.521569, 1)
+light_energy = 0.5
 
 [editable path="LandSoundSource"]
 [editable path="StepSoundSource"]
